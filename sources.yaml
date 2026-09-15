@@ -1,0 +1,173 @@
+# Oikeustapausseurannan lähteet ja suodatussäännöt.
+# Lisää tai poista lähteitä vapaasti. Koodia ei tarvitse muuttaa.
+
+settings:
+  # Kuinka monta päivää taaksepäin feedissä näytetään.
+  window_days: 120
+  # Montako juttua enintään yhdelle sivulle.
+  max_items: 150
+  # Sivun otsikko ja omistaja.
+  site_title: "Oikeustapausseuranta"
+  site_subtitle: "Tietosuoja, teknologia ja datasääntely"
+  timezone: "Europe/Helsinki"
+
+# Avainsanat ratkaisevat, mikä pääsee feediin.
+# must_any: ainakin yksi näistä pitää osua otsikkoon, tiivistelmään tai
+#           asiasanoihin. Jos lista on tyhjä, kaikki pääsevät läpi.
+# boost:    nostaa jutun "tärkeä" -luokkaan (näkyy sivulla korostettuna).
+# never:    pudottaa jutun pois, vaikka must_any osuisi.
+keywords:
+  must_any:
+    - tietosuoja
+    - henkilötiet
+    - yksityiselämän suoja
+    - GDPR
+    - "2016/679"
+    - rekisterinpitäj
+    - tietosuojavaltuutet
+    - tietoturvaloukkaus
+    - profilointi
+    - automaattinen päätöksenteko
+    - evästeet
+    - sähköisen viestinnän
+    - televiestint
+    - sähköinen viestintä
+    - tekoäly
+    - "2024/1689"
+    - AI Act
+    - data act
+    - datan hallinnointi
+    - digipalvelusäädös
+    - digimarkkinasäädös
+    - DSA
+    - DMA
+    - NIS2
+    - kyberturvallisuus
+    - verkkotunnus
+    - liikesalaisuu
+    - julkisuuslaki
+    - asiakirjajulkisuus
+    - viestintäsalaisuu
+    - valvonta työpaikalla
+    - biometri
+    - personal data
+    - data protection
+    - artificial intelligence
+    - electronic communications
+    - privacy
+  boost:
+    - tietosuojavaltuutet
+    - hallinnollinen seuraamusmaksu
+    - "2016/679"
+    - tekoäly
+    - "2024/1689"
+    - tietoturvaloukkaus
+    - biometri
+  never:
+    - avoin työpaikka
+    - rekrytointi
+    - vuosikertomus
+    - toimintakertomus
+    - puhelinneuvonta
+    - kirjaamo suljettu
+    - organisaatio uudistuu
+    - stakeholder event
+    - save the date
+    - webinaari
+
+sources:
+  # ---------- Suomi: ylimmät oikeudet ----------
+  - id: kko
+    name: "Korkein oikeus"
+    type: wp_rss
+    court: "KKO"
+    weight: 3
+    url: "https://korkeinoikeus.fi/feed/rss-feed?post_type=ratkaisu"
+
+  - id: kho
+    name: "Korkein hallinto-oikeus"
+    type: wp_rss
+    court: "KHO"
+    weight: 3
+    url: "https://www.kho.fi/feed/rss-feed?post_type=ratkaisut"
+
+  # ---------- Suomi: erityistuomioistuimet ----------
+  - id: mao
+    name: "Markkinaoikeus"
+    type: wp_rss
+    court: "MAO"
+    weight: 2
+    url: "https://www.markkinaoikeus.fi/feed/rss-feed?post_type=ratkaisu"
+
+  - id: tt
+    name: "Työtuomioistuin"
+    type: wp_rss
+    court: "TT"
+    weight: 1
+    url: "https://www.tyotuomioistuin.fi/feed/rss-feed?post_type=ratkaisu"
+
+  - id: vako
+    name: "Vakuutusoikeus"
+    type: wp_rss
+    court: "VakO"
+    weight: 1
+    url: "https://www.vakuutusoikeus.fi/feed/rss-feed?post_type=ratkaisu"
+
+  # ---------- Suomi: hovioikeudet ----------
+  # Hovioikeudet julkaisevat ratkaisujaan epätasaisesti ja osa domaineista
+  # elää. Skripti ohittaa lähteen hiljaisesti, jos syöte ei vastaa.
+  - id: ho-helsinki
+    name: "Helsingin hovioikeus"
+    type: wp_rss
+    court: "HelHO"
+    weight: 1
+    optional: true
+    url: "https://oikeus.fi/hovioikeudet/helsinginhovioikeus/feed/rss-feed?post_type=ratkaisu"
+
+  - id: ho-turku
+    name: "Turun hovioikeus"
+    type: wp_rss
+    court: "THO"
+    weight: 1
+    optional: true
+    url: "https://oikeus.fi/hovioikeudet/turunhovioikeus/feed/rss-feed?post_type=ratkaisu"
+
+  # ---------- EU: unionin tuomioistuin ja unionin yleinen tuomioistuin ----------
+  - id: eu-courts
+    name: "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)"
+    type: eu_sparql
+    court: "EUT"
+    weight: 3
+    # CJ = tuomio (EUT), TJ = tuomio (yleinen tuomioistuin),
+    # CC = julkisasiamiehen ratkaisuehdotus.
+    celex_types: ["CJ", "TJ", "CC"]
+    language: "fin"
+    lookback_days: 150
+
+  - id: curia-press
+    name: "Unionin tuomioistuimen lehdistötiedotteet"
+    type: plain_rss
+    court: "EUT"
+    weight: 1
+    optional: true
+    url: "https://curia.europa.eu/site/rss.jsp?lang=en&secondLang=fr"
+
+  # ---------- Viranomaisratkaisut ----------
+  - id: edpb
+    name: "Euroopan tietosuojaneuvosto (EDPB)"
+    type: plain_rss
+    court: "EDPB"
+    weight: 2
+    url: "https://www.edpb.europa.eu/rss.xml"
+
+  # Tietosuojavaltuutetun omat ratkaisut julkaistaan Finlexissä, jonka
+  # hakurajapinta (api.finlex.fi) vaatii avaimen. Siihen asti seurataan
+  # toimiston ajankohtaissivua, jolla ratkaisut ja seuraamusmaksut uutisoidaan.
+  - id: tsv
+    name: "Tietosuojavaltuutetun toimisto"
+    type: html_list
+    court: "TSV"
+    weight: 3
+    url: "https://tietosuoja.fi/fi/ajankohtaista"
+    link_pattern: "/-/"
+    optional: true

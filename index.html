@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oikeustapausseuranta</title>
+<link rel="alternate" type="application/rss+xml" title="Oikeustapausseuranta" href="feed.xml">
+<style>
+  :root {
+    --bg: #fbfaf8; --card: #ffffff; --ink: #1c1b19; --muted: #6b6862;
+    --line: #e5e1da; --accent: #8a3324; --hot: #fdf3e7; --hotline: #e8c9a0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161513; --card:#1e1d1a; --ink:#ecebe7; --muted:#9a968e;
+            --line:#2e2c28; --accent:#e0a080; --hot:#2a2118; --hotline:#5c4630; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; }
+  header h1 { font-size: 1.6rem; margin: 0 0 4px; letter-spacing: -0.01em; }
+  header p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+  .meta { margin-top: 14px; color: var(--muted); font-size: 0.82rem; }
+  .controls { display:flex; gap:8px; flex-wrap:wrap; margin: 22px 0 6px; }
+  input[type=search] { flex:1 1 240px; min-width:200px; padding:9px 12px;
+    border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); font-size:0.92rem; }
+  .chip { padding:7px 12px; border:1px solid var(--line); border-radius:999px;
+    background:var(--card); color:var(--muted); font-size:0.82rem; cursor:pointer; }
+  .chip[aria-pressed=true] { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .daygroup { margin-top: 28px; }
+  .daygroup > h2 { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.07em;
+    color:var(--muted); font-weight:600; margin:0 0 10px; }
+  article { background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:14px 16px; margin-bottom:10px; }
+  article.hot { background:var(--hot); border-color:var(--hotline); }
+  article a.t { color:var(--ink); text-decoration:none; font-weight:600; font-size:1rem; }
+  article a.t:hover { color:var(--accent); text-decoration:underline; }
+  .court { display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.04em;
+    color:var(--accent); margin-bottom:4px; }
+  .kw { margin:6px 0 0; color:var(--muted); font-size:0.87rem; }
+  .tags { margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; }
+  .tag { font-size:0.7rem; color:var(--muted); border:1px solid var(--line);
+    padding:2px 7px; border-radius:999px; }
+  .tag.new { color:var(--accent); border-color:var(--accent); font-weight:600; }
+  footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:0.8rem; }
+  footer a { color:var(--muted); }
+  .empty { color:var(--muted); padding:40px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Oikeustapausseuranta</h1>
+  <p>Tietosuoja, teknologia ja datasääntely</p>
+  <div class="meta">
+    Päivitetty 15.9.2026 klo 10:33 · 18 ratkaisua · 18 uutta
+    · <a href="feed.xml">RSS</a> · <a href="data.json">JSON</a>
+  </div>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Suodata otsikoista ja asiasanoista">
+  <button class="chip" data-court="EDPB" aria-pressed="false">EDPB</button><button class="chip" data-court="EUT" aria-pressed="false">EUT</button><button class="chip" data-court="KHO" aria-pressed="false">KHO</button><button class="chip" data-court="KKO" aria-pressed="false">KKO</button><button class="chip" data-court="MAO" aria-pressed="false">MAO</button><button class="chip" data-court="TSV" aria-pressed="false">TSV</button>
+</div>
+
+<main id="list">
+
+  <section class="daygroup">
+    <h2>10. syyskuuta 2026</h2>
+    
+    <article class=""
+             data-court="EUT"
+             data-text="c-669/24 bundesverband der verbraucherzentralen und verbraucherverbände - verbraucherzentrale bundesverband e.v. vastaa (tuomio) ennakkoratkaisupyyntö – jäsenvaltioiden lainsäädännön lähentäminen – televiestintäala – direktiivi (eu) 2018/1972 – eurooppalainen sähköisen viestinnän säännöstö – sopimus sähköisestä viestintäpalvelusta – palveluntarjoajan oikeus muuttaa sopimusta yksipuolisesti – 105 artiklan 4 kohdan ensimmäinen alakohta – loppukäyttäjien irtisanomisoikeus ecli:eu:c:2026:736">
+      <span class="court">EUT</span>
+      <div><a class="t" href="https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62024CJ0669" target="_blank" rel="noopener">C-669/24 Bundesverband der Verbraucherzentralen und Verbraucherverbände - Verbraucherzentrale Bundesverband e.V. vastaa (tuomio)</a></div>
+      <p class="kw">Ennakkoratkaisupyyntö – Jäsenvaltioiden lainsäädännön lähentäminen – Televiestintäala – Direktiivi (EU) 2018/1972 – Eurooppalainen sähköisen viestinnän säännöstö – Sopimus sähköisestä viestintäpalvelusta – Palveluntarjoajan oikeus muuttaa sopimusta yksipuolisesti – 105 artiklan 4 kohdan ensimmäinen alakohta – Loppukäyttäjien irtisanomisoikeus</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">sähköisen viestinnän</span><span class="tag">televiestint</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>4. syyskuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="TSV"
+             data-text="tietosuojavaltuutettu selvittää kotkamiehen sosiaalisen median videoiden laillisuutta  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/tietosuojavaltuutettu-selvittaa-kotkamiehen-sosiaalisen-median-videoiden-laillisuutta" target="_blank" rel="noopener">Tietosuojavaltuutettu selvittää Kotkamiehen sosiaalisen median videoiden laillisuutta</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietosuojavaltuutet</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>3. syyskuuta 2026</h2>
+    
+    <article class=""
+             data-court="EDPB"
+             data-text="data protection commission announces final decision following inquiry into the health service executive (hse)  ikerinar thu, 03/09/2026 - 09:42">
+      <span class="court">EDPB</span>
+      <div><a class="t" href="https://www.edpb.europa.eu/news/data-protection-commission-announces-final-decision-following-inquiry-into-the-health-service_en" target="_blank" rel="noopener">Data Protection Commission announces Final Decision following Inquiry into the Health Service Executive (HSE)</a></div>
+      
+      <p class="kw">ikerinar Thu, 03/09/2026 - 09:42</p>
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">data protection</span>
+      </div>
+    </article>
+    
+    <article class=""
+             data-court="EUT"
+             data-text="117/2026 : 3 september 2026 - opinion of the advocate general at the court maciej szpunar in case c-661/24  académie fiscale and others approximation of laws retention of electronic communications data: advocate general szpunar clarifies the criteria for assessing the compatibility of national legislation with eu law">
+      <span class="court">EUT</span>
+      <div><a class="t" href="https://curia.europa.eu/site/jcms/p1_1000086555" target="_blank" rel="noopener">117/2026 : 3 September 2026 - Opinion of the Advocate General at the Court Maciej Szpunar in Case C-661/24</a></div>
+      
+      <p class="kw">Académie Fiscale and Others Approximation of laws Retention of electronic communications data: Advocate General Szpunar clarifies the criteria for assessing the compatibility of national legislation with EU law</p>
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">electronic communications</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>27. elokuuta 2026</h2>
+    
+    <article class=""
+             data-court="KHO"
+             data-text="kho:2026:65 tietosuoja – sähköisen viestinnän palvelu – evästeet – käyttäjän suostumus – suostumuksen pyytäminen – kaksitasoinen suostumushallintamekanismi – suostumuksen vapaaehtoisuus ">
+      <span class="court">KHO</span>
+      <div><a class="t" href="https://www.kho.fi/paatokset/kho202665/" target="_blank" rel="noopener">KHO:2026:65</a></div>
+      <p class="kw">Tietosuoja – Sähköisen viestinnän palvelu – Evästeet – Käyttäjän suostumus – Suostumuksen pyytäminen – Kaksitasoinen suostumushallintamekanismi – Suostumuksen vapaaehtoisuus</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span><span class="tag">evästeet</span><span class="tag">sähköisen viestinnän</span>
+      </div>
+    </article>
+    
+    <article class=""
+             data-court="KHO"
+             data-text="kho:2026:64 tietosuoja – sähköisen viestinnän palvelu – evästeet – käyttäjän suostumus – uutissisällön personointi – verkkokutsut – sananvapaus – medianvapaus ">
+      <span class="court">KHO</span>
+      <div><a class="t" href="https://www.kho.fi/paatokset/kho202664/" target="_blank" rel="noopener">KHO:2026:64</a></div>
+      <p class="kw">Tietosuoja – Sähköisen viestinnän palvelu – Evästeet – Käyttäjän suostumus – Uutissisällön personointi – Verkkokutsut – Sananvapaus – Medianvapaus</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span><span class="tag">evästeet</span><span class="tag">sähköisen viestinnän</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>26. elokuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="TSV"
+             data-text="tietosuojavaltuutettu muistuttaa: älylasien käytössä on huomioitava tietosuojasäännöt  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/tietosuojavaltuutettu-muistuttaa-alylasien-kaytossa-on-huomioitava-tietosuojasaannot" target="_blank" rel="noopener">Tietosuojavaltuutettu muistuttaa: älylasien käytössä on huomioitava tietosuojasäännöt</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietosuojavaltuutet</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>20. elokuuta 2026</h2>
+    
+    <article class=""
+             data-court="MAO"
+             data-text="mao:387/2026 liikesalaisuus – väliaikainen kielto ">
+      <span class="court">MAO</span>
+      <div><a class="t" href="https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao387-2026/" target="_blank" rel="noopener">MAO:387/2026</a></div>
+      <p class="kw">liikesalaisuus – väliaikainen kielto</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">liikesalaisuu</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>17. elokuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="TSV"
+             data-text="apulaistietosuojavaltuutettu: tietoa urheilijan lievästä dopingrikkomuksesta ei olisi pitänyt julkaista, kun toimintakielto oli jo päättynyt  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/apulaistietosuojavaltuutettu-tietoa-urheilijan-lievasta-dopingrikkomuksesta-ei-olisi-pitanyt-julkaista-kun-toimintakielto-oli-jo-paattynyt" target="_blank" rel="noopener">Apulaistietosuojavaltuutettu: Tietoa urheilijan lievästä dopingrikkomuksesta ei olisi pitänyt julkaista, kun toimintakielto oli jo päättynyt</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietosuojavaltuutet</span>
+      </div>
+    </article>
+    
+    <article class=""
+             data-court="TSV"
+             data-text="norjan tietosuojaviranomaiselta huomautus elixia-liikuntakeskuksille – asiakkaille ei kerrottu riittävän selkeästi oikeudesta vastustaa valokuvien keräämistä  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/norjan-tietosuojaviranomaiselta-huomautus-elixia-liikuntakeskuksille-asiakkaille-ei-kerrottu-riittavan-selkeasti-oikeudesta-vastustaa-valokuvien-keraamista" target="_blank" rel="noopener">Norjan tietosuojaviranomaiselta huomautus ELIXIA-liikuntakeskuksille – asiakkaille ei kerrottu riittävän selkeästi oikeudesta vastustaa valokuvien keräämistä</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>20. heinäkuuta 2026</h2>
+    
+    <article class=""
+             data-court="TSV"
+             data-text="euroopan tietosuojaneuvosto keskusteli eri alojen viranomaisten välisestä tiedonjaosta ja valvonnan tehostamisesta  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/euroopan-tietosuojaneuvosto-keskusteli-eri-alojen-viranomaisten-valisesta-tiedonjaosta-ja-valvonnan-tehostamisesta" target="_blank" rel="noopener">Euroopan tietosuojaneuvosto keskusteli eri alojen viranomaisten välisestä tiedonjaosta ja valvonnan tehostamisesta</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>9. heinäkuuta 2026</h2>
+    
+    <article class=""
+             data-court="TSV"
+             data-text="euroopan tietosuojaneuvosto julkaisi ohjeet anonymisoinnista ja tiedonharavoinnista  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/euroopan-tietosuojaneuvosto-julkaisi-ohjeet-anonymisoinnista-ja-tiedonharavoinnista" target="_blank" rel="noopener">Euroopan tietosuojaneuvosto julkaisi ohjeet anonymisoinnista ja tiedonharavoinnista</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>30. kesäkuuta 2026</h2>
+    
+    <article class=""
+             data-court="KKO"
+             data-text="kko:2026:50 oikeudenkäynnin julkisuus  – tietopyyntö, tietosuoja ">
+      <span class="court">KKO</span>
+      <div><a class="t" href="https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202650/" target="_blank" rel="noopener">KKO:2026:50</a></div>
+      <p class="kw">Oikeudenkäynnin julkisuus  – Tietopyyntö, Tietosuoja</p>
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>12. kesäkuuta 2026</h2>
+    
+    <article class=""
+             data-court="TSV"
+             data-text="korkein hallinto-oikeus piti voimassa verkkokauppa.comille määrätyn seuraamusmaksun tietosuojarikkomuksista  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/korkein-hallinto-oikeus-piti-voimassa-verkkokauppa.comille-maaratyn-seuraamusmaksun-tietosuojarikkomuksista" target="_blank" rel="noopener">Korkein hallinto-oikeus piti voimassa Verkkokauppa.comille määrätyn seuraamusmaksun tietosuojarikkomuksista</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>11. kesäkuuta 2026</h2>
+    
+    <article class="hot"
+             data-court="TSV"
+             data-text="euroopan tietosuojaneuvoston mallipohja tietoturvaloukkausilmoituksille avoinna kommenteille  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/euroopan-tietosuojaneuvoston-mallipohja-tietoturvaloukkausilmoituksille-avoinna-kommenteille" target="_blank" rel="noopener">Euroopan tietosuojaneuvoston mallipohja tietoturvaloukkausilmoituksille avoinna kommenteille</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietoturvaloukkaus</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>4. kesäkuuta 2026</h2>
+    
+    <article class=""
+             data-court="TSV"
+             data-text="norjan tietosuojaviranomainen: gigantin emoyhtiölle 1,85 miljoonan euron seuraamusmaksu tietosuojarikkomuksista klubijäsenten henkilötietojen käsittelyssä  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/norjan-tietosuojaviranomainen-gigantin-emoyhtiolle-1-85-miljoonan-euron-seuraamusmaksu-tietosuojarikkomuksista-klubijasenten-henkilotietojen-kasittelyssa" target="_blank" rel="noopener">Norjan tietosuojaviranomainen: Gigantin emoyhtiölle 1,85 miljoonan euron seuraamusmaksu tietosuojarikkomuksista klubijäsenten henkilötietojen käsittelyssä</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span><span class="tag">henkilötiet</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>28. toukokuuta 2026</h2>
+    
+    <article class=""
+             data-court="TSV"
+             data-text="pohjoismaiden tietosuojaviranomaiset keskustelivat digisääntelyn riskilähtöisen täytäntöönpanon merkityksestä  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/pohjoismaiden-tietosuojaviranomaiset-keskustelivat-digisaantelyn-riskilahtoisen-taytantoonpanon-merkityksesta" target="_blank" rel="noopener">Pohjoismaiden tietosuojaviranomaiset keskustelivat digisääntelyn riskilähtöisen täytäntöönpanon merkityksestä</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">tietosuoja</span>
+      </div>
+    </article>
+    
+  </section>
+
+  <section class="daygroup">
+    <h2>21. toukokuuta 2026</h2>
+    
+    <article class=""
+             data-court="TSV"
+             data-text="henkilötietojen käsittelyn läpinäkyvyyttä selvittävä kysely lähetetty eduskuntapuolueille  ">
+      <span class="court">TSV</span>
+      <div><a class="t" href="https://tietosuoja.fi/-/henkilotietojen-kasittelyn-lapinakyvyytta-selvittava-kysely-lahetetty-eduskuntapuolueille" target="_blank" rel="noopener">Henkilötietojen käsittelyn läpinäkyvyyttä selvittävä kysely lähetetty eduskuntapuolueille</a></div>
+      
+      
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">henkilötiet</span>
+      </div>
+    </article>
+    
+  </section>
+
+
+</main>
+
+<footer>
+  Lähteet: Korkein oikeus, Korkein hallinto-oikeus, Markkinaoikeus, Työtuomioistuin, Vakuutusoikeus, Helsingin hovioikeus, Turun hovioikeus, Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin), Unionin tuomioistuimen lehdistötiedotteet, Euroopan tietosuojaneuvosto (EDPB), Tietosuojavaltuutetun toimisto.
+  Seuranta on henkilökohtainen apuväline. Tarkista aina ratkaisu alkuperäisestä lähteestä
+  ennen kuin nojaat siihen.
+</footer>
+</div>
+
+<script>
+const q = document.getElementById('q');
+const chips = [...document.querySelectorAll('.chip')];
+function apply() {
+  const term = q.value.trim().toLowerCase();
+  const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true')
+                      .map(c => c.dataset.court);
+  document.querySelectorAll('article').forEach(a => {
+    const okCourt = !active.length || active.includes(a.dataset.court);
+    const okTerm = !term || a.dataset.text.includes(term);
+    a.style.display = (okCourt && okTerm) ? '' : 'none';
+  });
+  document.querySelectorAll('.daygroup').forEach(s => {
+    const any = [...s.querySelectorAll('article')].some(a => a.style.display !== 'none');
+    s.style.display = any ? '' : 'none';
+  });
+}
+q.addEventListener('input', apply);
+chips.forEach(c => c.addEventListener('click', () => {
+  c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+  apply();
+}));
+</script>
+</body>
+</html>

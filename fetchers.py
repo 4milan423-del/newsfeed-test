@@ -1,0 +1,340 @@
+"""Lähdekohtaiset hakijat.
+
+Jokainen hakija saa lähteen konfiguraation ja palauttaa listan Item-olioita.
+Uuden lähdetyypin lisääminen: kirjoita funktio ja rekisteröi se FETCHERS-sanakirjaan.
+"""
+
+from __future__ import annotations
+
+import datetime as dt
+import logging
+import re
+import urllib.parse
+from dataclasses import dataclass, field
+
+import feedparser
+import requests
+from bs4 import BeautifulSoup
+
+log = logging.getLogger(__name__)
+
+USER_AGENT = "oikeusfeed/1.0 (henkilokohtainen oikeustapausseuranta)"
+TIMEOUT = 45
+
+SPARQL_ENDPOINT = "https://publications.europa.eu/webapi/rdf/sparql"
+
+
+@dataclass
+class Item:
+    """Yksi ratkaisu feedissä."""
+
+    source_id: str
+    source_name: str
+    court: str
+    title: str
+    url: str
+    date: dt.date
+    keywords: str = ""          # asiasanat, esim. "Tietosuoja – Rekisterinpitäjä"
+    summary: str = ""           # vapaa tiivistelmä tai asianosaiset
+    weight: int = 1             # lähteen painoarvo järjestyksessä
+    score: int = 0              # täytetään suodatuksessa
+    tags: list[str] = field(default_factory=list)
+
+    @property
+    def key(self) -> str:
+        """Vakaa tunniste päällekkäisyyksien karsimiseen."""
+        return self.url.split("?")[0].rstrip("/")
+
+    def haystack(self) -> str:
+        return " ".join([self.title, self.keywords, self.summary]).lower()
+
+
+def _session() -> requests.Session:
+    s = requests.Session()
+    s.headers.update({"User-Agent": USER_AGENT})
+    return s
+
+
+def _parse_date(entry) -> dt.date:
+    for attr in ("published_parsed", "updated_parsed"):
+        parsed = getattr(entry, attr, None)
+        if parsed:
+            return dt.date(parsed.tm_year, parsed.tm_mon, parsed.tm_mday)
+    return dt.date.today()
+
+
+def _is_swedish_duplicate(title: str, url: str) -> bool:
+    """Tuomioistuinten syötteissä sama ratkaisu tulee kahdesti, fi ja sv."""
+    if "/sv/" in url or "/en/" in url:
+        return True
+    return bool(re.match(r"^(HD|HFD|MD|AD):", title.strip()))
+
+
+# --------------------------------------------------------------------------
+# Tuomioistuinlaitoksen WordPress-syötteet (KKO, KHO, MAO, TT, VakO, hovit)
+# --------------------------------------------------------------------------
+def fetch_wp_rss(source: dict) -> list[Item]:
+    resp = _session().get(source["url"], timeout=TIMEOUT)
+    resp.raise_for_status()
+    parsed = feedparser.parse(resp.content)
+
+    items: list[Item] = []
+    for entry in parsed.entries:
+        title = (entry.get("title") or "").strip()
+        url = (entry.get("link") or "").strip()
+        if not title or not url:
+            continue
+        if _is_swedish_duplicate(title, url):
+            continue
+
+        # Asiasanat tulevat <category>-elementeistä. Ne ovat suodatuksen
+        # tärkein signaali, koska otsikko on pelkkä "KKO:2026:62".
+        cats = [c.get("term", "") for c in entry.get("tags", []) or []]
+        keywords = ", ".join(c for c in cats if c)
+
+        items.append(
+            Item(
+                source_id=source["id"],
+                source_name=source["name"],
+                court=source.get("court", source["name"]),
+                title=title,
+                url=url,
+                date=_parse_date(entry),
+                keywords=keywords,
+                weight=source.get("weight", 1),
+            )
+        )
+    return items
+
+
+# --------------------------------------------------------------------------
+# Tavallinen RSS tai Atom (EDPB, CURIA, mikä tahansa muu syöte)
+# --------------------------------------------------------------------------
+def fetch_plain_rss(source: dict) -> list[Item]:
+    resp = _session().get(source["url"], timeout=TIMEOUT)
+    resp.raise_for_status()
+    parsed = feedparser.parse(resp.content)
+
+    items: list[Item] = []
+    for entry in parsed.entries:
+        title = (entry.get("title") or "").strip()
+        url = (entry.get("link") or "").strip()
+        if not title or not url:
+            continue
+
+        raw = entry.get("summary") or entry.get("description") or ""
+        summary = BeautifulSoup(raw, "html.parser").get_text(" ", strip=True)
+        # EDPB toistaa otsikon kuvauksessa. Karsitaan toisto pois.
+        summary = summary.replace(title, "").strip()
+
+        items.append(
+            Item(
+                source_id=source["id"],
+                source_name=source["name"],
+                court=source.get("court", source["name"]),
+                title=title,
+                url=url,
+                date=_parse_date(entry),
+                summary=summary[:400],
+                weight=source.get("weight", 1),
+            )
+        )
+    return items
+
+
+# --------------------------------------------------------------------------
+# Unionin tuomioistuin Cellarin SPARQL-rajapinnasta
+# --------------------------------------------------------------------------
+SPARQL_TEMPLATE = """
+PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
+PREFIX lang: <http://publications.europa.eu/resource/authority/language/>
+SELECT DISTINCT ?celex ?date ?ecli ?lg ?parties ?subject WHERE {{
+  ?work cdm:resource_legal_id_celex ?celex ;
+        cdm:work_date_document ?date .
+  FILTER({celex_filter})
+  FILTER(?date >= "{since}"^^<http://www.w3.org/2001/XMLSchema#date>)
+  OPTIONAL {{ ?work cdm:case-law_ecli ?ecli }}
+  OPTIONAL {{
+    # Suomenkielinen toisinto ei ole heti saatavilla kaikista ratkaisuista,
+    # joten englanti otetaan varalle ja suomi voittaa jos molemmat löytyvät.
+    VALUES ?lg {{ lang:{lang} lang:ENG }}
+    ?expr cdm:expression_belongs_to_work ?work ;
+          cdm:expression_uses_language ?lg .
+    OPTIONAL {{ ?expr cdm:expression_case-law_parties ?parties }}
+    OPTIONAL {{ ?expr cdm:expression_case-law_indicator_decision ?subject }}
+  }}
+}}
+ORDER BY DESC(?date)
+LIMIT 800
+"""
+
+
+def fetch_eu_sparql(source: dict) -> list[Item]:
+    lookback = int(source.get("lookback_days", 120))
+    since = (dt.date.today() - dt.timedelta(days=lookback)).isoformat()
+    lang = source.get("language", "fin").upper()
+    years = {dt.date.today().year, dt.date.today().year - 1, dt.date.today().year - 2}
+    types = source.get("celex_types", ["CJ", "TJ"])
+
+    prefixes = [f"6{y}{t}" for y in sorted(years) for t in types]
+    celex_filter = " || ".join(
+        f'STRSTARTS(STR(?celex), "{p}")' for p in prefixes
+    )
+
+    query = SPARQL_TEMPLATE.format(
+        celex_filter=celex_filter, since=since, lang=lang
+    )
+    resp = _session().get(
+        SPARQL_ENDPOINT,
+        params={"query": query, "format": "application/sparql-results+json"},
+        timeout=180,
+    )
+    resp.raise_for_status()
+    bindings = resp.json()["results"]["bindings"]
+
+    # Sama celex tulee useana rivinä, yksi per kieli ja per asiasanajoukko.
+    # Valitaan suomenkielinen rivi ja niistä pisin asiasanajono.
+    best: dict[str, dict] = {}
+    for b in bindings:
+        celex = b["celex"]["value"]
+        is_fin = b.get("lg", {}).get("value", "").endswith(f"/{lang}")
+        row = {
+            "date": b["date"]["value"],
+            "ecli": b.get("ecli", {}).get("value", ""),
+            "parties": b.get("parties", {}).get("value", ""),
+            "subject": b.get("subject", {}).get("value", ""),
+            "fin": is_fin,
+        }
+        prev = best.get(celex)
+        if prev is None:
+            best[celex] = row
+            continue
+        better_lang = row["fin"] and not prev["fin"]
+        same_lang_longer = row["fin"] == prev["fin"] and len(row["subject"]) > len(prev["subject"])
+        if better_lang or same_lang_longer:
+            best[celex] = row
+
+    items: list[Item] = []
+    for celex, row in best.items():
+        case_no = _celex_to_case_number(celex)
+        kind = {"CJ": "tuomio", "TJ": "tuomio (unionin yleinen tuomioistuin)",
+                "CC": "julkisasiamiehen ratkaisuehdotus",
+                "CO": "määräys"}.get(celex[5:7], "ratkaisu")
+        title = f"{case_no}, {kind}"
+        if row["parties"]:
+            title = f"{case_no} {row['parties'][:110]} ({kind})"
+
+        items.append(
+            Item(
+                source_id=source["id"],
+                source_name=source["name"],
+                court=source.get("court", "EUT"),
+                title=title,
+                url=f"https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:{celex}",
+                date=dt.date.fromisoformat(row["date"]),
+                keywords=row["subject"][:600],
+                summary=row["ecli"],
+                weight=source.get("weight", 1),
+            )
+        )
+    return items
+
+
+def _celex_to_case_number(celex: str) -> str:
+    """62024CJ0669 -> C-669/24. Yleisen tuomioistuimen asiat saavat T-tunnuksen."""
+    m = re.match(r"^6(\d{4})(CJ|TJ|CC|CO)(\d{4})", celex)
+    if not m:
+        return celex
+    year, ctype, number = m.groups()
+    letter = "T" if ctype == "TJ" else "C"
+    return f"{letter}-{int(number)}/{year[2:]}"
+
+
+# --------------------------------------------------------------------------
+# Yleinen HTML-listaus (esim. tietosuojavaltuutetun ratkaisut)
+# --------------------------------------------------------------------------
+def fetch_html_list(source: dict) -> list[Item]:
+    resp = _session().get(source["url"], timeout=TIMEOUT)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, "html.parser")
+    pattern = re.compile(source.get("link_pattern", ".")) if source.get("link_pattern") else None
+
+    seen: set[str] = set()
+    items: list[Item] = []
+    for a in soup.find_all("a", href=True):
+        href = urllib.parse.urljoin(source["url"], a["href"])
+        text = a.get_text(" ", strip=True)
+        if len(text) < 20 or href in seen:
+            continue
+        if pattern and not pattern.search(href):
+            continue
+        seen.add(href)
+
+        # Etsitään päivämäärä linkin läheltä. Jos ei löydy, käytetään tätä päivää
+        # ja merkitään se epävarmaksi tagilla.
+        date, exact = _guess_date(a), True
+        if date is None:
+            date, exact = dt.date.today(), False
+
+        items.append(
+            Item(
+                source_id=source["id"],
+                source_name=source["name"],
+                court=source.get("court", source["name"]),
+                title=text[:200],
+                url=href,
+                date=date,
+                weight=source.get("weight", 1),
+                tags=[] if exact else ["pvm arvioitu"],
+            )
+        )
+    return items
+
+
+DATE_RE = re.compile(r"(\d{1,2})\.(\d{1,2})\.(\d{4})")
+
+
+def _guess_date(anchor) -> dt.date | None:
+    node = anchor
+    for _ in range(4):
+        if node is None:
+            break
+        time_el = node.find("time") if hasattr(node, "find") else None
+        if time_el and time_el.get("datetime"):
+            try:
+                return dt.date.fromisoformat(time_el["datetime"][:10])
+            except ValueError:
+                pass
+        m = DATE_RE.search(node.get_text(" ", strip=True)) if hasattr(node, "get_text") else None
+        if m:
+            d, mo, y = (int(x) for x in m.groups())
+            try:
+                return dt.date(y, mo, d)
+            except ValueError:
+                pass
+        node = node.parent
+    return None
+
+
+FETCHERS = {
+    "wp_rss": fetch_wp_rss,
+    "plain_rss": fetch_plain_rss,
+    "eu_sparql": fetch_eu_sparql,
+    "html_list": fetch_html_list,
+}
+
+
+def fetch_source(source: dict) -> list[Item]:
+    """Hakee yhden lähteen. Virhe ei kaada koko ajoa."""
+    fetcher = FETCHERS.get(source["type"])
+    if fetcher is None:
+        log.warning("Tuntematon lähdetyyppi %r lähteessä %s", source["type"], source["id"])
+        return []
+    try:
+        items = fetcher(source)
+        log.info("%-12s %3d juttua", source["id"], len(items))
+        return items
+    except Exception as exc:  # noqa: BLE001
+        level = logging.WARNING if source.get("optional") else logging.ERROR
+        log.log(level, "%-12s epäonnistui: %s", source["id"], exc)
+        return []
