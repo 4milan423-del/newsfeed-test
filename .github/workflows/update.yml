@@ -1,0 +1,41 @@
+name: Päivitä oikeustapausseuranta
+
+on:
+  schedule:
+    # 05:10 UTC arkisin. Suomen aikaa 07:10 talvella ja 08:10 kesällä.
+    # GitHubin cron ei tunne aikavyöhykkeitä, joten kellonaika liikkuu tunnin.
+    - cron: "10 5 * * 1-5"
+  # Nappi Actions-välilehdellä, jolla ajon voi käynnistää käsin.
+  workflow_dispatch:
+
+# Työnkulku kirjoittaa docs-kansion ja state.json-tiedoston takaisin repoon.
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Asenna riippuvuudet
+        run: pip install -r requirements.txt
+
+      - name: Aja haku
+        # base-url menee RSS-syötteen <link>-kenttään.
+        # Muoto on https://KAYTTAJATUNNUS.github.io/REPON-NIMI/
+        run: python main.py --base-url "https://4milan423-del.github.io/newsfeed-test/"
+
+      - name: Commitoi tulos
+        run: |
+          git config user.name "oikeusfeed-bot"
+          git config user.email "actions@github.com"
+          git add docs state.json
+          # Jos mikään ei muuttunut, commit epäonnistuisi ja kaataisi ajon.
+          git diff --staged --quiet || git commit -m "Päivitä feed $(date -u +%Y-%m-%d)"
+          git push
