@@ -40,7 +40,12 @@ def filter_items(items: list[Item], keywords: dict, window_days: int) -> list[It
 
         hits = matched_terms(hay, must_any) if must_any else ["*"]
         if not hits:
-            continue
+            # Osa lähteistä käsittelee vain tietosuojaa (tietosuojavaltuutettu,
+            # EDPB). Niiden jutut otetaan mukaan, vaikka otsikko ei osuisi
+            # yhteenkään avainsanaan. never-lista pätee silti.
+            if not item.always:
+                continue
+            hits = ["*"]
 
         boosts = matched_terms(hay, boost)
         item.score = item.weight * 10 + len(hits) * 3 + len(boosts) * 12

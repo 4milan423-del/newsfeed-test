@@ -76,7 +76,7 @@ def main() -> int:
             return 1
 
     log.info("Haetaan %d lähdettä", len(sources))
-    with ThreadPoolExecutor(max_workers=6) as pool:
+    with ThreadPoolExecutor(max_workers=10) as pool:
         results = list(pool.map(fetch_source, sources))
 
     raw: list[Item] = [item for batch in results for item in batch]

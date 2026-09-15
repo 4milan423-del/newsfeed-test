@@ -1,11 +1,14 @@
 # Oikeustapausseurannan lähteet ja suodatussäännöt.
 # Lisää tai poista lähteitä vapaasti. Koodia ei tarvitse muuttaa.
+#
+# Lähteet on ryhmitelty samoihin lukuihin kuin kuukausittainen
+# tietosuojauutiskirje, jotta kattavuutta on helppo verrata.
 
 settings:
   # Kuinka monta päivää taaksepäin feedissä näytetään.
   window_days: 120
   # Montako juttua enintään yhdelle sivulle.
-  max_items: 150
+  max_items: 200
   # Sivun otsikko ja omistaja.
   site_title: "Oikeustapausseuranta"
   site_subtitle: "Tietosuoja, teknologia ja datasääntely"
@@ -18,50 +21,80 @@ settings:
 # never:    pudottaa jutun pois, vaikka must_any osuisi.
 keywords:
   must_any:
+    # --- tietosuoja ---
     - tietosuoja
     - henkilötiet
     - yksityiselämän suoja
     - GDPR
     - "2016/679"
     - rekisterinpitäj
+    - henkilötietojen käsittelij
     - tietosuojavaltuutet
     - tietoturvaloukkaus
     - profilointi
     - automaattinen päätöksenteko
+    - vaikutustenarviointi
+    - seuraamusmaksu
+    - biometri
     - evästeet
+    - verkkojäljit
+    # --- sähköinen viestintä ---
     - sähköisen viestinnän
-    - televiestint
     - sähköinen viestintä
+    - televiestint
+    - viestintäsalaisuu
+    - verkkotunnus
+    - teletoiminta
+    # --- tekoäly ja datasääntely ---
     - tekoäly
     - "2024/1689"
     - AI Act
+    - tekoälyasetus
     - data act
+    - datasäädös
     - datan hallinnointi
     - digipalvelusäädös
     - digimarkkinasäädös
     - DSA
     - DMA
-    - NIS2
+    - alustasääntely
+    - digitaalinen identiteetti
+    - eIDAS
+    # --- kyberturvallisuus ---
     - kyberturvallisuus
-    - verkkotunnus
+    - kyberhyökkäy
+    - kyberkestävyy
+    - NIS2
+    - NIS 2
+    - verkko- ja tietoturvadirektiivi
+    - haavoittuvuus
+    - tietomurto
+    - tietojenkalastelu
+    - huijausviesti
+    - palvelunestohyökkäys
+    - kiristyshaittaohjelma
+    # --- muut ---
     - liikesalaisuu
     - julkisuuslaki
     - asiakirjajulkisuus
-    - viestintäsalaisuu
     - valvonta työpaikalla
-    - biometri
+    # --- englanti ---
     - personal data
     - data protection
     - artificial intelligence
     - electronic communications
     - privacy
+    - cyber
+    - data governance
   boost:
     - tietosuojavaltuutet
     - hallinnollinen seuraamusmaksu
+    - seuraamusmaksu
     - "2016/679"
     - tekoäly
     - "2024/1689"
     - tietoturvaloukkaus
+    - tietomurto
     - biometri
   never:
     - avoin työpaikka
@@ -74,9 +107,16 @@ keywords:
     - stakeholder event
     - save the date
     - webinaari
+    # Traficomin ja ministeriöiden palveluilmoitukset
+    - käyttökatko
+    - huoltokatko
+    - ei ole käytettävissä
+    - podcast
 
 sources:
-  # ---------- Suomi: ylimmät oikeudet ----------
+  # ===================================================================
+  # Luku 1 ja 2: KKO ja KHO
+  # ===================================================================
   - id: kko
     name: "Korkein oikeus"
     type: wp_rss
@@ -91,7 +131,27 @@ sources:
     weight: 3
     url: "https://www.kho.fi/feed/rss-feed?post_type=ratkaisut"
 
-  # ---------- Suomi: erityistuomioistuimet ----------
+  # ===================================================================
+  # Luku 3 ja 4: hovioikeudet ja erityistuomioistuimet
+  # ===================================================================
+  # Hovioikeudet julkaisevat ratkaisujaan epätasaisesti ja osa domaineista
+  # elää. Skripti ohittaa lähteen hiljaisesti, jos syöte ei vastaa.
+  - id: ho-helsinki
+    name: "Helsingin hovioikeus"
+    type: wp_rss
+    court: "HelHO"
+    weight: 1
+    optional: true
+    url: "https://oikeus.fi/hovioikeudet/helsinginhovioikeus/feed/rss-feed?post_type=ratkaisu"
+
+  - id: ho-turku
+    name: "Turun hovioikeus"
+    type: wp_rss
+    court: "THO"
+    weight: 1
+    optional: true
+    url: "https://oikeus.fi/hovioikeudet/turunhovioikeus/feed/rss-feed?post_type=ratkaisu"
+
   - id: mao
     name: "Markkinaoikeus"
     type: wp_rss
@@ -113,26 +173,9 @@ sources:
     weight: 1
     url: "https://www.vakuutusoikeus.fi/feed/rss-feed?post_type=ratkaisu"
 
-  # ---------- Suomi: hovioikeudet ----------
-  # Hovioikeudet julkaisevat ratkaisujaan epätasaisesti ja osa domaineista
-  # elää. Skripti ohittaa lähteen hiljaisesti, jos syöte ei vastaa.
-  - id: ho-helsinki
-    name: "Helsingin hovioikeus"
-    type: wp_rss
-    court: "HelHO"
-    weight: 1
-    optional: true
-    url: "https://oikeus.fi/hovioikeudet/helsinginhovioikeus/feed/rss-feed?post_type=ratkaisu"
-
-  - id: ho-turku
-    name: "Turun hovioikeus"
-    type: wp_rss
-    court: "THO"
-    weight: 1
-    optional: true
-    url: "https://oikeus.fi/hovioikeudet/turunhovioikeus/feed/rss-feed?post_type=ratkaisu"
-
-  # ---------- EU: unionin tuomioistuin ja unionin yleinen tuomioistuin ----------
+  # ===================================================================
+  # Luku 5: EU-tuomioistuin ja EU:n säädösvalmistelu
+  # ===================================================================
   - id: eu-courts
     name: "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)"
     type: eu_sparql
@@ -152,22 +195,213 @@ sources:
     optional: true
     url: "https://curia.europa.eu/site/rss.jsp?lang=en&secondLang=fr"
 
-  # ---------- Viranomaisratkaisut ----------
+  - id: ec-digital
+    name: "Komissio, digitaalinen strategia"
+    type: plain_rss
+    court: "EU-komissio"
+    weight: 2
+    url: "https://digital-strategy.ec.europa.eu/en/rss.xml"
+
+  # ===================================================================
+  # Luku 6: kansalliset säädösmuutokset ja esityöt
+  # ===================================================================
+  # Hallituksen esitykset uutisoidaan ministeriöiden tiedotteissa.
+  # Eduskunnan avoin data (VaskiData) palauttaa raakaa XML:ää ilman
+  # päivämääräsaraketta, joten se ei sovellu tähän suoraan.
+  - id: vn
+    name: "Valtioneuvosto"
+    type: html_list
+    court: "VN"
+    weight: 2
+    optional: true
+    url: "https://valtioneuvosto.fi/ajankohtaista"
+    link_pattern: "valtioneuvosto\\.fi/-/"
+
+  - id: om
+    name: "Oikeusministeriö"
+    type: html_list
+    court: "OM"
+    weight: 2
+    optional: true
+    url: "https://oikeusministerio.fi/ajankohtaista"
+    link_pattern: "oikeusministerio\\.fi/-/"
+
+  - id: lvm
+    name: "Liikenne- ja viestintäministeriö"
+    type: html_list
+    court: "LVM"
+    weight: 2
+    optional: true
+    url: "https://www.lvm.fi/tiedotteet"
+    link_pattern: "lvm\\.fi/-/"
+
+  - id: tem
+    name: "Työ- ja elinkeinoministeriö"
+    type: plain_rss
+    court: "TEM"
+    weight: 1
+    optional: true
+    url: "https://tem.fi/etusivu/-/asset_publisher/PuQeVCwBv2KT/rss"
+
+  # ===================================================================
+  # Luku 7: tietosuojaviranomaiset
+  # ===================================================================
+  # 7.1 Tietosuojavaltuutetun toimisto. Liferayn asset_publisher -syöte
+  # antaa oikeat päivämäärät, toisin kuin ajankohtaissivun raapiminen.
+  # Toimisto käsittelee pelkkää tietosuojaa, joten avainsanasuodatus
+  # ohitetaan (always_include).
+  - id: tsv
+    name: "Tietosuojavaltuutetun toimisto"
+    type: plain_rss
+    court: "TSV"
+    weight: 3
+    always_include: true
+    url: "https://tietosuoja.fi/etusivu/-/asset_publisher/GcYqYm2ssJIz/rss"
+
+  # 7.2 Traficom. Ei RSS-syötettä, ja ajankohtaissivu piirtyy osin
+  # selaimessa, joten osumia tulee vain muutama kerrallaan.
+  - id: traficom
+    name: "Traficom"
+    type: html_list
+    court: "Traficom"
+    weight: 2
+    optional: true
+    url: "https://www.traficom.fi/fi/ajankohtaista"
+    link_pattern: "traficom\\.fi/fi/(uutiset|tiedotteet)/"
+
+  # 7.3 Kansainväliset. EDPB:n syöte kattaa uutiset ja ohjeet.
   - id: edpb
     name: "Euroopan tietosuojaneuvosto (EDPB)"
     type: plain_rss
     court: "EDPB"
     weight: 2
+    always_include: true
     url: "https://www.edpb.europa.eu/rss.xml"
 
-  # Tietosuojavaltuutetun omat ratkaisut julkaistaan Finlexissä, jonka
-  # hakurajapinta (api.finlex.fi) vaatii avaimen. Siihen asti seurataan
-  # toimiston ajankohtaissivua, jolla ratkaisut ja seuraamusmaksut uutisoidaan.
-  - id: tsv
-    name: "Tietosuojavaltuutetun toimisto"
-    type: html_list
-    court: "TSV"
-    weight: 3
-    url: "https://tietosuoja.fi/fi/ajankohtaista"
-    link_pattern: "/-/"
+  # ===================================================================
+  # Luku 8: oikeudelliset julkaisut (väitöskirjat ja opinnäytteet)
+  # ===================================================================
+  # Yliopistojen julkaisuarkistot puhuvat OAI-PMH:ta. Arkistot sisältävät
+  # kaikkien tieteenalojen aineiston, joten rajauksia on kaksi:
+  # type_contains jättää muun kuin opinnäyte- ja artikkeliaineiston pois ja
+  # require_any vaatii lisäksi oikeustieteellisen kytkennän. Ilman
+  # jälkimmäistä feediin valuu esimerkiksi tekoälyä käsittelevät
+  # kauppatieteen ja tietotekniikan gradut.
+  #
+  # Huomaa kaksi eri osoitemuotoa. DSpace 7 tarjoaa OAI:n polusta
+  # /server/oai/request, vanhemmat asennukset polusta /oai/request.
+  - id: helda
+    name: "Helda (Helsingin yliopisto)"
+    type: oai_pmh
+    court: "Julkaisu"
+    weight: 1
     optional: true
+    url: "https://helda.helsinki.fi/server/oai/request"
+    lookback_days: 75
+    max_pages: 5
+    type_contains: &julkaisutyypit
+      ["thesis", "opinnäyte", "väitöskirja", "dissertation", "article", "artikkeli"]
+    require_any: &oikeustiede
+      - oikeustiet
+      - oikeudell
+      - oikeusnotaari
+      - juridi
+      - lainsäädän
+      - sääntely
+      - säädös
+      - tuomioistuin
+      - legal
+      - jurisprudence
+      - regulation
+      - GDPR
+      - tietosuoja
+
+  - id: lauda
+    name: "Lauda (Lapin yliopisto)"
+    type: oai_pmh
+    court: "Julkaisu"
+    weight: 1
+    optional: true
+    url: "https://lauda.ulapland.fi/oai/request"
+    lookback_days: 75
+    max_pages: 5
+    type_contains: *julkaisutyypit
+    require_any: *oikeustiede
+
+  - id: utupub
+    name: "UTUPub (Turun yliopisto)"
+    type: oai_pmh
+    court: "Julkaisu"
+    weight: 1
+    optional: true
+    url: "https://www.utupub.fi/server/oai/request"
+    lookback_days: 75
+    max_pages: 5
+    type_contains: *julkaisutyypit
+    require_any: *oikeustiede
+
+  - id: uef
+    name: "eRepo (Itä-Suomen yliopisto)"
+    type: oai_pmh
+    court: "Julkaisu"
+    weight: 1
+    optional: true
+    url: "https://erepo.uef.fi/server/oai/request"
+    lookback_days: 75
+    max_pages: 5
+    type_contains: *julkaisutyypit
+    require_any: *oikeustiede
+
+  - id: jyx
+    name: "JYX (Jyväskylän yliopisto)"
+    type: oai_pmh
+    court: "Julkaisu"
+    weight: 1
+    optional: true
+    url: "https://jyx.jyu.fi/dspace-oai//request"
+    lookback_days: 75
+    max_pages: 5
+    type_contains: *julkaisutyypit
+    require_any: *oikeustiede
+
+  - id: doria
+    name: "Doria (mm. Åbo Akademi)"
+    type: oai_pmh
+    court: "Julkaisu"
+    weight: 1
+    optional: true
+    url: "https://www.doria.fi/oai/request"
+    lookback_days: 75
+    max_pages: 5
+    type_contains: *julkaisutyypit
+    require_any: *oikeustiede
+
+  # ===================================================================
+  # Luku 10: kyberturvallisuus
+  # ===================================================================
+  - id: kyberturva
+    name: "Kyberturvallisuuskeskus"
+    type: plain_rss
+    court: "NCSC-FI"
+    # Paino 1, koska haavoittuvuustiedotteita tulee paljon ja ne eivät saa
+    # nousta saman päivän oikeudellisten juttujen edelle.
+    weight: 1
+    url: "https://www.kyberturvallisuuskeskus.fi/feed/rss/fi"
+
+  - id: enisa-news
+    name: "ENISA, uutiset"
+    type: html_list
+    court: "ENISA"
+    weight: 1
+    optional: true
+    url: "https://www.enisa.europa.eu/news"
+    link_pattern: "enisa\\.europa\\.eu/news/"
+
+  - id: enisa-pubs
+    name: "ENISA, julkaisut"
+    type: html_list
+    court: "ENISA"
+    weight: 1
+    optional: true
+    url: "https://www.enisa.europa.eu/publications"
+    link_pattern: "enisa\\.europa\\.eu/publications/"

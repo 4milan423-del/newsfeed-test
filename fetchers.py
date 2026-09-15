@@ -39,6 +39,7 @@ class Item:
     weight: int = 1             # lähteen painoarvo järjestyksessä
     score: int = 0              # täytetään suodatuksessa
     tags: list[str] = field(default_factory=list)
+    always: bool = False        # ohittaa avainsanasuodatuksen, ks. always_include
 
     @property
     def key(self) -> str:
@@ -262,7 +263,8 @@ def fetch_html_list(source: dict) -> list[Item]:
     seen: set[str] = set()
     items: list[Item] = []
     for a in soup.find_all("a", href=True):
-        href = urllib.parse.urljoin(source["url"], a["href"])
+        # Osa sivustoista (ENISA) jättää href-arvoon välilyöntejä.
+        href = urllib.parse.urljoin(source["url"], a["href"].strip())
         text = a.get_text(" ", strip=True)
         if len(text) < 20 or href in seen:
             continue
@@ -316,11 +318,110 @@ def _guess_date(anchor) -> dt.date | None:
     return None
 
 
+# --------------------------------------------------------------------------
+# OAI-PMH: yliopistojen julkaisuarkistot (väitöskirjat, gradut)
+# --------------------------------------------------------------------------
+# DSpace-arkistot puhuvat OAI-PMH:ta. ListRecords palauttaa 100 tietuetta
+# kerrallaan ja antaa resumptionTokenin seuraavaa sivua varten. Tietueet
+# tulevat datestamp-järjestyksessä vanhimmasta uusimpaan, joten haku pitää
+# aloittaa tarpeeksi läheltä nykyhetkeä eikä sivuja kannata hakea rajatta.
+def fetch_oai_pmh(source: dict) -> list[Item]:
+    lookback = int(source.get("lookback_days", 75))
+    since = (dt.date.today() - dt.timedelta(days=lookback)).isoformat()
+    max_pages = int(source.get("max_pages", 6))
+
+    sess = _session()
+    params = {"verb": "ListRecords", "metadataPrefix": "oai_dc", "from": since}
+    if source.get("oai_set"):
+        params["set"] = source["oai_set"]
+
+    items: list[Item] = []
+    for _ in range(max_pages):
+        resp = sess.get(source["url"], params=params, timeout=TIMEOUT)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.content, "xml")
+
+        error = soup.find("error")
+        if error is not None:
+            # noRecordsMatch on normaali tilanne, ei virhe.
+            if error.get("code") != "noRecordsMatch":
+                log.warning("%s OAI-virhe: %s", source["id"], error.get("code"))
+            break
+
+        for record in soup.find_all("record"):
+            item = _oai_item(record, source)
+            if item is not None:
+                items.append(item)
+
+        token = soup.find("resumptionToken")
+        value = token.get_text(strip=True) if token else ""
+        if not value:
+            break
+        params = {"verb": "ListRecords", "resumptionToken": value}
+
+    return items
+
+
+def _oai_item(record, source: dict) -> Item | None:
+    meta = record.find("metadata")
+    if meta is None:
+        return None
+
+    def values(tag: str) -> list[str]:
+        return [e.get_text(" ", strip=True) for e in meta.find_all(tag)]
+
+    titles = values("dc:title")
+    if not titles:
+        return None
+
+    # Handle-osoite on pysyvä, muut identifierit voivat olla tiedostopolkuja.
+    ids = values("dc:identifier")
+    url = next((i for i in ids if i.startswith("http") and "handle" in i), "")
+    url = url or next((i for i in ids if i.startswith("http")), "")
+    if not url:
+        return None
+
+    # Julkaisupäivä on dc:date. Jos se ei jäsenny, käytetään tietueen
+    # muokkausaikaa headerista.
+    header = record.find("header")
+    stamp = header.find("datestamp").get_text(strip=True) if header and header.find("datestamp") else ""
+    date = None
+    for candidate in values("dc:date") + [stamp]:
+        m = re.match(r"(\d{4})-(\d{2})-(\d{2})", candidate)
+        if m:
+            parsed = dt.date(int(m[1]), int(m[2]), int(m[3]))
+            if parsed <= dt.date.today():
+                date = parsed
+                break
+    if date is None:
+        return None
+
+    # Tyyppirajaus pudottaa arkistojen muun aineiston (kuvat, aineistot) pois.
+    wanted = [t.lower() for t in source.get("type_contains") or []]
+    if wanted:
+        types = " ".join(values("dc:type")).lower()
+        if not any(w in types for w in wanted):
+            return None
+
+    return Item(
+        source_id=source["id"],
+        source_name=source["name"],
+        court=source.get("court", source["name"]),
+        title=titles[0][:220],
+        url=url,
+        date=date,
+        keywords=", ".join(values("dc:subject"))[:300],
+        summary=" ".join(values("dc:description"))[:400],
+        weight=source.get("weight", 1),
+    )
+
+
 FETCHERS = {
     "wp_rss": fetch_wp_rss,
     "plain_rss": fetch_plain_rss,
     "eu_sparql": fetch_eu_sparql,
     "html_list": fetch_html_list,
+    "oai_pmh": fetch_oai_pmh,
 }
 
 
@@ -332,6 +433,17 @@ def fetch_source(source: dict) -> list[Item]:
         return []
     try:
         items = fetcher(source)
+
+        # Lähdekohtainen lisäehto. Julkaisuarkistot sisältävät kaiken alan
+        # tutkimuksen, joten niistä otetaan vain oikeustieteellinen aineisto.
+        # Tämä on eri asia kuin sources.yaml:n aihekohtainen must_any.
+        require = [t.lower() for t in source.get("require_any") or []]
+        if require:
+            items = [i for i in items if any(t in i.haystack() for t in require)]
+
+        if source.get("always_include"):
+            for item in items:
+                item.always = True
         log.info("%-12s %3d juttua", source["id"], len(items))
         return items
     except Exception as exc:  # noqa: BLE001
