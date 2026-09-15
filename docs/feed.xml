@@ -4,13 +4,69 @@
 <link>https://4milan423-del.github.io/newsfeed-test/</link>
 <description>Tietosuoja, teknologia ja datasääntely</description>
 <language>fi</language>
-<lastBuildDate>Tue, 15 Sep 2026 11:59:46 +0000</lastBuildDate>
+<lastBuildDate>Tue, 15 Sep 2026 12:58:36 +0000</lastBuildDate>
+<item>
+<title>NCSC-FI: Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Tue, 15 Sep 2026 09:00:00 +0000</pubDate>
+<description>Cisco Secure Email Gateway -tuotteissa on kriittinen haavoittuvuus, jonka osalta on havaittu hyväksikäyttöä. Haavoittuvuuden avulla tunnistautumaton etähyökkääjä voi suorittaa mielivaltaisia SQL-lauseita ja komentoja laitteen käyttöjärjestelmässä pääkäyttäjäoikeuksin.</description>
+</item>
+<item>
+<title>NCSC-FI: Kriittinen haavoittuvuus GitLab Community Edition- ja Enterprise Edition -tuotteissa</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Mon, 14 Sep 2026 09:00:00 +0000</pubDate>
+<description>GitLab Community Edition (CE) ja Enterprise Edition (EE) -tuotteissa on kriittinen hakemistopolun läpikulkuun liittyvä haavoittuvuus. Korjaava versiopäivitys tulee asentaa mahdollisimman pian. Haavoittuvuuden hyväksikäytön mahdollistava PoC-koodi on julkisesti saatavilla ja haavoittuvuuden aktiivisesta hyväksikäytöstä on tiettävästi havaintoja.</description>
+</item>
+<item>
+<title>EDPB: Failure to respect the rights of individuals: The CNIL fined EXTIA 300 000 EUR</title>
+<link>https://www.edpb.europa.eu/news/failure-to-respect-the-rights-of-individuals-the-cnil-fined-extia-300-000-eur_en</link>
+<guid isPermaLink="true">https://www.edpb.europa.eu/news/failure-to-respect-the-rights-of-individuals-the-cnil-fined-extia-300-000-eur_en</guid>
+<pubDate>Fri, 11 Sep 2026 09:00:00 +0000</pubDate>
+<description>ikerinar Fri, 11/09/2026 - 09:24</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 37/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 11 Sep 2026 09:00:00 +0000</pubDate>
+<description>Kyberkestävyyssäädös parantaa verkkolaitteiden käyttäjän asemaa ja helpottaa verkkolaitteiden turvallista ylläpitoa. Uuden säädöksen myötä valmistajalla on vastuu seurata ja tiedottaa laitteiden haavoittuvuudesta. Verkon reunalaitteiden ylläpitoon ja hallintaan uudistus on tervetullut parannus. Elokuun kybersää kertoo sateisesta kybermaisemasta.</description>
+</item>
 <item>
 <title>EUT: C-669/24 Bundesverband der Verbraucherzentralen und Verbraucherverbände - Verbraucherzentrale Bundesverband e.V. vastaa (tuomio)</title>
 <link>https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62024CJ0669</link>
 <guid isPermaLink="true">https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62024CJ0669</guid>
 <pubDate>Thu, 10 Sep 2026 09:00:00 +0000</pubDate>
 <description>Ennakkoratkaisupyyntö – Jäsenvaltioiden lainsäädännön lähentäminen – Televiestintäala – Direktiivi (EU) 2018/1972 – Eurooppalainen sähköisen viestinnän säännöstö – Sopimus sähköisestä viestintäpalvelusta – Palveluntarjoajan oikeus muuttaa sopimusta yksipuolisesti – 105 artiklan 4 kohdan ensimmäinen alakohta – Loppukäyttäjien irtisanomisoikeus</description>
+</item>
+<item>
+<title>Traficom: Kyberkestävyyssäädös tuo valmistajille uuden ilmoitusvelvoitteen ja käyttäjille ajantasaista tietoa tuotteiden kyberturvallisuudesta</title>
+<link>https://www.traficom.fi/fi/uutiset/kyberkestavyyssaados-tuo-valmistajille-uuden-ilmoitusvelvoitteen-ja-kayttajille-ajantasaista-tietoa-tuotteiden-kyberturvallisuudesta-0</link>
+<guid isPermaLink="true">https://www.traficom.fi/fi/uutiset/kyberkestavyyssaados-tuo-valmistajille-uuden-ilmoitusvelvoitteen-ja-kayttajille-ajantasaista-tietoa-tuotteiden-kyberturvallisuudesta-0</guid>
+<pubDate>Thu, 10 Sep 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>NCSC-FI: Elokuun Kybersää 2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Thu, 10 Sep 2026 09:00:00 +0000</pubDate>
+<description>Elokuun kybersää jatkui sateisena ja kesälomien jälkeen tapausmäärät kasvoivat. Tapauksissa nähtiin tietojenkalastelua ja verkkopalvelujen murtoja.</description>
+</item>
+<item>
+<title>EDPB: Health data breach: the CNIL fined Hôpital Privé de la Loire 500 000 EUR</title>
+<link>https://www.edpb.europa.eu/news/health-data-breach-the-cnil-fined-hopital-prive-de-la-loire-500-000-eur_en</link>
+<guid isPermaLink="true">https://www.edpb.europa.eu/news/health-data-breach-the-cnil-fined-hopital-prive-de-la-loire-500-000-eur_en</guid>
+<pubDate>Wed, 09 Sep 2026 09:00:00 +0000</pubDate>
+<description>ikerinar Wed, 09/09/2026 - 11:58</description>
+</item>
+<item>
+<title>EU-komissio: Apply AI Summit</title>
+<link>https://digital-strategy.ec.europa.eu/en/events/apply-ai-summit</link>
+<guid isPermaLink="true">https://digital-strategy.ec.europa.eu/en/events/apply-ai-summit</guid>
+<pubDate>Mon, 07 Sep 2026 09:00:00 +0000</pubDate>
+<description>Anonymous (not verified) Mon, 09/07/2026 - 15:58 17 November 2026 The EGG (Brussels) The  will gather high-level stakeholders – from industrial representatives, policymakers and startups – to accelerate AI implementation in strategic industries. Main link https://digital-strategy.ec.europa.eu/en/policies/apply-ai-summit Register until 13 November Related topics Events Artificial intelligence</description>
 </item>
 <item>
 <title>TSV: Tietosuojavaltuutettu selvittää Kotkamiehen sosiaalisen median videoiden laillisuutta</title>
@@ -34,6 +90,34 @@
 <description>Académie Fiscale and Others Approximation of laws Retention of electronic communications data: Advocate General Szpunar clarifies the criteria for assessing the compatibility of national legislation with EU law</description>
 </item>
 <item>
+<title>EU-komissio: Commission designates ChatGPT, Reddit, Roblox under Digital Services Act</title>
+<link>https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act</link>
+<guid isPermaLink="true">https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act</guid>
+<pubDate>Mon, 31 Aug 2026 09:00:00 +0000</pubDate>
+<description>Anonymous (not verified) Mon, 08/31/2026 - 11:10 The Commission has designated ChatGPT as a Very Large Online Search Engine (VLOSE), as well as Reddit and Roblox as Very Large Online Platforms (VLOPs), under the Digital Services Act (DSA). These services declared that they reach at least 45 million average monthly users in the EU and thus meet the threshold for designation. Following the notificat</description>
+</item>
+<item>
+<title>LVM: Kyberturvallisuuslaki kokonaisuutena onnistunut – Haasteena valvonnan resurssien puute</title>
+<link>https://www.lvm.fi/-/kyberturvallisuuslaki-kokonaisuutena-onnistunut-haasteena-valvonnan-resurssien-puute</link>
+<guid isPermaLink="true">https://www.lvm.fi/-/kyberturvallisuuslaki-kokonaisuutena-onnistunut-haasteena-valvonnan-resurssien-puute</guid>
+<pubDate>Mon, 31 Aug 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>Julkaisu: Age Assurance Systems on Online Platforms</title>
+<link>https://www.utupub.fi/handle/11111/63335</link>
+<guid isPermaLink="true">https://www.utupub.fi/handle/11111/63335</guid>
+<pubDate>Mon, 31 Aug 2026 09:00:00 +0000</pubDate>
+<description>age assurance, age verification, age estimation, online platform, data privacy, cybersecurity, iän varmennus, iän todentaminen, iän arviointi, verkkoalusta, tietosuoja, kyberturvallisuus</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 35/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 28 Aug 2026 09:00:00 +0000</pubDate>
+<description>Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat muun muassa WordPress-sivustojen murrot, joissa haavoittuvuuksia hyödynnetään haitallisen sisällön levittämiseen. Lisäksi katsauksessa käsitellään Signal-tukena esiintyvää tietojenkalastelua, tekoälyn käyttöön liittyviä uusia avoimuusvelvoitteita sekä kyberkestävyyssäädöksen mukaisia ilmoitusvelvoitteita.</description>
+</item>
+<item>
 <title>KHO: KHO:2026:65</title>
 <link>https://www.kho.fi/paatokset/kho202665/</link>
 <guid isPermaLink="true">https://www.kho.fi/paatokset/kho202665/</guid>
@@ -55,11 +139,67 @@
 <description></description>
 </item>
 <item>
+<title>NCSC-FI: Valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Wed, 26 Aug 2026 09:00:00 +0000</pubDate>
+<description>Ennen CRA:n ilmoitusvelvollisuuden soveltamista organisaatioiden on tärkeää valmistautua sisäisesti ilmoituksen jättämiseen. Ilmoittamisen määräajat ovat lyhyitä, joten vastuut ja toimintatavat kannattaa sopia ennen kuin ensimmäinen ilmoitettava tapaus tulee vastaan. Olemme koonneet valmistajille listan tarkistettavista asioista ja linkit keskeisiin ohjeisiin.</description>
+</item>
+<item>
+<title>EDPB: Data breach: the CNIL fined MOBIUS SOLUTIONS LTD €1 million</title>
+<link>https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-mobius-solutions-ltd-eur1-million_en</link>
+<guid isPermaLink="true">https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-mobius-solutions-ltd-eur1-million_en</guid>
+<pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
+<description>ipayotfr Fri, 21/08/2026 - 10:54</description>
+</item>
+<item>
+<title>EDPB: Data breach: the CNIL fined NEXPUBLICA FRANCE €1.7 million</title>
+<link>https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-nexpublica-france-eur17-million_en</link>
+<guid isPermaLink="true">https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-nexpublica-france-eur17-million_en</guid>
+<pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
+<description>ipayotfr Fri, 21/08/2026 - 10:47</description>
+</item>
+<item>
+<title>EDPB: Data breach: FREE MOBILE and FREE fined €42 million</title>
+<link>https://www.edpb.europa.eu/news/data-breach-free-mobile-and-free-fined-eur42-million_en</link>
+<guid isPermaLink="true">https://www.edpb.europa.eu/news/data-breach-free-mobile-and-free-fined-eur42-million_en</guid>
+<pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
+<description>ipayotfr Fri, 21/08/2026 - 10:42</description>
+</item>
+<item>
+<title>EDPB: Data breach: France Travail fined €5 million</title>
+<link>https://www.edpb.europa.eu/news/data-breach-france-travail-fined-eur5-million_en</link>
+<guid isPermaLink="true">https://www.edpb.europa.eu/news/data-breach-france-travail-fined-eur5-million_en</guid>
+<pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
+<description>ipayotfr Fri, 21/08/2026 - 10:25</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 34/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
+<description>Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat lisääntyneet palkanmaksuhuijaukset, joissa rikolliset pyrkivät ohjaamaan palkkoja omille tileilleen väärennetyillä sähköpostiviesteillä. Lisäksi käsitellään pelien käyttäjien tekemiin lisäsisältöihin piilotettuja haittaohjelmia sekä EU:n uusia menettelyjä sähköisten todisteiden hankkimiseksi rikostutkinnoissa.</description>
+</item>
+<item>
 <title>MAO: MAO:387/2026</title>
 <link>https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao387-2026/</link>
 <guid isPermaLink="true">https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao387-2026/</guid>
 <pubDate>Thu, 20 Aug 2026 09:00:00 +0000</pubDate>
 <description>liikesalaisuus – väliaikainen kielto</description>
+</item>
+<item>
+<title>EU-komissio: Call for tenders: Study on how online marketplace design influences user behaviour</title>
+<link>https://digital-strategy.ec.europa.eu/en/funding/call-tenders-study-how-online-marketplace-design-influences-user-behaviour</link>
+<guid isPermaLink="true">https://digital-strategy.ec.europa.eu/en/funding/call-tenders-study-how-online-marketplace-design-influences-user-behaviour</guid>
+<pubDate>Tue, 18 Aug 2026 09:00:00 +0000</pubDate>
+<description>Anonymous (not verified) Tue, 08/18/2026 - 11:13 Opening: 17 August 2026 Closing: 23 September 2026 The study will explore users&#x27; interactions with features mandated by the Digital Services Act (DSA) on selected online marketplaces designated as Very Large Online Marketplaces (VLOMs). The study should cover user interaction with mechanisms under Article 16 (notice and action), Article 30(7) (trade</description>
+</item>
+<item>
+<title>Julkaisu: How in-store QR codes shape the in-store customer experience</title>
+<link>http://urn.fi/URN:NBN:fi:jyu-202608186595</link>
+<guid isPermaLink="true">http://urn.fi/URN:NBN:fi:jyu-202608186595</guid>
+<pubDate>Tue, 18 Aug 2026 09:00:00 +0000</pubDate>
+<description>QR codes, In-store customer experience, In-store technologies, Omnichannel, Participatory dimension, Fashion retail, Value Creation for Cyber-Physical Systems and Services, Digitaalinen liiketoiminta ja talous (painoala), Tietojärjestelmätiede, Hyvinvoinnin tutkimuksen yhteisö, Kestävä liiketoiminta</description>
 </item>
 <item>
 <title>TSV: Apulaistietosuojavaltuutettu: Tietoa urheilijan lievästä dopingrikkomuksesta ei olisi pitänyt julkaista, kun toimintakielto oli jo päättynyt</title>
@@ -76,10 +216,179 @@
 <description></description>
 </item>
 <item>
+<title>NCSC-FI: Hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Mon, 17 Aug 2026 09:00:00 +0000</pubDate>
+<description>Traficom on avannut syksyn 2026 rahoitushaun. Tavoitteena on tukea yritysten kasvun ja kansainvälistymisen edellytyksiä sekä lisätä kehittyneiden kyberturvallisuusratkaisujen saatavuutta.</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 33/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-332026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-332026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
+<description>Tällä viikolla kerromme tietomurroista, joissa verkkosivupalvelimet on valjastettu jakamaan haittaohjelmia verkkosivujen selaajille. Yksinkertaiset varotoimet auttavat suojautumaan haittaohjelman uhkaa vastaan. Kehotamme myös valppauteen pikaviestinpalvelun uusia ominaisuuksia käyttäessä.
+Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syksyn merkkejä.</description>
+</item>
+<item>
+<title>NCSC-FI: Heinäkuun Kybersää 2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Thu, 13 Aug 2026 09:00:00 +0000</pubDate>
+<description>Heinäkuussa kyberin kentällä nähtiin saderrintamia. Kyberturvallisuuskeskukselle tehtyjen kiristyshaittaohjelmailmoitusten määrä kasvoi. Myös haavoittuvuuksien määrä on jatkuvassa nousussa, mikä näkyy myös Kyberturvallisuuskeskuksen jakamien haavoittuvuustiedotteiden määrässä.</description>
+</item>
+<item>
+<title>NCSC-FI: Kriittisiä haavoittuvuuksia Metabase-ohjelmistossa</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Tue, 11 Aug 2026 09:00:00 +0000</pubDate>
+<description>Metabase on julkaissut korjauspäivityksen kriittiseen, aktiivisesti hyväksikäytettyyn nollapäivähaavoittuvuuteen. Haavoittuvuus mahdollistaa tunnistautumattoman hyökkääjän suorittaa SQL-injektiohyökkäyksen etänä.</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 32/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 07 Aug 2026 09:00:00 +0000</pubDate>
+<description>Tällä viikolla muistutamme lomilta paluun yhteydessä yleistyvistä huijauksista sekä tietojenkalastelusta. Nostamme esiin npm-ekosysteemin kohdistuneen uuden toimitusketjuhyökkäyksen sekä kerromme, miten yksikin suojaamaton laite voi avata tien verkkoon. Kerromme lisäksi tälläkin viikolla esiin nousseista ClickFix-tartuntatapauksista. Lopuksi kerromme EU-komission julkaisemasta soveltamisohjeesta j</description>
+</item>
+<item>
+<title>NCSC-FI: Kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 07 Aug 2026 09:00:00 +0000</pubDate>
+<description>Kesälomakauden päättyminen näkyy vuosittain myös kyberrikollisten toiminnassa. Työarkeen palaavien kiire tarjoaa rikollisille otollisen tilaisuuden kalastella käyttäjätunnuksia ja muita luottamuksellisia tietoja.</description>
+</item>
+<item>
+<title>Julkaisu: A comprehensive analysis of the NIS2 implementation in international companies in Finland through the ISO/IEC 27001 framework</title>
+<link>https://www.utupub.fi/handle/11111/62879</link>
+<guid isPermaLink="true">https://www.utupub.fi/handle/11111/62879</guid>
+<pubDate>Tue, 04 Aug 2026 09:00:00 +0000</pubDate>
+<description>NIS2 Directive, ISO/IEC 27001, information security management systems (ISMS), cybersecurity regulation, compliance implementation, information security, risk management</description>
+</item>
+<item>
+<title>NCSC-FI: N-able N-Central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Sun, 02 Aug 2026 09:00:00 +0000</pubDate>
+<description>N-able N-central julkaisi haavoittuvuustiedotteen N-central-ohjelmistoa koskien. Kaikki N-central-versiot ovat haavoittuvia. N-able on julkaissut 6.8.2026 uuden korjauspäivityksen N-central 2026.3 (2026.3.1.10) versioon, joka korjaa käyttäjän todennuksen ohituksen vaihtoehtoisen reitin tai kanavan kautta. Haavoittuvuuden hyväksikäyttöä on havaittu. Päivitä ohjelmisto välittömästi.</description>
+</item>
+<item>
+<title>NCSC-FI: Mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 31 Jul 2026 09:00:00 +0000</pubDate>
+<description>Julkisuudessa on viime aikoina keskusteltu tapauksista, joissa tekoälyjärjestelmät ovat turvallisuustesteissä toteuttaneet toimia, jotka muistuttavat tietomurtoja tai luvattomia tunkeutumisyrityksiä. Tapaukset ovat herättäneet kysymyksiä siitä, kuinka itsenäisesti tekoäly kykenee toimimaan ja millaisia riskejä sen käyttöön liittyy kyberturvallisuuden näkökulmasta.</description>
+</item>
+<item>
+<title>EU-komissio: Commission starts enforcing AI Act rules and new transparency requirements on 2 August</title>
+<link>https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august</link>
+<guid isPermaLink="true">https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august</guid>
+<pubDate>Fri, 31 Jul 2026 09:00:00 +0000</pubDate>
+<description>Anonymous (not verified) Fri, 07/31/2026 - 09:00 From 2 August 2026, the European Commission’s AI Office, together with national authorities, will begin enforcing the Artificial Intelligence (AI) Act. On the same date, new transparency rules will start to apply, requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it. Under </description>
+</item>
+<item>
+<title>Julkaisu: Riski, kasvu ja valta: Diskurssianalyysi tekoälyn kehystämisestä</title>
+<link>https://www.utupub.fi/handle/11111/62756</link>
+<guid isPermaLink="true">https://www.utupub.fi/handle/11111/62756</guid>
+<pubDate>Thu, 30 Jul 2026 09:00:00 +0000</pubDate>
+<description>tekoäly, yleinen tekoäly, tekoälydiskurssi, kehystys, diskurssianalyysi, diskurssi-historiallinen lähestymistapa, tekoälyn sääntely, teknologinen kehitys, suuret kielimallit, käyttötehokkuus</description>
+</item>
+<item>
+<title>Julkaisu: Interoperability and Recent Competitive Developments in Digital Markets : Examining Interoperability Under the Digital Markets Act Regarding Regulatory Flexibility, Efficiency, and Legal Certainty Compared to the Article</title>
+<link>https://www.utupub.fi/handle/11111/62755</link>
+<guid isPermaLink="true">https://www.utupub.fi/handle/11111/62755</guid>
+<pubDate>Thu, 30 Jul 2026 09:00:00 +0000</pubDate>
+<description>The Digital Markets Act, Article 102 TFEU, interoperability, regulatory flexibility, regulatory dialogue, efficiency, legal certainty, digital markets, digital single market, competition, digimarkkinasäädös, SEUT 102 artikla, yhteentoimivuus, sääntelyn joustavuus, sääntelyvuoropuhelu, regulatiivinen</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberkestävyyssäädöksen vaatimukset selkiytyvät - EU-komissio julkaisi uuden soveltamisohjeen</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Wed, 29 Jul 2026 09:00:00 +0000</pubDate>
+<description>Euroopan komissio on julkaissut uuden soveltamisohjeen kyberkestävyyssäädöksen (Cyber Resilience Act, CRA) toimeenpanon tueksi. Ohjeistus on suunnattu erityisesti valmistajille, ohjelmistokehittäjille sekä muille yrityksille, jotka saattavat markkinoille digitaalisia tuotteita. Ohjeistus tarjoaa yrityksille konkreettisia neuvoja siihen, miten ne voivat valmistautua tuleviin kyberturvallisuusvaatim</description>
+</item>
+<item>
+<title>NCSC-FI: Kriittinen haavoittuvuus NGINX-tuotteissa</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Wed, 29 Jul 2026 09:00:00 +0000</pubDate>
+<description>F5:n heinäkuussa korjaamasta kriittisestä NGINX-haavoittuvuudesta (CVE-2026-42533) on julkaistu toimiva hyväksikäyttökoodi, mikä kasvattaa merkittävästi riskiä haavoittuvuuden aktiiviseen hyväksikäyttöön. Käyttöoikeudettoman hyökkääjän etäkoodin suorituksen mahdollistava haavoittuvuus koskee useita NGINX-tuotteita. Tuotteiden käyttäjiä kehotetaan päivittämään korjattuihin versioihin viipymättä.</description>
+</item>
+<item>
+<title>EU-komissio: AI-powered robotics in Europe: Live demonstrations and strategic debate</title>
+<link>https://digital-strategy.ec.europa.eu/en/events/ai-powered-robotics-europe-live-demonstrations-and-strategic-debate</link>
+<guid isPermaLink="true">https://digital-strategy.ec.europa.eu/en/events/ai-powered-robotics-europe-live-demonstrations-and-strategic-debate</guid>
+<pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
+<description>Anonymous (not verified) Fri, 07/24/2026 - 14:32 02 September 2026 The European Parliament will host a gathering of policymakers, industry leaders, researchers, alongside live demonstrations of cutting-edge robots, to set the course for the EU’s future in robotics. Europe is already a global leader in robotics research, development and innovation. As advances in artificial intelligence (AI) are ac</description>
+</item>
+<item>
+<title>Julkaisu: Do SMEs have equal opportunity for GDPR compliance? : Accessibility and Effectiveness of the Standard Contractual Clauses in International Data Transfers in a Post-Schrems II Legal Landscape</title>
+<link>http://hdl.handle.net/10138/569898</link>
+<guid isPermaLink="true">http://hdl.handle.net/10138/569898</guid>
+<pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
+<description>Tietosuoja-asetus, mallisopimuslausekkeet, Schrems II, pk-yritykset, Viestintä- ja informaatio-oikeus, Information- and Communications Law, Informations- och kommunikationsrätt, Oikeustieteen maisterin koulutusohjelma Helsinki, Master&amp;apos;s Programme in Law Helsinki, Magisterprogrammet i rättsveten</description>
+</item>
+<item>
+<title>NCSC-FI: Haavoittuvuuskilpailussa nopeus ratkaisee</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
+<description>Kyberturvallisuuden vanhan sanonnan mukaan kello alkaa tikittää silloin, kun haavoittuvuus löydetään. Nykyisessä uhkaympäristössä sekä teknologisen kehityksen myötä sekuntiviisari lähtee liikkeelle jo paljon aikaisemmin. Ensimmäiset sekunnit kuluvat siitä hetkestä lähtien, kun haavoittuvuus syntyy. Oli haavoittuvuuden syynä sitten ohjelmistovirhe, epäonnistunut päivitys tai jokin muu syy. Kun haav</description>
+</item>
+<item>
+<title>ENISA: Procurement guidelines for the cybersecurity of hospitals and healthcare providers</title>
+<link>https://www.enisa.europa.eu/publications/procurement-guidelines-for-the-cybersecurity-of-hospitals-and-healthcare-providers</link>
+<guid isPermaLink="true">https://www.enisa.europa.eu/publications/procurement-guidelines-for-the-cybersecurity-of-hospitals-and-healthcare-providers</guid>
+<pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
 <title>TSV: Euroopan tietosuojaneuvosto keskusteli eri alojen viranomaisten välisestä tiedonjaosta ja valvonnan tehostamisesta</title>
 <link>https://tietosuoja.fi/-/euroopan-tietosuojaneuvosto-keskusteli-eri-alojen-viranomaisten-valisesta-tiedonjaosta-ja-valvonnan-tehostamisesta</link>
 <guid isPermaLink="true">https://tietosuoja.fi/-/euroopan-tietosuojaneuvosto-keskusteli-eri-alojen-viranomaisten-valisesta-tiedonjaosta-ja-valvonnan-tehostamisesta</guid>
 <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>NCSC-FI: WordPress -tuotteessa kriittinen haavoittuvuus</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Sun, 19 Jul 2026 09:00:00 +0000</pubDate>
+<description>WordPress julkaisi korjaukset kahteen haavoittuvuuteen, joiden ketjuttaminen (wp2shell) mahdollistaa etäkoodin suorittamisen haavoittuvissa WordPress-asennuksissa ilman tunnistautumista. Haavoittuvuutta hyväksikäyttämällä on toteutettu useita onnistuneita tietomurtoja myös Suomessa, joten haavoittuvuudelle alttiille palvelimille tulee korjauksen välittömän asentamisen lisäksi myös suorittaa tutkin</description>
+</item>
+<item>
+<title>EDPB: EDPB calls for legal basis for cross-regulatory information sharing</title>
+<link>https://www.edpb.europa.eu/news/edpb-calls-for-legal-basis-for-cross-regulatory-information-sharing_en</link>
+<guid isPermaLink="true">https://www.edpb.europa.eu/news/edpb-calls-for-legal-basis-for-cross-regulatory-information-sharing_en</guid>
+<pubDate>Fri, 17 Jul 2026 09:00:00 +0000</pubDate>
+<description>ipetstef Fri, 17/07/2026 - 14:50</description>
+</item>
+<item>
+<title>NCSC-FI: Heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Wed, 15 Jul 2026 09:00:00 +0000</pubDate>
+<description>Viime vuosien aikana lukuisat kotimaiset organisaatiot ovat joutuneet tietomurron kohteeksi haavoittuvan tai heikosti suojatun verkkolaitteen- tai palvelun vuoksi. Verkkolaitteiden suojaamiseen ja valvontaan on tärkeää kohdentaa riittävästi resursseja. Organisaatioiden tulee varautua ja harjoitella mahdollisten poikkeamatilanteiden varalta.</description>
+</item>
+<item>
+<title>ENISA: Where do SMEs stand in preparing for the Cyber Resilience Act?</title>
+<link>https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act</link>
+<guid isPermaLink="true">https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act</guid>
+<pubDate>Mon, 13 Jul 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>ENISA: SME Cyber Resilience Maturity Assessment Model</title>
+<link>https://www.enisa.europa.eu/publications/sme-cyber-resilience-maturity-assessment-model</link>
+<guid isPermaLink="true">https://www.enisa.europa.eu/publications/sme-cyber-resilience-maturity-assessment-model</guid>
+<pubDate>Mon, 13 Jul 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>ENISA: Team Europe wins 1st ever International Cybersecurity Challenge for women</title>
+<link>https://www.enisa.europa.eu/news/team-europe-wins-1st-ever-international-cybersecurity-challenge-for-women</link>
+<guid isPermaLink="true">https://www.enisa.europa.eu/news/team-europe-wins-1st-ever-international-cybersecurity-challenge-for-women</guid>
+<pubDate>Fri, 10 Jul 2026 09:00:00 +0000</pubDate>
 <description></description>
 </item>
 <item>
@@ -90,11 +399,60 @@
 <description></description>
 </item>
 <item>
+<title>ENISA: ENISA’s view on Cybersecurity in the Frontier AI Era</title>
+<link>https://www.enisa.europa.eu/publications/enisas-view-on-cybersecurity-in-the-frontier-ai-era</link>
+<guid isPermaLink="true">https://www.enisa.europa.eu/publications/enisas-view-on-cybersecurity-in-the-frontier-ai-era</guid>
+<pubDate>Tue, 07 Jul 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>Julkaisu: KULUTTAJAN YKSITYISYYS JA TIETOTURVA PILVIPALVELUSSA</title>
+<link>http://urn.fi/URN:NBN:fi:jyu-202607026240</link>
+<guid isPermaLink="true">http://urn.fi/URN:NBN:fi:jyu-202607026240</guid>
+<pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
+<description>pilvitallennus, yksityisyys, tietoturva, kuluttaja, tietosuoja, Tietojärjestelmätieteen kandidaattiohjelma, Bachelor&amp;apos;s Degree Programme in Information Systems, tietosuoja, tietoturva, tiedontallennus, salaus (tekniikka), turvallisuus, kuluttajat, pilvitallennus, data, data protection, data secu</description>
+</item>
+<item>
+<title>NCSC-FI: Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
+<description>Tietoturvatutkija on julkaissut Linux Kernelissä olevan haavoittuvuuden nimeltä IPV6_FRAG_ESCAPE. Haavoittuvuuden hyväksikäytön mahdollistava proof-of-concept-koodi on julkisesti saatavilla. Proof-of-concept koskee Linux kernel 6.12-versiota, joka on käytössä muun muassa AlmaLinux 10:ssä, CentOS Stream 10:ssä ja Red Hat Enterprise Linux 10:ssä. AlmaLinux-ohjelmiston osalta on olemassa päivitys tai</description>
+</item>
+<item>
+<title>Julkaisu: Evästesuostumusten säädöstenmukaisuus suomalaisilla verkkosivustoilla: käyttöliittymäratkaisut ja tekniset käytännöt</title>
+<link>http://urn.fi/URN:NBN:fi:jyu-202607016218</link>
+<guid isPermaLink="true">http://urn.fi/URN:NBN:fi:jyu-202607016218</guid>
+<pubDate>Wed, 01 Jul 2026 09:00:00 +0000</pubDate>
+<description>Tietojärjestelmätieteen maisteriohjelma, Master&amp;apos;s Degree Programme in Information Systems</description>
+</item>
+<item>
+<title>MAO: MAO:334/2026</title>
+<link>https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao334-2026/</link>
+<guid isPermaLink="true">https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao334-2026/</guid>
+<pubDate>Tue, 30 Jun 2026 09:00:00 +0000</pubDate>
+<description>julkinen hankinta – seuraamusmaksun määrääminen</description>
+</item>
+<item>
 <title>KKO: KKO:2026:50</title>
 <link>https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202650/</link>
 <guid isPermaLink="true">https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202650/</guid>
 <pubDate>Tue, 30 Jun 2026 09:00:00 +0000</pubDate>
 <description>Oikeudenkäynnin julkisuus  – Tietopyyntö, Tietosuoja</description>
+</item>
+<item>
+<title>TSV: Oikeuspalveluvirastolle huomautus työntekijöiden luottotietojen perusteettomasta tarkastamisesta</title>
+<link>https://tietosuoja.fi/-/oikeuspalveluvirastolle-huomautus-tyontekijoiden-luottotietojen-perusteettomasta-tarkastamisesta</link>
+<guid isPermaLink="true">https://tietosuoja.fi/-/oikeuspalveluvirastolle-huomautus-tyontekijoiden-luottotietojen-perusteettomasta-tarkastamisesta</guid>
+<pubDate>Thu, 25 Jun 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>NCSC-FI: FortiBleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös Suomessa</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Tue, 23 Jun 2026 09:00:00 +0000</pubDate>
+<description>Kesäkuussa 2026 paljastunut FortiBleed-kampanja on yksi vuoden merkittävimmistä maailmanlaajuisista kyberhyökkäyksistä. Se koskee erityisesti Fortinetin FortiGate-palomuureja ja SSL-VPN-laitteita, joihin on kohdistunut tietomurtoja ja tietomurron yrityksiä aiemmin vuotaneita ja varastettuja kirjautumistunnuksia hyväksikäyttäen. Kyberturvallisuuskeskus on kartoittanut suomalaisia kohdeorganisaatioi</description>
 </item>
 <item>
 <title>TSV: Korkein hallinto-oikeus piti voimassa Verkkokauppa.comille määrätyn seuraamusmaksun tietosuojarikkomuksista</title>
@@ -104,11 +462,39 @@
 <description></description>
 </item>
 <item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 24/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 12 Jun 2026 09:00:00 +0000</pubDate>
+<description>Tällä viikolla kerromme vaarallisista puhelinhuijauksista Klarnan nimissä. Kerromme myös kesän aikana yleistyvistä toimitusjohtajahuijauksista sekä toivotamme halukkaat tervetulleeksi kansainväliseen Connect4Cyber verkostoitumistapahtumaan. Nostamme lisäksi toukokouun Kybersään julkaisun sekä toivotamme hyvää kesää, sillä Kyberturvallisuuskeskuksen viikkokatsaus jää kesätauolle. Lopuksi voit tutus</description>
+</item>
+<item>
 <title>TSV: Euroopan tietosuojaneuvoston mallipohja tietoturvaloukkausilmoituksille avoinna kommenteille</title>
 <link>https://tietosuoja.fi/-/euroopan-tietosuojaneuvoston-mallipohja-tietoturvaloukkausilmoituksille-avoinna-kommenteille</link>
 <guid isPermaLink="true">https://tietosuoja.fi/-/euroopan-tietosuojaneuvoston-mallipohja-tietoturvaloukkausilmoituksille-avoinna-kommenteille</guid>
 <pubDate>Thu, 11 Jun 2026 09:00:00 +0000</pubDate>
 <description></description>
+</item>
+<item>
+<title>ENISA: Cyber Europe 2026: All eyes on the EU’s collective response and resilience</title>
+<link>https://www.enisa.europa.eu/news/cyber-europe-2026-all-eyes-on-the-eus-collective-response-and-resilience</link>
+<guid isPermaLink="true">https://www.enisa.europa.eu/news/cyber-europe-2026-all-eyes-on-the-eus-collective-response-and-resilience</guid>
+<pubDate>Thu, 11 Jun 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>NCSC-FI: Check Point VPN -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Tue, 09 Jun 2026 09:00:00 +0000</pubDate>
+<description>Check Point julkaisi korjauspaketin Remote Access VPN, Mobile Access ja Spark Firewall -tuotteisiin joka korjaa kriittisen tunnistautumisen ohituksen mahdollistavan haavoittuvuuden CVE-2026-50751. Haavoittuvuuden hyväksikäyttöä on jo havaittu, joten haavoittuvuudelle alttiille laitteille tulee korjauksen asentamisen lisäksi myös suorittaa tutkinta mahdollisen tapahtuneen tietomurron varalta.</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 23/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 05 Jun 2026 09:00:00 +0000</pubDate>
+<description>Tällä viikolla kerromme pienestä kesän kybermuistilistasta, jonka avulla voit parantaa tietoturvaa helpoilla toimenpiteillä. Kerromme myös uuden kyberkestävyyslain voimaantulosta sekä esittelemme keväällä järjestettyä valtionhallinnon kyberharjoitusta. Lopuksi tutustumme ajankohtaisiin huijauksiin. Viikkokatsaus jää kesätauolle 19.6.–6.8.2026 väliseksi ajaksi.</description>
 </item>
 <item>
 <title>TSV: Norjan tietosuojaviranomainen: Gigantin emoyhtiölle 1,85 miljoonan euron seuraamusmaksu tietosuojarikkomuksista klubijäsenten henkilötietojen käsittelyssä</title>
@@ -118,6 +504,20 @@
 <description></description>
 </item>
 <item>
+<title>TSV: Hallinto-oikeudelta päätös Yliopiston Apteekille määrätystä seuraamusmaksusta – lakiuudistus julkisen sektorin seuraamusmaksuista lisäisi yhdenmukaisuutta</title>
+<link>https://tietosuoja.fi/-/hallinto-oikeudelta-paatos-yliopiston-apteekille-maaratysta-seuraamusmaksusta-lakiuudistus-julkisen-sektorin-seuraamusmaksuista-lisaisi-yhdenmukaisuutta</link>
+<guid isPermaLink="true">https://tietosuoja.fi/-/hallinto-oikeudelta-paatos-yliopiston-apteekille-maaratysta-seuraamusmaksusta-lakiuudistus-julkisen-sektorin-seuraamusmaksuista-lisaisi-yhdenmukaisuutta</guid>
+<pubDate>Tue, 02 Jun 2026 09:00:00 +0000</pubDate>
+<description></description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 22/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 29 May 2026 09:00:00 +0000</pubDate>
+<description>Viikkokatsauksessa kerromme Traficomin nimissä liikkeellä olleista huijausviesteistä ja kuinka uudistettu Hyöky-palvelu kannustaa vahvistamaan oman verkon turvallisuutta. EU:n kyberkestävyyssäädöksen voimaantulo tuo mukanaan uusia velvoitteita, joista kerrotaan tarkemmin 3.6. järjestettävässä infotilaisuudessa.</description>
+</item>
+<item>
 <title>TSV: Pohjoismaiden tietosuojaviranomaiset keskustelivat digisääntelyn riskilähtöisen täytäntöönpanon merkityksestä</title>
 <link>https://tietosuoja.fi/-/pohjoismaiden-tietosuojaviranomaiset-keskustelivat-digisaantelyn-riskilahtoisen-taytantoonpanon-merkityksesta</link>
 <guid isPermaLink="true">https://tietosuoja.fi/-/pohjoismaiden-tietosuojaviranomaiset-keskustelivat-digisaantelyn-riskilahtoisen-taytantoonpanon-merkityksesta</guid>
@@ -125,10 +525,38 @@
 <description></description>
 </item>
 <item>
+<title>NCSC-FI: Drupal Coressa kriittinen ja aktiivisesti hyväksikäytetty SQL-injektion mahdollistava haavoittuvuus</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 22 May 2026 09:00:00 +0000</pubDate>
+<description>Drupal-julkaisualustassa on havaittu kriittinen, SQL-injektion mahdollistava haavoittuvuus. Drupal on julkaissut haavoittuvuuden korjaavan päivityksen ja organisaatioita suositellaan välittömästi päivittämään Drupal haavoittuvuuden korjaamiseksi.</description>
+</item>
+<item>
+<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 21/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 22 May 2026 09:00:00 +0000</pubDate>
+<description>Kesän kynnyksellä kyberturvallisuudessa korostuvat sekä arjen huolellisuus että ennakoiva varautuminen. Tämän viikon katsauksessa nostamme esiin ajankohtaisia huijauksia, Microsoft 365 -ympäristöihin kohdistuvia uusia kalastelutapoja, Secure Boot -varmenteiden tulevia muutoksia, energia-alan kyberharjoittelua tuulivoimaympäristöissä, avoinna olevasta EU-rahoituksesta sekä Kyberturvallisuuskeskukse</description>
+</item>
+<item>
 <title>TSV: Henkilötietojen käsittelyn läpinäkyvyyttä selvittävä kysely lähetetty eduskuntapuolueille</title>
 <link>https://tietosuoja.fi/-/henkilotietojen-kasittelyn-lapinakyvyytta-selvittava-kysely-lahetetty-eduskuntapuolueille</link>
 <guid isPermaLink="true">https://tietosuoja.fi/-/henkilotietojen-kasittelyn-lapinakyvyytta-selvittava-kysely-lahetetty-eduskuntapuolueille</guid>
 <pubDate>Thu, 21 May 2026 09:00:00 +0000</pubDate>
 <description></description>
+</item>
+<item>
+<title>NCSC-FI: Uusi aalto M365-tietojenkalastelussa - AI‑avusteinen laitekoodin kalastelukampanja</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Thu, 21 May 2026 09:00:00 +0000</pubDate>
+<description>Tietoturvatutkijat ovat havainneet laajamittaisen kalastelukampanjan, jossa hyödynnetään laitekooditodennusmenetelmää ja tekoälyä hyökkäysten tehostamiseen. Kampanja kohdistuu organisaatioihin ja yksittäisiin käyttäjiin. Hyökkäyksen tavoitteena on saada luvaton pääsy tileihin sekä yritysten resursseihin. Kyberturvallisuuskeskus on saanut ilmoituksia vastaavista tapauksista myös Suomessa. Organisaa</description>
+</item>
+<item>
+<title>NCSC-FI: Jopa 100% EU-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>
+<description>Euroopan komission Horisontti Eurooppa -ohjelmassa on tarjolla rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyberturvallisuuden tutkimus-, kehittämis- ja innovaatiotoiminnan edistämiseen erilaisia kyberuhkia ja -hyökkäyksiä vastaan, myös kehittyvät kryptoteknologiat soveltuvasti huomioiden. Rahoitusta voivat hakea kaikki teemasta kiinnostuneet organisaatiot.</description>
 </item>
 </channel></rss>

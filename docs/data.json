@@ -1,5 +1,56 @@
 [
   {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-09-15",
+    "keywords": "",
+    "summary": "Cisco Secure Email Gateway -tuotteissa on kriittinen haavoittuvuus, jonka osalta on havaittu hyväksikäyttöä. Haavoittuvuuden avulla tunnistautumaton etähyökkääjä voi suorittaa mielivaltaisia SQL-lauseita ja komentoja laitteen käyttöjärjestelmässä pääkäyttäjäoikeuksin.",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kriittinen haavoittuvuus GitLab Community Edition- ja Enterprise Edition -tuotteissa",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-09-14",
+    "keywords": "",
+    "summary": "GitLab Community Edition (CE) ja Enterprise Edition (EE) -tuotteissa on kriittinen hakemistopolun läpikulkuun liittyvä haavoittuvuus. Korjaava versiopäivitys tulee asentaa mahdollisimman pian. Haavoittuvuuden hyväksikäytön mahdollistava PoC-koodi on julkisesti saatavilla ja haavoittuvuuden aktiivisesta hyväksikäytöstä on tiettävästi havaintoja.",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "EDPB",
+    "source": "Euroopan tietosuojaneuvosto (EDPB)",
+    "title": "Failure to respect the rights of individuals: The CNIL fined EXTIA 300 000 EUR",
+    "url": "https://www.edpb.europa.eu/news/failure-to-respect-the-rights-of-individuals-the-cnil-fined-extia-300-000-eur_en",
+    "date": "2026-09-11",
+    "keywords": "",
+    "summary": "ikerinar Fri, 11/09/2026 - 09:24",
+    "score": 23,
+    "tags": []
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 37/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-09-11",
+    "keywords": "",
+    "summary": "Kyberkestävyyssäädös parantaa verkkolaitteiden käyttäjän asemaa ja helpottaa verkkolaitteiden turvallista ylläpitoa. Uuden säädöksen myötä valmistajalla on vastuu seurata ja tiedottaa laitteiden haavoittuvuudesta. Verkon reunalaitteiden ylläpitoon ja hallintaan uudistus on tervetullut parannus. Elokuun kybersää kertoo sateisesta kybermaisemasta.",
+    "score": 16,
+    "tags": [
+      "kyberturvallisuus",
+      "kyberkestävyy"
+    ]
+  },
+  {
     "court": "EUT",
     "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
     "title": "C-669/24 Bundesverband der Verbraucherzentralen und Verbraucherverbände - Verbraucherzentrale Bundesverband e.V. vastaa (tuomio)",
@@ -11,6 +62,56 @@
     "tags": [
       "sähköisen viestinnän",
       "televiestint"
+    ]
+  },
+  {
+    "court": "Traficom",
+    "source": "Traficom",
+    "title": "Kyberkestävyyssäädös tuo valmistajille uuden ilmoitusvelvoitteen ja käyttäjille ajantasaista tietoa tuotteiden kyberturvallisuudesta",
+    "url": "https://www.traficom.fi/fi/uutiset/kyberkestavyyssaados-tuo-valmistajille-uuden-ilmoitusvelvoitteen-ja-kayttajille-ajantasaista-tietoa-tuotteiden-kyberturvallisuudesta-0",
+    "date": "2026-09-10",
+    "keywords": "",
+    "summary": "",
+    "score": 23,
+    "tags": [
+      "kyberkestävyy"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Elokuun Kybersää 2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-09-10",
+    "keywords": "",
+    "summary": "Elokuun kybersää jatkui sateisena ja kesälomien jälkeen tapausmäärät kasvoivat. Tapauksissa nähtiin tietojenkalastelua ja verkkopalvelujen murtoja.",
+    "score": 13,
+    "tags": [
+      "tietojenkalastelu"
+    ]
+  },
+  {
+    "court": "EDPB",
+    "source": "Euroopan tietosuojaneuvosto (EDPB)",
+    "title": "Health data breach: the CNIL fined Hôpital Privé de la Loire 500 000 EUR",
+    "url": "https://www.edpb.europa.eu/news/health-data-breach-the-cnil-fined-hopital-prive-de-la-loire-500-000-eur_en",
+    "date": "2026-09-09",
+    "keywords": "",
+    "summary": "ikerinar Wed, 09/09/2026 - 11:58",
+    "score": 23,
+    "tags": []
+  },
+  {
+    "court": "EU-komissio",
+    "source": "Komissio, digitaalinen strategia",
+    "title": "Apply AI Summit",
+    "url": "https://digital-strategy.ec.europa.eu/en/events/apply-ai-summit",
+    "date": "2026-09-07",
+    "keywords": "",
+    "summary": "Anonymous (not verified) Mon, 09/07/2026 - 15:58 17 November 2026 The EGG (Brussels) The  will gather high-level stakeholders – from industrial representatives, policymakers and startups – to accelerate AI implementation in strategic industries. Main link https://digital-strategy.ec.europa.eu/en/policies/apply-ai-summit Register until 13 November Related topics Events Artificial intelligence",
+    "score": 23,
+    "tags": [
+      "artificial intelligence"
     ]
   },
   {
@@ -52,6 +153,65 @@
     "score": 13,
     "tags": [
       "electronic communications"
+    ]
+  },
+  {
+    "court": "EU-komissio",
+    "source": "Komissio, digitaalinen strategia",
+    "title": "Commission designates ChatGPT, Reddit, Roblox under Digital Services Act",
+    "url": "https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act",
+    "date": "2026-08-31",
+    "keywords": "",
+    "summary": "Anonymous (not verified) Mon, 08/31/2026 - 11:10 The Commission has designated ChatGPT as a Very Large Online Search Engine (VLOSE), as well as Reddit and Roblox as Very Large Online Platforms (VLOPs), under the Digital Services Act (DSA). These services declared that they reach at least 45 million average monthly users in the EU and thus meet the threshold for designation. Following the notificat",
+    "score": 23,
+    "tags": [
+      "DSA"
+    ]
+  },
+  {
+    "court": "LVM",
+    "source": "Liikenne- ja viestintäministeriö",
+    "title": "Kyberturvallisuuslaki kokonaisuutena onnistunut – Haasteena valvonnan resurssien puute",
+    "url": "https://www.lvm.fi/-/kyberturvallisuuslaki-kokonaisuutena-onnistunut-haasteena-valvonnan-resurssien-puute",
+    "date": "2026-08-31",
+    "keywords": "",
+    "summary": "",
+    "score": 23,
+    "tags": [
+      "kyberturvallisuus"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "UTUPub (Turun yliopisto)",
+    "title": "Age Assurance Systems on Online Platforms",
+    "url": "https://www.utupub.fi/handle/11111/63335",
+    "date": "2026-08-31",
+    "keywords": "age assurance, age verification, age estimation, online platform, data privacy, cybersecurity, iän varmennus, iän todentaminen, iän arviointi, verkkoalusta, tietosuoja, kyberturvallisuus",
+    "summary": "Age assurance refers to methods used to verify or estimate a person’s age. As online platforms face increasing regulatory pressure to protect minors from harmful content, age assurance has become an important mechanism for managing access to age-restricted material. The effectiveness of age assurance depends on the accuracy of the technology, how users respond to requirements, and how data is mana",
+    "score": 22,
+    "tags": [
+      "tietosuoja",
+      "kyberturvallisuus",
+      "privacy",
+      "cyber"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 35/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-28",
+    "keywords": "",
+    "summary": "Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat muun muassa WordPress-sivustojen murrot, joissa haavoittuvuuksia hyödynnetään haitallisen sisällön levittämiseen. Lisäksi katsauksessa käsitellään Signal-tukena esiintyvää tietojenkalastelua, tekoälyn käyttöön liittyviä uusia avoimuusvelvoitteita sekä kyberkestävyyssäädöksen mukaisia ilmoitusvelvoitteita.",
+    "score": 34,
+    "tags": [
+      "tärkeä",
+      "tekoäly",
+      "kyberturvallisuus",
+      "kyberkestävyy",
+      "tietojenkalastelu"
     ]
   },
   {
@@ -100,6 +260,76 @@
     ]
   },
   {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-26",
+    "keywords": "",
+    "summary": "Ennen CRA:n ilmoitusvelvollisuuden soveltamista organisaatioiden on tärkeää valmistautua sisäisesti ilmoituksen jättämiseen. Ilmoittamisen määräajat ovat lyhyitä, joten vastuut ja toimintatavat kannattaa sopia ennen kuin ensimmäinen ilmoitettava tapaus tulee vastaan. Olemme koonneet valmistajille listan tarkistettavista asioista ja linkit keskeisiin ohjeisiin.",
+    "score": 13,
+    "tags": [
+      "kyberkestävyy"
+    ]
+  },
+  {
+    "court": "EDPB",
+    "source": "Euroopan tietosuojaneuvosto (EDPB)",
+    "title": "Data breach: the CNIL fined MOBIUS SOLUTIONS LTD €1 million",
+    "url": "https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-mobius-solutions-ltd-eur1-million_en",
+    "date": "2026-08-21",
+    "keywords": "",
+    "summary": "ipayotfr Fri, 21/08/2026 - 10:54",
+    "score": 23,
+    "tags": []
+  },
+  {
+    "court": "EDPB",
+    "source": "Euroopan tietosuojaneuvosto (EDPB)",
+    "title": "Data breach: the CNIL fined NEXPUBLICA FRANCE €1.7 million",
+    "url": "https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-nexpublica-france-eur17-million_en",
+    "date": "2026-08-21",
+    "keywords": "",
+    "summary": "ipayotfr Fri, 21/08/2026 - 10:47",
+    "score": 23,
+    "tags": []
+  },
+  {
+    "court": "EDPB",
+    "source": "Euroopan tietosuojaneuvosto (EDPB)",
+    "title": "Data breach: FREE MOBILE and FREE fined €42 million",
+    "url": "https://www.edpb.europa.eu/news/data-breach-free-mobile-and-free-fined-eur42-million_en",
+    "date": "2026-08-21",
+    "keywords": "",
+    "summary": "ipayotfr Fri, 21/08/2026 - 10:42",
+    "score": 23,
+    "tags": []
+  },
+  {
+    "court": "EDPB",
+    "source": "Euroopan tietosuojaneuvosto (EDPB)",
+    "title": "Data breach: France Travail fined €5 million",
+    "url": "https://www.edpb.europa.eu/news/data-breach-france-travail-fined-eur5-million_en",
+    "date": "2026-08-21",
+    "keywords": "",
+    "summary": "ipayotfr Fri, 21/08/2026 - 10:25",
+    "score": 23,
+    "tags": []
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 34/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-21",
+    "keywords": "",
+    "summary": "Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat lisääntyneet palkanmaksuhuijaukset, joissa rikolliset pyrkivät ohjaamaan palkkoja omille tileilleen väärennetyillä sähköpostiviesteillä. Lisäksi käsitellään pelien käyttäjien tekemiin lisäsisältöihin piilotettuja haittaohjelmia sekä EU:n uusia menettelyjä sähköisten todisteiden hankkimiseksi rikostutkinnoissa.",
+    "score": 13,
+    "tags": [
+      "kyberturvallisuus"
+    ]
+  },
+  {
     "court": "MAO",
     "source": "Markkinaoikeus",
     "title": "MAO:387/2026",
@@ -110,6 +340,32 @@
     "score": 23,
     "tags": [
       "liikesalaisuu"
+    ]
+  },
+  {
+    "court": "EU-komissio",
+    "source": "Komissio, digitaalinen strategia",
+    "title": "Call for tenders: Study on how online marketplace design influences user behaviour",
+    "url": "https://digital-strategy.ec.europa.eu/en/funding/call-tenders-study-how-online-marketplace-design-influences-user-behaviour",
+    "date": "2026-08-18",
+    "keywords": "",
+    "summary": "Anonymous (not verified) Tue, 08/18/2026 - 11:13 Opening: 17 August 2026 Closing: 23 September 2026 The study will explore users' interactions with features mandated by the Digital Services Act (DSA) on selected online marketplaces designated as Very Large Online Marketplaces (VLOMs). The study should cover user interaction with mechanisms under Article 16 (notice and action), Article 30(7) (trade",
+    "score": 23,
+    "tags": [
+      "DSA"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "JYX (Jyväskylän yliopisto)",
+    "title": "How in-store QR codes shape the in-store customer experience",
+    "url": "http://urn.fi/URN:NBN:fi:jyu-202608186595",
+    "date": "2026-08-18",
+    "keywords": "QR codes, In-store customer experience, In-store technologies, Omnichannel, Participatory dimension, Fashion retail, Value Creation for Cyber-Physical Systems and Services, Digitaalinen liiketoiminta ja talous (painoala), Tietojärjestelmätiede, Hyvinvoinnin tutkimuksen yhteisö, Kestävä liiketoiminta",
+    "summary": "Retailers are introducing new technologies into brick-and-mortar (B&amp;M) stores to enhance the in-store customer experience (ISCX). In fashion retail, quick response (QR) codes provide customers with online content and are becoming more prevalent due to emerging global recommendations and European Union (EU) regulations. However, an in-depth understanding of how QR codes shape the ISCX and its f",
+    "score": 13,
+    "tags": [
+      "cyber"
     ]
   },
   {
@@ -141,6 +397,251 @@
     ]
   },
   {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-17",
+    "keywords": "",
+    "summary": "Traficom on avannut syksyn 2026 rahoitushaun. Tavoitteena on tukea yritysten kasvun ja kansainvälistymisen edellytyksiä sekä lisätä kehittyneiden kyberturvallisuusratkaisujen saatavuutta.",
+    "score": 13,
+    "tags": [
+      "kyberturvallisuus"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 33/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-332026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-14",
+    "keywords": "",
+    "summary": "Tällä viikolla kerromme tietomurroista, joissa verkkosivupalvelimet on valjastettu jakamaan haittaohjelmia verkkosivujen selaajille. Yksinkertaiset varotoimet auttavat suojautumaan haittaohjelman uhkaa vastaan. Kehotamme myös valppauteen pikaviestinpalvelun uusia ominaisuuksia käyttäessä.\nLisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syksyn merkkejä.",
+    "score": 13,
+    "tags": [
+      "kyberturvallisuus"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Heinäkuun Kybersää 2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-13",
+    "keywords": "",
+    "summary": "Heinäkuussa kyberin kentällä nähtiin saderrintamia. Kyberturvallisuuskeskukselle tehtyjen kiristyshaittaohjelmailmoitusten määrä kasvoi. Myös haavoittuvuuksien määrä on jatkuvassa nousussa, mikä näkyy myös Kyberturvallisuuskeskuksen jakamien haavoittuvuustiedotteiden määrässä.",
+    "score": 19,
+    "tags": [
+      "kyberturvallisuus",
+      "haavoittuvuus",
+      "kiristyshaittaohjelma"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kriittisiä haavoittuvuuksia Metabase-ohjelmistossa",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-11",
+    "keywords": "",
+    "summary": "Metabase on julkaissut korjauspäivityksen kriittiseen, aktiivisesti hyväksikäytettyyn nollapäivähaavoittuvuuteen. Haavoittuvuus mahdollistaa tunnistautumattoman hyökkääjän suorittaa SQL-injektiohyökkäyksen etänä.",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 32/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-07",
+    "keywords": "",
+    "summary": "Tällä viikolla muistutamme lomilta paluun yhteydessä yleistyvistä huijauksista sekä tietojenkalastelusta. Nostamme esiin npm-ekosysteemin kohdistuneen uuden toimitusketjuhyökkäyksen sekä kerromme, miten yksikin suojaamaton laite voi avata tien verkkoon. Kerromme lisäksi tälläkin viikolla esiin nousseista ClickFix-tartuntatapauksista. Lopuksi kerromme EU-komission julkaisemasta soveltamisohjeesta j",
+    "score": 16,
+    "tags": [
+      "kyberturvallisuus",
+      "tietojenkalastelu"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-07",
+    "keywords": "",
+    "summary": "Kesälomakauden päättyminen näkyy vuosittain myös kyberrikollisten toiminnassa. Työarkeen palaavien kiire tarjoaa rikollisille otollisen tilaisuuden kalastella käyttäjätunnuksia ja muita luottamuksellisia tietoja.",
+    "score": 13,
+    "tags": [
+      "tietojenkalastelu"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "UTUPub (Turun yliopisto)",
+    "title": "A comprehensive analysis of the NIS2 implementation in international companies in Finland through the ISO/IEC 27001 framework",
+    "url": "https://www.utupub.fi/handle/11111/62879",
+    "date": "2026-08-04",
+    "keywords": "NIS2 Directive, ISO/IEC 27001, information security management systems (ISMS), cybersecurity regulation, compliance implementation, information security, risk management",
+    "summary": "This MSc thesis investigates how international companies operating in Finland can implement the EU’s NIS2 Directive using the ISO/IEC 27001:2022 framework as their primary compliance instrument. Through a systematic, control-by-control mapping between NIS2 provisions-particularly risk management (Article 21), incident reporting (Article 23), and supply chain security (Article 21(2)(d))-and the 93 ",
+    "score": 16,
+    "tags": [
+      "NIS2",
+      "cyber"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "N-able N-Central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-08-02",
+    "keywords": "",
+    "summary": "N-able N-central julkaisi haavoittuvuustiedotteen N-central-ohjelmistoa koskien. Kaikki N-central-versiot ovat haavoittuvia. N-able on julkaissut 6.8.2026 uuden korjauspäivityksen N-central 2026.3 (2026.3.1.10) versioon, joka korjaa käyttäjän todennuksen ohituksen vaihtoehtoisen reitin tai kanavan kautta. Haavoittuvuuden hyväksikäyttöä on havaittu. Päivitä ohjelmisto välittömästi.",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-07-31",
+    "keywords": "",
+    "summary": "Julkisuudessa on viime aikoina keskusteltu tapauksista, joissa tekoälyjärjestelmät ovat turvallisuustesteissä toteuttaneet toimia, jotka muistuttavat tietomurtoja tai luvattomia tunkeutumisyrityksiä. Tapaukset ovat herättäneet kysymyksiä siitä, kuinka itsenäisesti tekoäly kykenee toimimaan ja millaisia riskejä sen käyttöön liittyy kyberturvallisuuden näkökulmasta.",
+    "score": 40,
+    "tags": [
+      "tärkeä",
+      "tekoäly",
+      "tietomurto"
+    ]
+  },
+  {
+    "court": "EU-komissio",
+    "source": "Komissio, digitaalinen strategia",
+    "title": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August",
+    "url": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august",
+    "date": "2026-07-31",
+    "keywords": "",
+    "summary": "Anonymous (not verified) Fri, 07/31/2026 - 09:00 From 2 August 2026, the European Commission’s AI Office, together with national authorities, will begin enforcing the Artificial Intelligence (AI) Act. On the same date, new transparency rules will start to apply, requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it. Under ",
+    "score": 26,
+    "tags": [
+      "AI Act",
+      "artificial intelligence"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "UTUPub (Turun yliopisto)",
+    "title": "Riski, kasvu ja valta: Diskurssianalyysi tekoälyn kehystämisestä",
+    "url": "https://www.utupub.fi/handle/11111/62756",
+    "date": "2026-07-30",
+    "keywords": "tekoäly, yleinen tekoäly, tekoälydiskurssi, kehystys, diskurssianalyysi, diskurssi-historiallinen lähestymistapa, tekoälyn sääntely, teknologinen kehitys, suuret kielimallit, käyttötehokkuus",
+    "summary": "Tekoäly on noussut keskeiseksi julkisen keskustelun aiheeksi erityisesti vaikutusvaltaisten henkilöiden ja instituutioiden keskuudessa. Keskustelu painottuu usein teknologian sijaan tulkintoihin tekoälyn riskeistä, hyödyistä ja yhteiskunnallisesta merkityksestä. Näillä tulkinnoilla on vaikutusta päätöksentekoon, investointeihin ja sääntelyyn. Tutkielman tavoitteena on tarkastella, miten eri toimij",
+    "score": 25,
+    "tags": [
+      "tärkeä",
+      "tekoäly"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "UTUPub (Turun yliopisto)",
+    "title": "Interoperability and Recent Competitive Developments in Digital Markets : Examining Interoperability Under the Digital Markets Act Regarding Regulatory Flexibility, Efficiency, and Legal Certainty Compared to the Article",
+    "url": "https://www.utupub.fi/handle/11111/62755",
+    "date": "2026-07-30",
+    "keywords": "The Digital Markets Act, Article 102 TFEU, interoperability, regulatory flexibility, regulatory dialogue, efficiency, legal certainty, digital markets, digital single market, competition, digimarkkinasäädös, SEUT 102 artikla, yhteentoimivuus, sääntelyn joustavuus, sääntelyvuoropuhelu, regulatiivinen",
+    "summary": "This jurisprudential thesis examines the influence of regulatory flexibility under Articles 6(4) and 6(7) of the Digital Markets Act on improving efficiency compared to the application of Article 102 of the Treaty on the Functioning of the European Union in enforcing interoperability. The research extends to assessing what are the consequences for legal certainty concerning the question above. The",
+    "score": 13,
+    "tags": [
+      "digimarkkinasäädös"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberkestävyyssäädöksen vaatimukset selkiytyvät - EU-komissio julkaisi uuden soveltamisohjeen",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-07-29",
+    "keywords": "",
+    "summary": "Euroopan komissio on julkaissut uuden soveltamisohjeen kyberkestävyyssäädöksen (Cyber Resilience Act, CRA) toimeenpanon tueksi. Ohjeistus on suunnattu erityisesti valmistajille, ohjelmistokehittäjille sekä muille yrityksille, jotka saattavat markkinoille digitaalisia tuotteita. Ohjeistus tarjoaa yrityksille konkreettisia neuvoja siihen, miten ne voivat valmistautua tuleviin kyberturvallisuusvaatim",
+    "score": 19,
+    "tags": [
+      "kyberturvallisuus",
+      "kyberkestävyy",
+      "cyber"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kriittinen haavoittuvuus NGINX-tuotteissa",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-07-29",
+    "keywords": "",
+    "summary": "F5:n heinäkuussa korjaamasta kriittisestä NGINX-haavoittuvuudesta (CVE-2026-42533) on julkaistu toimiva hyväksikäyttökoodi, mikä kasvattaa merkittävästi riskiä haavoittuvuuden aktiiviseen hyväksikäyttöön. Käyttöoikeudettoman hyökkääjän etäkoodin suorituksen mahdollistava haavoittuvuus koskee useita NGINX-tuotteita. Tuotteiden käyttäjiä kehotetaan päivittämään korjattuihin versioihin viipymättä.",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "EU-komissio",
+    "source": "Komissio, digitaalinen strategia",
+    "title": "AI-powered robotics in Europe: Live demonstrations and strategic debate",
+    "url": "https://digital-strategy.ec.europa.eu/en/events/ai-powered-robotics-europe-live-demonstrations-and-strategic-debate",
+    "date": "2026-07-24",
+    "keywords": "",
+    "summary": "Anonymous (not verified) Fri, 07/24/2026 - 14:32 02 September 2026 The European Parliament will host a gathering of policymakers, industry leaders, researchers, alongside live demonstrations of cutting-edge robots, to set the course for the EU’s future in robotics. Europe is already a global leader in robotics research, development and innovation. As advances in artificial intelligence (AI) are ac",
+    "score": 23,
+    "tags": [
+      "artificial intelligence"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "Helda (Helsingin yliopisto)",
+    "title": "Do SMEs have equal opportunity for GDPR compliance? : Accessibility and Effectiveness of the Standard Contractual Clauses in International Data Transfers in a Post-Schrems II Legal Landscape",
+    "url": "http://hdl.handle.net/10138/569898",
+    "date": "2026-07-24",
+    "keywords": "Tietosuoja-asetus, mallisopimuslausekkeet, Schrems II, pk-yritykset, Viestintä- ja informaatio-oikeus, Information- and Communications Law, Informations- och kommunikationsrätt, Oikeustieteen maisterin koulutusohjelma Helsinki, Master&apos;s Programme in Law Helsinki, Magisterprogrammet i rättsveten",
+    "summary": "Tutkielmassa käsitellään Schrems II-oikeustapauksen jäljiltä tapahtuneita muutoksia tietosuoja-asetuksen mukaisissa yleisissä mallisopimuslausekkeissa ja arvioidaan mikäli ne asettavat eri kokoiset yritykset eriarvoiseen asemaan nykymuodossaan.\r\n\r\nEnsin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetään oleelliset oikeustapaukset (Schrems I ja Schrems II) taustoittamaan tutkitt",
+    "score": 16,
+    "tags": [
+      "tietosuoja",
+      "GDPR"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Haavoittuvuuskilpailussa nopeus ratkaisee",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-07-24",
+    "keywords": "",
+    "summary": "Kyberturvallisuuden vanhan sanonnan mukaan kello alkaa tikittää silloin, kun haavoittuvuus löydetään. Nykyisessä uhkaympäristössä sekä teknologisen kehityksen myötä sekuntiviisari lähtee liikkeelle jo paljon aikaisemmin. Ensimmäiset sekunnit kuluvat siitä hetkestä lähtien, kun haavoittuvuus syntyy. Oli haavoittuvuuden syynä sitten ohjelmistovirhe, epäonnistunut päivitys tai jokin muu syy. Kun haav",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "ENISA",
+    "source": "ENISA, julkaisut",
+    "title": "Procurement guidelines for the cybersecurity of hospitals and healthcare providers",
+    "url": "https://www.enisa.europa.eu/publications/procurement-guidelines-for-the-cybersecurity-of-hospitals-and-healthcare-providers",
+    "date": "2026-07-22",
+    "keywords": "",
+    "summary": "",
+    "score": 13,
+    "tags": [
+      "cyber"
+    ]
+  },
+  {
     "court": "TSV",
     "source": "Tietosuojavaltuutetun toimisto",
     "title": "Euroopan tietosuojaneuvosto keskusteli eri alojen viranomaisten välisestä tiedonjaosta ja valvonnan tehostamisesta",
@@ -154,6 +655,84 @@
     ]
   },
   {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "WordPress -tuotteessa kriittinen haavoittuvuus",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-07-19",
+    "keywords": "",
+    "summary": "WordPress julkaisi korjaukset kahteen haavoittuvuuteen, joiden ketjuttaminen (wp2shell) mahdollistaa etäkoodin suorittamisen haavoittuvissa WordPress-asennuksissa ilman tunnistautumista. Haavoittuvuutta hyväksikäyttämällä on toteutettu useita onnistuneita tietomurtoja myös Suomessa, joten haavoittuvuudelle alttiille palvelimille tulee korjauksen välittömän asentamisen lisäksi myös suorittaa tutkin",
+    "score": 28,
+    "tags": [
+      "tärkeä",
+      "haavoittuvuus",
+      "tietomurto"
+    ]
+  },
+  {
+    "court": "EDPB",
+    "source": "Euroopan tietosuojaneuvosto (EDPB)",
+    "title": "EDPB calls for legal basis for cross-regulatory information sharing",
+    "url": "https://www.edpb.europa.eu/news/edpb-calls-for-legal-basis-for-cross-regulatory-information-sharing_en",
+    "date": "2026-07-17",
+    "keywords": "",
+    "summary": "ipetstef Fri, 17/07/2026 - 14:50",
+    "score": 23,
+    "tags": []
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-07-15",
+    "keywords": "",
+    "summary": "Viime vuosien aikana lukuisat kotimaiset organisaatiot ovat joutuneet tietomurron kohteeksi haavoittuvan tai heikosti suojatun verkkolaitteen- tai palvelun vuoksi. Verkkolaitteiden suojaamiseen ja valvontaan on tärkeää kohdentaa riittävästi resursseja. Organisaatioiden tulee varautua ja harjoitella mahdollisten poikkeamatilanteiden varalta.",
+    "score": 13,
+    "tags": [
+      "kyberhyökkäy"
+    ]
+  },
+  {
+    "court": "ENISA",
+    "source": "ENISA, uutiset",
+    "title": "Where do SMEs stand in preparing for the Cyber Resilience Act?",
+    "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
+    "date": "2026-07-13",
+    "keywords": "",
+    "summary": "",
+    "score": 13,
+    "tags": [
+      "cyber"
+    ]
+  },
+  {
+    "court": "ENISA",
+    "source": "ENISA, julkaisut",
+    "title": "SME Cyber Resilience Maturity Assessment Model",
+    "url": "https://www.enisa.europa.eu/publications/sme-cyber-resilience-maturity-assessment-model",
+    "date": "2026-07-13",
+    "keywords": "",
+    "summary": "",
+    "score": 13,
+    "tags": [
+      "cyber"
+    ]
+  },
+  {
+    "court": "ENISA",
+    "source": "ENISA, uutiset",
+    "title": "Team Europe wins 1st ever International Cybersecurity Challenge for women",
+    "url": "https://www.enisa.europa.eu/news/team-europe-wins-1st-ever-international-cybersecurity-challenge-for-women",
+    "date": "2026-07-10",
+    "keywords": "",
+    "summary": "",
+    "score": 13,
+    "tags": [
+      "cyber"
+    ]
+  },
+  {
     "court": "TSV",
     "source": "Tietosuojavaltuutetun toimisto",
     "title": "Euroopan tietosuojaneuvosto julkaisi ohjeet anonymisoinnista ja tiedonharavoinnista",
@@ -164,6 +743,74 @@
     "score": 33,
     "tags": [
       "tietosuoja"
+    ]
+  },
+  {
+    "court": "ENISA",
+    "source": "ENISA, julkaisut",
+    "title": "ENISA’s view on Cybersecurity in the Frontier AI Era",
+    "url": "https://www.enisa.europa.eu/publications/enisas-view-on-cybersecurity-in-the-frontier-ai-era",
+    "date": "2026-07-07",
+    "keywords": "",
+    "summary": "",
+    "score": 13,
+    "tags": [
+      "cyber"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "JYX (Jyväskylän yliopisto)",
+    "title": "KULUTTAJAN YKSITYISYYS JA TIETOTURVA PILVIPALVELUSSA",
+    "url": "http://urn.fi/URN:NBN:fi:jyu-202607026240",
+    "date": "2026-07-02",
+    "keywords": "pilvitallennus, yksityisyys, tietoturva, kuluttaja, tietosuoja, Tietojärjestelmätieteen kandidaattiohjelma, Bachelor&apos;s Degree Programme in Information Systems, tietosuoja, tietoturva, tiedontallennus, salaus (tekniikka), turvallisuus, kuluttajat, pilvitallennus, data, data protection, data secu",
+    "summary": "Pilvitallennuksesta on tullut keskeinen osa arkipäiväistä digitaalista elämää, sillä se mahdollistaa kuluttajille henkilökohtaisten tietojen tallentamisen, synkronoinnin ja jakamisen eri laitteiden ja sijaintien välillä. Pilveen tallennetun tiedon määrän kasvaessa yksityisyyteen ja tietoturvaan liittyvät huolenaiheet ovat nousseet yhä merkittävämmiksi. Tässä työssä tarkastellaan, miten kuluttajien",
+    "score": 16,
+    "tags": [
+      "tietosuoja",
+      "data protection"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-07-02",
+    "keywords": "",
+    "summary": "Tietoturvatutkija on julkaissut Linux Kernelissä olevan haavoittuvuuden nimeltä IPV6_FRAG_ESCAPE. Haavoittuvuuden hyväksikäytön mahdollistava proof-of-concept-koodi on julkisesti saatavilla. Proof-of-concept koskee Linux kernel 6.12-versiota, joka on käytössä muun muassa AlmaLinux 10:ssä, CentOS Stream 10:ssä ja Red Hat Enterprise Linux 10:ssä. AlmaLinux-ohjelmiston osalta on olemassa päivitys tai",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "Julkaisu",
+    "source": "JYX (Jyväskylän yliopisto)",
+    "title": "Evästesuostumusten säädöstenmukaisuus suomalaisilla verkkosivustoilla: käyttöliittymäratkaisut ja tekniset käytännöt",
+    "url": "http://urn.fi/URN:NBN:fi:jyu-202607016218",
+    "date": "2026-07-01",
+    "keywords": "Tietojärjestelmätieteen maisteriohjelma, Master&apos;s Degree Programme in Information Systems",
+    "summary": "Yksityisyydensuoja on perusoikeus ja se turvataan Euroopan unionin perusoikeuskirjan ja kansallisen perustuslain nojalla. Teknologian nopea kehitys ja henkilötietojen keräämisen sekä käsittelyn lisääntyminen ovat korostaneet tarvetta varmistaa luonnollisten henkilöiden henkilötietojen suoja. Evästeet, joiden avulla käyttäjistä voidaan kerätä erilaisia tietoja, voivat muodostaa uhan käyttäjien yksi",
+    "score": 16,
+    "tags": [
+      "henkilötiet",
+      "evästeet"
+    ]
+  },
+  {
+    "court": "MAO",
+    "source": "Markkinaoikeus",
+    "title": "MAO:334/2026",
+    "url": "https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao334-2026/",
+    "date": "2026-06-30",
+    "keywords": "julkinen hankinta – seuraamusmaksun määrääminen",
+    "summary": "",
+    "score": 35,
+    "tags": [
+      "tärkeä",
+      "seuraamusmaksu"
     ]
   },
   {
@@ -182,14 +829,57 @@
   {
     "court": "TSV",
     "source": "Tietosuojavaltuutetun toimisto",
+    "title": "Oikeuspalveluvirastolle huomautus työntekijöiden luottotietojen perusteettomasta tarkastamisesta",
+    "url": "https://tietosuoja.fi/-/oikeuspalveluvirastolle-huomautus-tyontekijoiden-luottotietojen-perusteettomasta-tarkastamisesta",
+    "date": "2026-06-25",
+    "keywords": "",
+    "summary": "",
+    "score": 33,
+    "tags": []
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "FortiBleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös Suomessa",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-06-23",
+    "keywords": "",
+    "summary": "Kesäkuussa 2026 paljastunut FortiBleed-kampanja on yksi vuoden merkittävimmistä maailmanlaajuisista kyberhyökkäyksistä. Se koskee erityisesti Fortinetin FortiGate-palomuureja ja SSL-VPN-laitteita, joihin on kohdistunut tietomurtoja ja tietomurron yrityksiä aiemmin vuotaneita ja varastettuja kirjautumistunnuksia hyväksikäyttäen. Kyberturvallisuuskeskus on kartoittanut suomalaisia kohdeorganisaatioi",
+    "score": 31,
+    "tags": [
+      "tärkeä",
+      "kyberturvallisuus",
+      "kyberhyökkäy",
+      "tietomurto"
+    ]
+  },
+  {
+    "court": "TSV",
+    "source": "Tietosuojavaltuutetun toimisto",
     "title": "Korkein hallinto-oikeus piti voimassa Verkkokauppa.comille määrätyn seuraamusmaksun tietosuojarikkomuksista",
     "url": "https://tietosuoja.fi/-/korkein-hallinto-oikeus-piti-voimassa-verkkokauppa.comille-maaratyn-seuraamusmaksun-tietosuojarikkomuksista",
     "date": "2026-06-12",
     "keywords": "",
     "summary": "",
-    "score": 33,
+    "score": 48,
     "tags": [
-      "tietosuoja"
+      "tärkeä",
+      "tietosuoja",
+      "seuraamusmaksu"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 24/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-06-12",
+    "keywords": "",
+    "summary": "Tällä viikolla kerromme vaarallisista puhelinhuijauksista Klarnan nimissä. Kerromme myös kesän aikana yleistyvistä toimitusjohtajahuijauksista sekä toivotamme halukkaat tervetulleeksi kansainväliseen Connect4Cyber verkostoitumistapahtumaan. Nostamme lisäksi toukokouun Kybersään julkaisun sekä toivotamme hyvää kesää, sillä Kyberturvallisuuskeskuksen viikkokatsaus jää kesätauolle. Lopuksi voit tutus",
+    "score": 16,
+    "tags": [
+      "kyberturvallisuus",
+      "cyber"
     ]
   },
   {
@@ -208,6 +898,46 @@
     ]
   },
   {
+    "court": "ENISA",
+    "source": "ENISA, uutiset",
+    "title": "Cyber Europe 2026: All eyes on the EU’s collective response and resilience",
+    "url": "https://www.enisa.europa.eu/news/cyber-europe-2026-all-eyes-on-the-eus-collective-response-and-resilience",
+    "date": "2026-06-11",
+    "keywords": "",
+    "summary": "",
+    "score": 13,
+    "tags": [
+      "cyber"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Check Point VPN -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-06-09",
+    "keywords": "",
+    "summary": "Check Point julkaisi korjauspaketin Remote Access VPN, Mobile Access ja Spark Firewall -tuotteisiin joka korjaa kriittisen tunnistautumisen ohituksen mahdollistavan haavoittuvuuden CVE-2026-50751. Haavoittuvuuden hyväksikäyttöä on jo havaittu, joten haavoittuvuudelle alttiille laitteille tulee korjauksen asentamisen lisäksi myös suorittaa tutkinta mahdollisen tapahtuneen tietomurron varalta.",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 23/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-06-05",
+    "keywords": "",
+    "summary": "Tällä viikolla kerromme pienestä kesän kybermuistilistasta, jonka avulla voit parantaa tietoturvaa helpoilla toimenpiteillä. Kerromme myös uuden kyberkestävyyslain voimaantulosta sekä esittelemme keväällä järjestettyä valtionhallinnon kyberharjoitusta. Lopuksi tutustumme ajankohtaisiin huijauksiin. Viikkokatsaus jää kesätauolle 19.6.–6.8.2026 väliseksi ajaksi.",
+    "score": 16,
+    "tags": [
+      "kyberturvallisuus",
+      "kyberkestävyy"
+    ]
+  },
+  {
     "court": "TSV",
     "source": "Tietosuojavaltuutetun toimisto",
     "title": "Norjan tietosuojaviranomainen: Gigantin emoyhtiölle 1,85 miljoonan euron seuraamusmaksu tietosuojarikkomuksista klubijäsenten henkilötietojen käsittelyssä",
@@ -215,10 +945,40 @@
     "date": "2026-06-04",
     "keywords": "",
     "summary": "",
-    "score": 36,
+    "score": 51,
     "tags": [
+      "tärkeä",
       "tietosuoja",
-      "henkilötiet"
+      "henkilötiet",
+      "seuraamusmaksu"
+    ]
+  },
+  {
+    "court": "TSV",
+    "source": "Tietosuojavaltuutetun toimisto",
+    "title": "Hallinto-oikeudelta päätös Yliopiston Apteekille määrätystä seuraamusmaksusta – lakiuudistus julkisen sektorin seuraamusmaksuista lisäisi yhdenmukaisuutta",
+    "url": "https://tietosuoja.fi/-/hallinto-oikeudelta-paatos-yliopiston-apteekille-maaratysta-seuraamusmaksusta-lakiuudistus-julkisen-sektorin-seuraamusmaksuista-lisaisi-yhdenmukaisuutta",
+    "date": "2026-06-02",
+    "keywords": "",
+    "summary": "",
+    "score": 45,
+    "tags": [
+      "tärkeä",
+      "seuraamusmaksu"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 22/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-05-29",
+    "keywords": "",
+    "summary": "Viikkokatsauksessa kerromme Traficomin nimissä liikkeellä olleista huijausviesteistä ja kuinka uudistettu Hyöky-palvelu kannustaa vahvistamaan oman verkon turvallisuutta. EU:n kyberkestävyyssäädöksen voimaantulo tuo mukanaan uusia velvoitteita, joista kerrotaan tarkemmin 3.6. järjestettävässä infotilaisuudessa.",
+    "score": 16,
+    "tags": [
+      "kyberturvallisuus",
+      "kyberkestävyy"
     ]
   },
   {
@@ -235,6 +995,32 @@
     ]
   },
   {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Drupal Coressa kriittinen ja aktiivisesti hyväksikäytetty SQL-injektion mahdollistava haavoittuvuus",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-05-22",
+    "keywords": "",
+    "summary": "Drupal-julkaisualustassa on havaittu kriittinen, SQL-injektion mahdollistava haavoittuvuus. Drupal on julkaissut haavoittuvuuden korjaavan päivityksen ja organisaatioita suositellaan välittömästi päivittämään Drupal haavoittuvuuden korjaamiseksi.",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 21/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-05-22",
+    "keywords": "",
+    "summary": "Kesän kynnyksellä kyberturvallisuudessa korostuvat sekä arjen huolellisuus että ennakoiva varautuminen. Tämän viikon katsauksessa nostamme esiin ajankohtaisia huijauksia, Microsoft 365 -ympäristöihin kohdistuvia uusia kalastelutapoja, Secure Boot -varmenteiden tulevia muutoksia, energia-alan kyberharjoittelua tuulivoimaympäristöissä, avoinna olevasta EU-rahoituksesta sekä Kyberturvallisuuskeskukse",
+    "score": 13,
+    "tags": [
+      "kyberturvallisuus"
+    ]
+  },
+  {
     "court": "TSV",
     "source": "Tietosuojavaltuutetun toimisto",
     "title": "Henkilötietojen käsittelyn läpinäkyvyyttä selvittävä kysely lähetetty eduskuntapuolueille",
@@ -245,6 +1031,36 @@
     "score": 33,
     "tags": [
       "henkilötiet"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Uusi aalto M365-tietojenkalastelussa - AI‑avusteinen laitekoodin kalastelukampanja",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-05-21",
+    "keywords": "",
+    "summary": "Tietoturvatutkijat ovat havainneet laajamittaisen kalastelukampanjan, jossa hyödynnetään laitekooditodennusmenetelmää ja tekoälyä hyökkäysten tehostamiseen. Kampanja kohdistuu organisaatioihin ja yksittäisiin käyttäjiin. Hyökkäyksen tavoitteena on saada luvaton pääsy tileihin sekä yritysten resursseihin. Kyberturvallisuuskeskus on saanut ilmoituksia vastaavista tapauksista myös Suomessa. Organisaa",
+    "score": 31,
+    "tags": [
+      "tärkeä",
+      "tekoäly",
+      "kyberturvallisuus",
+      "tietojenkalastelu"
+    ]
+  },
+  {
+    "court": "NCSC-FI",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Jopa 100% EU-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-05-20",
+    "keywords": "",
+    "summary": "Euroopan komission Horisontti Eurooppa -ohjelmassa on tarjolla rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyberturvallisuuden tutkimus-, kehittämis- ja innovaatiotoiminnan edistämiseen erilaisia kyberuhkia ja -hyökkäyksiä vastaan, myös kehittyvät kryptoteknologiat soveltuvasti huomioiden. Rahoitusta voivat hakea kaikki teemasta kiinnostuneet organisaatiot.",
+    "score": 25,
+    "tags": [
+      "tärkeä",
+      "tekoäly"
     ]
   }
 ]
