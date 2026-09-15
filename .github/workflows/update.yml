@@ -16,7 +16,11 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      # v6 ajaa Node 24:llä. Node 20 poistuu runnereista 23.9.2026.
       - uses: actions/checkout@v6
+        with:
+          # Koko historia, jotta rebase lopussa toimii.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
