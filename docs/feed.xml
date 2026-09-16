@@ -4,7 +4,7 @@
 <link>https://4milan423-del.github.io/newsfeed-test/</link>
 <description>Tietosuoja, teknologia ja datasääntely</description>
 <language>fi</language>
-<lastBuildDate>Tue, 15 Sep 2026 12:58:36 +0000</lastBuildDate>
+<lastBuildDate>Wed, 16 Sep 2026 05:24:54 +0000</lastBuildDate>
 <item>
 <title>NCSC-FI: Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
@@ -406,25 +406,11 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>Julkaisu: KULUTTAJAN YKSITYISYYS JA TIETOTURVA PILVIPALVELUSSA</title>
-<link>http://urn.fi/URN:NBN:fi:jyu-202607026240</link>
-<guid isPermaLink="true">http://urn.fi/URN:NBN:fi:jyu-202607026240</guid>
-<pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
-<description>pilvitallennus, yksityisyys, tietoturva, kuluttaja, tietosuoja, Tietojärjestelmätieteen kandidaattiohjelma, Bachelor&amp;apos;s Degree Programme in Information Systems, tietosuoja, tietoturva, tiedontallennus, salaus (tekniikka), turvallisuus, kuluttajat, pilvitallennus, data, data protection, data secu</description>
-</item>
-<item>
 <title>NCSC-FI: Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
 <description>Tietoturvatutkija on julkaissut Linux Kernelissä olevan haavoittuvuuden nimeltä IPV6_FRAG_ESCAPE. Haavoittuvuuden hyväksikäytön mahdollistava proof-of-concept-koodi on julkisesti saatavilla. Proof-of-concept koskee Linux kernel 6.12-versiota, joka on käytössä muun muassa AlmaLinux 10:ssä, CentOS Stream 10:ssä ja Red Hat Enterprise Linux 10:ssä. AlmaLinux-ohjelmiston osalta on olemassa päivitys tai</description>
-</item>
-<item>
-<title>Julkaisu: Evästesuostumusten säädöstenmukaisuus suomalaisilla verkkosivustoilla: käyttöliittymäratkaisut ja tekniset käytännöt</title>
-<link>http://urn.fi/URN:NBN:fi:jyu-202607016218</link>
-<guid isPermaLink="true">http://urn.fi/URN:NBN:fi:jyu-202607016218</guid>
-<pubDate>Wed, 01 Jul 2026 09:00:00 +0000</pubDate>
-<description>Tietojärjestelmätieteen maisteriohjelma, Master&amp;apos;s Degree Programme in Information Systems</description>
 </item>
 <item>
 <title>MAO: MAO:334/2026</title>

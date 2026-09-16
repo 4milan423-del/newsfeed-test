@@ -759,20 +759,6 @@
     ]
   },
   {
-    "court": "Julkaisu",
-    "source": "JYX (Jyväskylän yliopisto)",
-    "title": "KULUTTAJAN YKSITYISYYS JA TIETOTURVA PILVIPALVELUSSA",
-    "url": "http://urn.fi/URN:NBN:fi:jyu-202607026240",
-    "date": "2026-07-02",
-    "keywords": "pilvitallennus, yksityisyys, tietoturva, kuluttaja, tietosuoja, Tietojärjestelmätieteen kandidaattiohjelma, Bachelor&apos;s Degree Programme in Information Systems, tietosuoja, tietoturva, tiedontallennus, salaus (tekniikka), turvallisuus, kuluttajat, pilvitallennus, data, data protection, data secu",
-    "summary": "Pilvitallennuksesta on tullut keskeinen osa arkipäiväistä digitaalista elämää, sillä se mahdollistaa kuluttajille henkilökohtaisten tietojen tallentamisen, synkronoinnin ja jakamisen eri laitteiden ja sijaintien välillä. Pilveen tallennetun tiedon määrän kasvaessa yksityisyyteen ja tietoturvaan liittyvät huolenaiheet ovat nousseet yhä merkittävämmiksi. Tässä työssä tarkastellaan, miten kuluttajien",
-    "score": 16,
-    "tags": [
-      "tietosuoja",
-      "data protection"
-    ]
-  },
-  {
     "court": "NCSC-FI",
     "source": "Kyberturvallisuuskeskus",
     "title": "Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus",
@@ -783,20 +769,6 @@
     "score": 13,
     "tags": [
       "haavoittuvuus"
-    ]
-  },
-  {
-    "court": "Julkaisu",
-    "source": "JYX (Jyväskylän yliopisto)",
-    "title": "Evästesuostumusten säädöstenmukaisuus suomalaisilla verkkosivustoilla: käyttöliittymäratkaisut ja tekniset käytännöt",
-    "url": "http://urn.fi/URN:NBN:fi:jyu-202607016218",
-    "date": "2026-07-01",
-    "keywords": "Tietojärjestelmätieteen maisteriohjelma, Master&apos;s Degree Programme in Information Systems",
-    "summary": "Yksityisyydensuoja on perusoikeus ja se turvataan Euroopan unionin perusoikeuskirjan ja kansallisen perustuslain nojalla. Teknologian nopea kehitys ja henkilötietojen keräämisen sekä käsittelyn lisääntyminen ovat korostaneet tarvetta varmistaa luonnollisten henkilöiden henkilötietojen suoja. Evästeet, joiden avulla käyttäjistä voidaan kerätä erilaisia tietoja, voivat muodostaa uhan käyttäjien yksi",
-    "score": 16,
-    "tags": [
-      "henkilötiet",
-      "evästeet"
     ]
   },
   {
