@@ -382,7 +382,7 @@ sources:
   - id: kyberturva
     name: "Kyberturvallisuuskeskus"
     type: plain_rss
-    court: "NCSC-FI"
+    court: "Kyberturvallisuuskeskus"
     # Paino 1, koska haavoittuvuustiedotteita tulee paljon ja ne eivät saa
     # nousta saman päivän oikeudellisten juttujen edelle.
     weight: 1

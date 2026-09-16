@@ -49,6 +49,16 @@ class Item:
     def haystack(self) -> str:
         return " ".join([self.title, self.keywords, self.summary]).lower()
 
+    def title_haystack(self) -> str:
+        """Otsikko ja asiasanat ilman tiivistelmää.
+
+        never-lista katsotaan tästä. Tiivistelmässä voi mainita ohimennen
+        webinaarin tai vuosikertomuksen ilman että juttu itse on sellainen.
+        Kyberturvallisuuskeskuksen viikkokatsaus 36/2026 putosi feedistä juuri
+        näin, koska tiivistelmässä mainittiin CSIRT-ajankohtaiswebinaari.
+        """
+        return " ".join([self.title, self.keywords]).lower()
+
 
 def _session() -> requests.Session:
     s = requests.Session()

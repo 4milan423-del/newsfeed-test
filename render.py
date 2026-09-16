@@ -20,42 +20,54 @@ PAGE = Template("""<!doctype html>
 <title>{{ title }}</title>
 <link rel="alternate" type="application/rss+xml" title="{{ title }}" href="feed.xml">
 <style>
+  /* Bird & Birdin ilme: petroli #005C82, korostus #FFA169, vaalea mintunvihreä
+     #EBF8F6. Otsikot Georgialla, leipäteksti groteskilla. Georgia on valmiina
+     joka koneessa, joten ulkoisia fonttilatauksia ei tarvita ja sivu pysyy
+     yhtenä tiedostona. */
   :root {
-    --bg: #fbfaf8; --card: #ffffff; --ink: #1c1b19; --muted: #6b6862;
-    --line: #e5e1da; --accent: #8a3324; --hot: #fdf3e7; --hotline: #e8c9a0;
+    --bg: #f3f8f9; --card: #ffffff; --ink: #10323f; --muted: #5c7480;
+    --line: #dae7eb; --accent: #005C82; --hot: #fff3ea; --hotline: #ffc9a3;
+    --serif: Georgia, "Times New Roman", "Iowan Old Style", serif;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#161513; --card:#1e1d1a; --ink:#ecebe7; --muted:#9a968e;
-            --line:#2e2c28; --accent:#e0a080; --hot:#2a2118; --hotline:#5c4630; }
+    :root { --bg:#0d1f27; --card:#142c36; --ink:#e7f1f3; --muted:#90a9b3;
+            --line:#23414d; --accent:#7ec2df; --hot:#2b2119; --hotline:#7a4e2c; }
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
-         font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif; }
+         font:16px/1.55 "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+              system-ui, sans-serif; }
   .wrap { max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; }
-  header h1 { font-size: 1.6rem; margin: 0 0 4px; letter-spacing: -0.01em; }
-  header p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+  header h1 { font-family: var(--serif); font-weight: 400; font-size: 2rem;
+    margin: 0 0 6px; letter-spacing: -0.005em; color: var(--accent); }
+  header p { margin: 0; color: var(--muted); font-size: 0.92rem;
+    font-family: var(--serif); font-style: italic; font-size: 1rem; }
   .meta { margin-top: 14px; color: var(--muted); font-size: 0.82rem; }
   .controls { display:flex; gap:8px; flex-wrap:wrap; margin: 22px 0 6px; }
   input[type=search] { flex:1 1 240px; min-width:200px; padding:9px 12px;
     border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); font-size:0.92rem; }
   .chip { padding:7px 12px; border:1px solid var(--line); border-radius:999px;
     background:var(--card); color:var(--muted); font-size:0.82rem; cursor:pointer; }
-  .chip[aria-pressed=true] { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .chip[aria-pressed=true] { background:var(--accent); color:#ffffff; border-color:var(--accent); }
   .daygroup { margin-top: 28px; }
-  .daygroup > h2 { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.07em;
-    color:var(--muted); font-weight:600; margin:0 0 10px; }
+  .daygroup > h2 { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.09em;
+    color:var(--muted); font-weight:700; margin:0 0 10px;
+    padding-bottom:6px; border-bottom:1px solid var(--line); }
   article { background:var(--card); border:1px solid var(--line); border-radius:10px;
     padding:14px 16px; margin-bottom:10px; }
   article.hot { background:var(--hot); border-color:var(--hotline); }
-  article a.t { color:var(--ink); text-decoration:none; font-weight:600; font-size:1rem; }
+  article a.t { font-family:var(--serif); color:var(--ink); text-decoration:none;
+    font-weight:600; font-size:1.06rem; line-height:1.4; }
   article a.t:hover { color:var(--accent); text-decoration:underline; }
-  .court { display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.04em;
-    color:var(--accent); margin-bottom:4px; }
+  .court { display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
   .kw { margin:6px 0 0; color:var(--muted); font-size:0.87rem; }
   .tags { margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; }
   .tag { font-size:0.7rem; color:var(--muted); border:1px solid var(--line);
     padding:2px 7px; border-radius:999px; }
-  .tag.new { color:var(--accent); border-color:var(--accent); font-weight:600; }
+  /* Korallinen "uusi"-merkki on Bird & Birdin korostusväri. Täytetty pilleri,
+     koska #FFA169 tekstinä vaalealla taustalla ei täytä kontrastivaatimusta. */
+  .tag.new { background:#FFA169; color:#3a1f0c; border-color:#FFA169; font-weight:700; }
   footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--line);
     color:var(--muted); font-size:0.8rem; }
   footer a { color:var(--muted); }

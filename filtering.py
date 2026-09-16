@@ -35,7 +35,7 @@ def filter_items(items: list[Item], keywords: dict, window_days: int) -> list[It
             continue
 
         hay = item.haystack()
-        if matched_terms(hay, never):
+        if matched_terms(item.title_haystack(), never):
             continue
 
         hits = matched_terms(hay, must_any) if must_any else ["*"]
