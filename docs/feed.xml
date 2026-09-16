@@ -4,16 +4,16 @@
 <link>https://4milan423-del.github.io/newsfeed-test/</link>
 <description>Tietosuoja, teknologia ja datasääntely</description>
 <language>fi</language>
-<lastBuildDate>Wed, 16 Sep 2026 05:24:54 +0000</lastBuildDate>
+<lastBuildDate>Wed, 16 Sep 2026 10:17:05 +0000</lastBuildDate>
 <item>
-<title>NCSC-FI: Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa</title>
+<title>Kyberturvallisuuskeskus: Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Tue, 15 Sep 2026 09:00:00 +0000</pubDate>
 <description>Cisco Secure Email Gateway -tuotteissa on kriittinen haavoittuvuus, jonka osalta on havaittu hyväksikäyttöä. Haavoittuvuuden avulla tunnistautumaton etähyökkääjä voi suorittaa mielivaltaisia SQL-lauseita ja komentoja laitteen käyttöjärjestelmässä pääkäyttäjäoikeuksin.</description>
 </item>
 <item>
-<title>NCSC-FI: Kriittinen haavoittuvuus GitLab Community Edition- ja Enterprise Edition -tuotteissa</title>
+<title>Kyberturvallisuuskeskus: Kriittinen haavoittuvuus GitLab Community Edition- ja Enterprise Edition -tuotteissa</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Mon, 14 Sep 2026 09:00:00 +0000</pubDate>
@@ -27,7 +27,7 @@
 <description>ikerinar Fri, 11/09/2026 - 09:24</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 37/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus – 37/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 11 Sep 2026 09:00:00 +0000</pubDate>
@@ -41,14 +41,7 @@
 <description>Ennakkoratkaisupyyntö – Jäsenvaltioiden lainsäädännön lähentäminen – Televiestintäala – Direktiivi (EU) 2018/1972 – Eurooppalainen sähköisen viestinnän säännöstö – Sopimus sähköisestä viestintäpalvelusta – Palveluntarjoajan oikeus muuttaa sopimusta yksipuolisesti – 105 artiklan 4 kohdan ensimmäinen alakohta – Loppukäyttäjien irtisanomisoikeus</description>
 </item>
 <item>
-<title>Traficom: Kyberkestävyyssäädös tuo valmistajille uuden ilmoitusvelvoitteen ja käyttäjille ajantasaista tietoa tuotteiden kyberturvallisuudesta</title>
-<link>https://www.traficom.fi/fi/uutiset/kyberkestavyyssaados-tuo-valmistajille-uuden-ilmoitusvelvoitteen-ja-kayttajille-ajantasaista-tietoa-tuotteiden-kyberturvallisuudesta-0</link>
-<guid isPermaLink="true">https://www.traficom.fi/fi/uutiset/kyberkestavyyssaados-tuo-valmistajille-uuden-ilmoitusvelvoitteen-ja-kayttajille-ajantasaista-tietoa-tuotteiden-kyberturvallisuudesta-0</guid>
-<pubDate>Thu, 10 Sep 2026 09:00:00 +0000</pubDate>
-<description></description>
-</item>
-<item>
-<title>NCSC-FI: Elokuun Kybersää 2026</title>
+<title>Kyberturvallisuuskeskus: Elokuun Kybersää 2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Thu, 10 Sep 2026 09:00:00 +0000</pubDate>
@@ -74,6 +67,13 @@
 <guid isPermaLink="true">https://tietosuoja.fi/-/tietosuojavaltuutettu-selvittaa-kotkamiehen-sosiaalisen-median-videoiden-laillisuutta</guid>
 <pubDate>Fri, 04 Sep 2026 09:00:00 +0000</pubDate>
 <description></description>
+</item>
+<item>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus - 36/2026</title>
+<link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-362026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
+<guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-362026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
+<pubDate>Fri, 04 Sep 2026 09:00:00 +0000</pubDate>
+<description>Microsoft 365 -tilimurtojen määrä kasvoi jälleen elokuussa. Viikkokatsauksessa käsitellään myös KHO:n uusia evästelinjauksia, julkaistua CSIRT-ajankohtaiswebinaaria sekä avautunutta rahoitushakua kyberturvallisuusratkaisujen kehittämiseen.</description>
 </item>
 <item>
 <title>EDPB: Data Protection Commission announces Final Decision following Inquiry into the Health Service Executive (HSE)</title>
@@ -111,7 +111,7 @@
 <description>age assurance, age verification, age estimation, online platform, data privacy, cybersecurity, iän varmennus, iän todentaminen, iän arviointi, verkkoalusta, tietosuoja, kyberturvallisuus</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 35/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus – 35/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 28 Aug 2026 09:00:00 +0000</pubDate>
@@ -139,7 +139,7 @@
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen</title>
+<title>Kyberturvallisuuskeskus: Valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Wed, 26 Aug 2026 09:00:00 +0000</pubDate>
@@ -174,7 +174,7 @@
 <description>ipayotfr Fri, 21/08/2026 - 10:25</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 34/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus – 34/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 21 Aug 2026 09:00:00 +0000</pubDate>
@@ -216,14 +216,14 @@
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen</title>
+<title>Kyberturvallisuuskeskus: Hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Mon, 17 Aug 2026 09:00:00 +0000</pubDate>
 <description>Traficom on avannut syksyn 2026 rahoitushaun. Tavoitteena on tukea yritysten kasvun ja kansainvälistymisen edellytyksiä sekä lisätä kehittyneiden kyberturvallisuusratkaisujen saatavuutta.</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus – 33/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus – 33/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-332026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-332026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 14 Aug 2026 09:00:00 +0000</pubDate>
@@ -231,28 +231,28 @@
 Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syksyn merkkejä.</description>
 </item>
 <item>
-<title>NCSC-FI: Heinäkuun Kybersää 2026</title>
+<title>Kyberturvallisuuskeskus: Heinäkuun Kybersää 2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Thu, 13 Aug 2026 09:00:00 +0000</pubDate>
 <description>Heinäkuussa kyberin kentällä nähtiin saderrintamia. Kyberturvallisuuskeskukselle tehtyjen kiristyshaittaohjelmailmoitusten määrä kasvoi. Myös haavoittuvuuksien määrä on jatkuvassa nousussa, mikä näkyy myös Kyberturvallisuuskeskuksen jakamien haavoittuvuustiedotteiden määrässä.</description>
 </item>
 <item>
-<title>NCSC-FI: Kriittisiä haavoittuvuuksia Metabase-ohjelmistossa</title>
+<title>Kyberturvallisuuskeskus: Kriittisiä haavoittuvuuksia Metabase-ohjelmistossa</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Tue, 11 Aug 2026 09:00:00 +0000</pubDate>
 <description>Metabase on julkaissut korjauspäivityksen kriittiseen, aktiivisesti hyväksikäytettyyn nollapäivähaavoittuvuuteen. Haavoittuvuus mahdollistaa tunnistautumattoman hyökkääjän suorittaa SQL-injektiohyökkäyksen etänä.</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 32/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus - 32/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 07 Aug 2026 09:00:00 +0000</pubDate>
 <description>Tällä viikolla muistutamme lomilta paluun yhteydessä yleistyvistä huijauksista sekä tietojenkalastelusta. Nostamme esiin npm-ekosysteemin kohdistuneen uuden toimitusketjuhyökkäyksen sekä kerromme, miten yksikin suojaamaton laite voi avata tien verkkoon. Kerromme lisäksi tälläkin viikolla esiin nousseista ClickFix-tartuntatapauksista. Lopuksi kerromme EU-komission julkaisemasta soveltamisohjeesta j</description>
 </item>
 <item>
-<title>NCSC-FI: Kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät</title>
+<title>Kyberturvallisuuskeskus: Kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 07 Aug 2026 09:00:00 +0000</pubDate>
@@ -266,14 +266,14 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description>NIS2 Directive, ISO/IEC 27001, information security management systems (ISMS), cybersecurity regulation, compliance implementation, information security, risk management</description>
 </item>
 <item>
-<title>NCSC-FI: N-able N-Central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus</title>
+<title>Kyberturvallisuuskeskus: N-able N-Central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Sun, 02 Aug 2026 09:00:00 +0000</pubDate>
 <description>N-able N-central julkaisi haavoittuvuustiedotteen N-central-ohjelmistoa koskien. Kaikki N-central-versiot ovat haavoittuvia. N-able on julkaissut 6.8.2026 uuden korjauspäivityksen N-central 2026.3 (2026.3.1.10) versioon, joka korjaa käyttäjän todennuksen ohituksen vaihtoehtoisen reitin tai kanavan kautta. Haavoittuvuuden hyväksikäyttöä on havaittu. Päivitä ohjelmisto välittömästi.</description>
 </item>
 <item>
-<title>NCSC-FI: Mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?</title>
+<title>Kyberturvallisuuskeskus: Mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 31 Jul 2026 09:00:00 +0000</pubDate>
@@ -301,14 +301,14 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description>The Digital Markets Act, Article 102 TFEU, interoperability, regulatory flexibility, regulatory dialogue, efficiency, legal certainty, digital markets, digital single market, competition, digimarkkinasäädös, SEUT 102 artikla, yhteentoimivuus, sääntelyn joustavuus, sääntelyvuoropuhelu, regulatiivinen</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberkestävyyssäädöksen vaatimukset selkiytyvät - EU-komissio julkaisi uuden soveltamisohjeen</title>
+<title>Kyberturvallisuuskeskus: Kyberkestävyyssäädöksen vaatimukset selkiytyvät - EU-komissio julkaisi uuden soveltamisohjeen</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Wed, 29 Jul 2026 09:00:00 +0000</pubDate>
 <description>Euroopan komissio on julkaissut uuden soveltamisohjeen kyberkestävyyssäädöksen (Cyber Resilience Act, CRA) toimeenpanon tueksi. Ohjeistus on suunnattu erityisesti valmistajille, ohjelmistokehittäjille sekä muille yrityksille, jotka saattavat markkinoille digitaalisia tuotteita. Ohjeistus tarjoaa yrityksille konkreettisia neuvoja siihen, miten ne voivat valmistautua tuleviin kyberturvallisuusvaatim</description>
 </item>
 <item>
-<title>NCSC-FI: Kriittinen haavoittuvuus NGINX-tuotteissa</title>
+<title>Kyberturvallisuuskeskus: Kriittinen haavoittuvuus NGINX-tuotteissa</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Wed, 29 Jul 2026 09:00:00 +0000</pubDate>
@@ -322,14 +322,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description>Anonymous (not verified) Fri, 07/24/2026 - 14:32 02 September 2026 The European Parliament will host a gathering of policymakers, industry leaders, researchers, alongside live demonstrations of cutting-edge robots, to set the course for the EU’s future in robotics. Europe is already a global leader in robotics research, development and innovation. As advances in artificial intelligence (AI) are ac</description>
 </item>
 <item>
-<title>Julkaisu: Do SMEs have equal opportunity for GDPR compliance? : Accessibility and Effectiveness of the Standard Contractual Clauses in International Data Transfers in a Post-Schrems II Legal Landscape</title>
-<link>http://hdl.handle.net/10138/569898</link>
-<guid isPermaLink="true">http://hdl.handle.net/10138/569898</guid>
-<pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
-<description>Tietosuoja-asetus, mallisopimuslausekkeet, Schrems II, pk-yritykset, Viestintä- ja informaatio-oikeus, Information- and Communications Law, Informations- och kommunikationsrätt, Oikeustieteen maisterin koulutusohjelma Helsinki, Master&amp;apos;s Programme in Law Helsinki, Magisterprogrammet i rättsveten</description>
-</item>
-<item>
-<title>NCSC-FI: Haavoittuvuuskilpailussa nopeus ratkaisee</title>
+<title>Kyberturvallisuuskeskus: Haavoittuvuuskilpailussa nopeus ratkaisee</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
@@ -350,7 +343,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: WordPress -tuotteessa kriittinen haavoittuvuus</title>
+<title>Kyberturvallisuuskeskus: WordPress -tuotteessa kriittinen haavoittuvuus</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Sun, 19 Jul 2026 09:00:00 +0000</pubDate>
@@ -364,7 +357,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description>ipetstef Fri, 17/07/2026 - 14:50</description>
 </item>
 <item>
-<title>NCSC-FI: Heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille</title>
+<title>Kyberturvallisuuskeskus: Heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Wed, 15 Jul 2026 09:00:00 +0000</pubDate>
@@ -406,7 +399,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus</title>
+<title>Kyberturvallisuuskeskus: Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
@@ -434,7 +427,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: FortiBleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös Suomessa</title>
+<title>Kyberturvallisuuskeskus: FortiBleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös Suomessa</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Tue, 23 Jun 2026 09:00:00 +0000</pubDate>
@@ -448,7 +441,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 24/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus - 24/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 12 Jun 2026 09:00:00 +0000</pubDate>
@@ -469,14 +462,14 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Check Point VPN -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus</title>
+<title>Kyberturvallisuuskeskus: Check Point VPN -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Tue, 09 Jun 2026 09:00:00 +0000</pubDate>
 <description>Check Point julkaisi korjauspaketin Remote Access VPN, Mobile Access ja Spark Firewall -tuotteisiin joka korjaa kriittisen tunnistautumisen ohituksen mahdollistavan haavoittuvuuden CVE-2026-50751. Haavoittuvuuden hyväksikäyttöä on jo havaittu, joten haavoittuvuudelle alttiille laitteille tulee korjauksen asentamisen lisäksi myös suorittaa tutkinta mahdollisen tapahtuneen tietomurron varalta.</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 23/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus - 23/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 05 Jun 2026 09:00:00 +0000</pubDate>
@@ -497,7 +490,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 22/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus - 22/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 29 May 2026 09:00:00 +0000</pubDate>
@@ -511,14 +504,14 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Drupal Coressa kriittinen ja aktiivisesti hyväksikäytetty SQL-injektion mahdollistava haavoittuvuus</title>
+<title>Kyberturvallisuuskeskus: Drupal Coressa kriittinen ja aktiivisesti hyväksikäytetty SQL-injektion mahdollistava haavoittuvuus</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 22 May 2026 09:00:00 +0000</pubDate>
 <description>Drupal-julkaisualustassa on havaittu kriittinen, SQL-injektion mahdollistava haavoittuvuus. Drupal on julkaissut haavoittuvuuden korjaavan päivityksen ja organisaatioita suositellaan välittömästi päivittämään Drupal haavoittuvuuden korjaamiseksi.</description>
 </item>
 <item>
-<title>NCSC-FI: Kyberturvallisuuskeskuksen viikkokatsaus - 21/2026</title>
+<title>Kyberturvallisuuskeskus: Kyberturvallisuuskeskuksen viikkokatsaus - 21/2026</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Fri, 22 May 2026 09:00:00 +0000</pubDate>
@@ -532,14 +525,14 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
 <description></description>
 </item>
 <item>
-<title>NCSC-FI: Uusi aalto M365-tietojenkalastelussa - AI‑avusteinen laitekoodin kalastelukampanja</title>
+<title>Kyberturvallisuuskeskus: Uusi aalto M365-tietojenkalastelussa - AI‑avusteinen laitekoodin kalastelukampanja</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Thu, 21 May 2026 09:00:00 +0000</pubDate>
 <description>Tietoturvatutkijat ovat havainneet laajamittaisen kalastelukampanjan, jossa hyödynnetään laitekooditodennusmenetelmää ja tekoälyä hyökkäysten tehostamiseen. Kampanja kohdistuu organisaatioihin ja yksittäisiin käyttäjiin. Hyökkäyksen tavoitteena on saada luvaton pääsy tileihin sekä yritysten resursseihin. Kyberturvallisuuskeskus on saanut ilmoituksia vastaavista tapauksista myös Suomessa. Organisaa</description>
 </item>
 <item>
-<title>NCSC-FI: Jopa 100% EU-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi</title>
+<title>Kyberturvallisuuskeskus: Jopa 100% EU-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi</title>
 <link>https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</link>
 <guid isPermaLink="true">https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&amp;mtm_source=rss&amp;mtm_medium=rss</guid>
 <pubDate>Wed, 20 May 2026 09:00:00 +0000</pubDate>

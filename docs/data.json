@@ -1,6 +1,6 @@
 [
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -13,7 +13,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kriittinen haavoittuvuus GitLab Community Edition- ja Enterprise Edition -tuotteissa",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -37,7 +37,7 @@
     "tags": []
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 37/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -65,20 +65,7 @@
     ]
   },
   {
-    "court": "Traficom",
-    "source": "Traficom",
-    "title": "Kyberkestävyyssäädös tuo valmistajille uuden ilmoitusvelvoitteen ja käyttäjille ajantasaista tietoa tuotteiden kyberturvallisuudesta",
-    "url": "https://www.traficom.fi/fi/uutiset/kyberkestavyyssaados-tuo-valmistajille-uuden-ilmoitusvelvoitteen-ja-kayttajille-ajantasaista-tietoa-tuotteiden-kyberturvallisuudesta-0",
-    "date": "2026-09-10",
-    "keywords": "",
-    "summary": "",
-    "score": 23,
-    "tags": [
-      "kyberkestävyy"
-    ]
-  },
-  {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Elokuun Kybersää 2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -127,6 +114,19 @@
       "tärkeä",
       "tietosuoja",
       "tietosuojavaltuutet"
+    ]
+  },
+  {
+    "court": "Kyberturvallisuuskeskus",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 36/2026",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-362026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-09-04",
+    "keywords": "",
+    "summary": "Microsoft 365 -tilimurtojen määrä kasvoi jälleen elokuussa. Viikkokatsauksessa käsitellään myös KHO:n uusia evästelinjauksia, julkaistua CSIRT-ajankohtaiswebinaaria sekä avautunutta rahoitushakua kyberturvallisuusratkaisujen kehittämiseen.",
+    "score": 13,
+    "tags": [
+      "kyberturvallisuus"
     ]
   },
   {
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 35/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -260,7 +260,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -317,7 +317,7 @@
     "tags": []
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 34/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -397,7 +397,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -410,7 +410,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus – 33/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-332026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -423,7 +423,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Heinäkuun Kybersää 2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -438,7 +438,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kriittisiä haavoittuvuuksia Metabase-ohjelmistossa",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -451,7 +451,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 32/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -465,7 +465,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -492,7 +492,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "N-able N-Central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -505,7 +505,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -561,7 +561,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberkestävyyssäädöksen vaatimukset selkiytyvät - EU-komissio julkaisi uuden soveltamisohjeen",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -576,7 +576,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kriittinen haavoittuvuus NGINX-tuotteissa",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -602,21 +602,7 @@
     ]
   },
   {
-    "court": "Julkaisu",
-    "source": "Helda (Helsingin yliopisto)",
-    "title": "Do SMEs have equal opportunity for GDPR compliance? : Accessibility and Effectiveness of the Standard Contractual Clauses in International Data Transfers in a Post-Schrems II Legal Landscape",
-    "url": "http://hdl.handle.net/10138/569898",
-    "date": "2026-07-24",
-    "keywords": "Tietosuoja-asetus, mallisopimuslausekkeet, Schrems II, pk-yritykset, Viestintä- ja informaatio-oikeus, Information- and Communications Law, Informations- och kommunikationsrätt, Oikeustieteen maisterin koulutusohjelma Helsinki, Master&apos;s Programme in Law Helsinki, Magisterprogrammet i rättsveten",
-    "summary": "Tutkielmassa käsitellään Schrems II-oikeustapauksen jäljiltä tapahtuneita muutoksia tietosuoja-asetuksen mukaisissa yleisissä mallisopimuslausekkeissa ja arvioidaan mikäli ne asettavat eri kokoiset yritykset eriarvoiseen asemaan nykymuodossaan.\r\n\r\nEnsin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetään oleelliset oikeustapaukset (Schrems I ja Schrems II) taustoittamaan tutkitt",
-    "score": 16,
-    "tags": [
-      "tietosuoja",
-      "GDPR"
-    ]
-  },
-  {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Haavoittuvuuskilpailussa nopeus ratkaisee",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -655,7 +641,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "WordPress -tuotteessa kriittinen haavoittuvuus",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -681,7 +667,7 @@
     "tags": []
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -759,7 +745,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -810,7 +796,7 @@
     "tags": []
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "FortiBleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös Suomessa",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -841,7 +827,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 24/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -883,7 +869,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Check Point VPN -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -896,7 +882,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 23/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -940,7 +926,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 22/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -967,7 +953,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Drupal Coressa kriittinen ja aktiivisesti hyväksikäytetty SQL-injektion mahdollistava haavoittuvuus",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -980,7 +966,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 21/2026",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -1006,7 +992,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Uusi aalto M365-tietojenkalastelussa - AI‑avusteinen laitekoodin kalastelukampanja",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
@@ -1022,7 +1008,7 @@
     ]
   },
   {
-    "court": "NCSC-FI",
+    "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Jopa 100% EU-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi",
     "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",

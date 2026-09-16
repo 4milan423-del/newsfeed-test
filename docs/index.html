@@ -6,42 +6,54 @@
 <title>Oikeustapausseuranta</title>
 <link rel="alternate" type="application/rss+xml" title="Oikeustapausseuranta" href="feed.xml">
 <style>
+  /* Bird & Birdin ilme: petroli #005C82, korostus #FFA169, vaalea mintunvihreä
+     #EBF8F6. Otsikot Georgialla, leipäteksti groteskilla. Georgia on valmiina
+     joka koneessa, joten ulkoisia fonttilatauksia ei tarvita ja sivu pysyy
+     yhtenä tiedostona. */
   :root {
-    --bg: #fbfaf8; --card: #ffffff; --ink: #1c1b19; --muted: #6b6862;
-    --line: #e5e1da; --accent: #8a3324; --hot: #fdf3e7; --hotline: #e8c9a0;
+    --bg: #f3f8f9; --card: #ffffff; --ink: #10323f; --muted: #5c7480;
+    --line: #dae7eb; --accent: #005C82; --hot: #fff3ea; --hotline: #ffc9a3;
+    --serif: Georgia, "Times New Roman", "Iowan Old Style", serif;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#161513; --card:#1e1d1a; --ink:#ecebe7; --muted:#9a968e;
-            --line:#2e2c28; --accent:#e0a080; --hot:#2a2118; --hotline:#5c4630; }
+    :root { --bg:#0d1f27; --card:#142c36; --ink:#e7f1f3; --muted:#90a9b3;
+            --line:#23414d; --accent:#7ec2df; --hot:#2b2119; --hotline:#7a4e2c; }
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
-         font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif; }
+         font:16px/1.55 "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+              system-ui, sans-serif; }
   .wrap { max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; }
-  header h1 { font-size: 1.6rem; margin: 0 0 4px; letter-spacing: -0.01em; }
-  header p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+  header h1 { font-family: var(--serif); font-weight: 400; font-size: 2rem;
+    margin: 0 0 6px; letter-spacing: -0.005em; color: var(--accent); }
+  header p { margin: 0; color: var(--muted); font-size: 0.92rem;
+    font-family: var(--serif); font-style: italic; font-size: 1rem; }
   .meta { margin-top: 14px; color: var(--muted); font-size: 0.82rem; }
   .controls { display:flex; gap:8px; flex-wrap:wrap; margin: 22px 0 6px; }
   input[type=search] { flex:1 1 240px; min-width:200px; padding:9px 12px;
     border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); font-size:0.92rem; }
   .chip { padding:7px 12px; border:1px solid var(--line); border-radius:999px;
     background:var(--card); color:var(--muted); font-size:0.82rem; cursor:pointer; }
-  .chip[aria-pressed=true] { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .chip[aria-pressed=true] { background:var(--accent); color:#ffffff; border-color:var(--accent); }
   .daygroup { margin-top: 28px; }
-  .daygroup > h2 { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.07em;
-    color:var(--muted); font-weight:600; margin:0 0 10px; }
+  .daygroup > h2 { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.09em;
+    color:var(--muted); font-weight:700; margin:0 0 10px;
+    padding-bottom:6px; border-bottom:1px solid var(--line); }
   article { background:var(--card); border:1px solid var(--line); border-radius:10px;
     padding:14px 16px; margin-bottom:10px; }
   article.hot { background:var(--hot); border-color:var(--hotline); }
-  article a.t { color:var(--ink); text-decoration:none; font-weight:600; font-size:1rem; }
+  article a.t { font-family:var(--serif); color:var(--ink); text-decoration:none;
+    font-weight:600; font-size:1.06rem; line-height:1.4; }
   article a.t:hover { color:var(--accent); text-decoration:underline; }
-  .court { display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.04em;
-    color:var(--accent); margin-bottom:4px; }
+  .court { display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
   .kw { margin:6px 0 0; color:var(--muted); font-size:0.87rem; }
   .tags { margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; }
   .tag { font-size:0.7rem; color:var(--muted); border:1px solid var(--line);
     padding:2px 7px; border-radius:999px; }
-  .tag.new { color:var(--accent); border-color:var(--accent); font-weight:600; }
+  /* Korallinen "uusi"-merkki on Bird & Birdin korostusväri. Täytetty pilleri,
+     koska #FFA169 tekstinä vaalealla taustalla ei täytä kontrastivaatimusta. */
+  .tag.new { background:#FFA169; color:#3a1f0c; border-color:#FFA169; font-weight:700; }
   footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--line);
     color:var(--muted); font-size:0.8rem; }
   footer a { color:var(--muted); }
@@ -54,14 +66,14 @@
   <h1>Oikeustapausseuranta</h1>
   <p>Tietosuoja, teknologia ja datasääntely</p>
   <div class="meta">
-    Päivitetty 16.9.2026 klo 05:24 · 77 ratkaisua · 0 uutta
+    Päivitetty 16.9.2026 klo 10:17 · 76 ratkaisua · 1 uutta
     · <a href="feed.xml">RSS</a> · <a href="data.json">JSON</a>
   </div>
 </header>
 
 <div class="controls">
   <input type="search" id="q" placeholder="Suodata otsikoista ja asiasanoista">
-  <button class="chip" data-court="EDPB" aria-pressed="false">EDPB</button><button class="chip" data-court="ENISA" aria-pressed="false">ENISA</button><button class="chip" data-court="EU-komissio" aria-pressed="false">EU-komissio</button><button class="chip" data-court="EUT" aria-pressed="false">EUT</button><button class="chip" data-court="Julkaisu" aria-pressed="false">Julkaisu</button><button class="chip" data-court="KHO" aria-pressed="false">KHO</button><button class="chip" data-court="KKO" aria-pressed="false">KKO</button><button class="chip" data-court="LVM" aria-pressed="false">LVM</button><button class="chip" data-court="MAO" aria-pressed="false">MAO</button><button class="chip" data-court="NCSC-FI" aria-pressed="false">NCSC-FI</button><button class="chip" data-court="TSV" aria-pressed="false">TSV</button><button class="chip" data-court="Traficom" aria-pressed="false">Traficom</button>
+  <button class="chip" data-court="EDPB" aria-pressed="false">EDPB</button><button class="chip" data-court="ENISA" aria-pressed="false">ENISA</button><button class="chip" data-court="EU-komissio" aria-pressed="false">EU-komissio</button><button class="chip" data-court="EUT" aria-pressed="false">EUT</button><button class="chip" data-court="Julkaisu" aria-pressed="false">Julkaisu</button><button class="chip" data-court="KHO" aria-pressed="false">KHO</button><button class="chip" data-court="KKO" aria-pressed="false">KKO</button><button class="chip" data-court="Kyberturvallisuuskeskus" aria-pressed="false">Kyberturvallisuuskeskus</button><button class="chip" data-court="LVM" aria-pressed="false">LVM</button><button class="chip" data-court="MAO" aria-pressed="false">MAO</button><button class="chip" data-court="TSV" aria-pressed="false">TSV</button>
 </div>
 
 <main id="list">
@@ -70,9 +82,9 @@
     <h2>15. syyskuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kriittinen haavoittuvuus cisco secure email gateway -tuotteissa  cisco secure email gateway -tuotteissa on kriittinen haavoittuvuus, jonka osalta on havaittu hyväksikäyttöä. haavoittuvuuden avulla tunnistautumaton etähyökkääjä voi suorittaa mielivaltaisia sql-lauseita ja komentoja laitteen käyttöjärjestelmässä pääkäyttäjäoikeuksin.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa</a></div>
       
       <p class="kw">Cisco Secure Email Gateway -tuotteissa on kriittinen haavoittuvuus, jonka osalta on havaittu hyväksikäyttöä. Haavoittuvuuden avulla tunnistautumaton etähyökkääjä voi suorittaa mielivaltaisia SQL-lauseita ja komentoja laitteen käyttöjärjestelmässä pääkäyttäjäoikeuksin.</p>
@@ -88,9 +100,9 @@
     <h2>14. syyskuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kriittinen haavoittuvuus gitlab community edition- ja enterprise edition -tuotteissa  gitlab community edition (ce) ja enterprise edition (ee) -tuotteissa on kriittinen hakemistopolun läpikulkuun liittyvä haavoittuvuus. korjaava versiopäivitys tulee asentaa mahdollisimman pian. haavoittuvuuden hyväksikäytön mahdollistava poc-koodi on julkisesti saatavilla ja haavoittuvuuden aktiivisesta hyväksikäytöstä on tiettävästi havaintoja.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittinen haavoittuvuus GitLab Community Edition- ja Enterprise Edition -tuotteissa</a></div>
       
       <p class="kw">GitLab Community Edition (CE) ja Enterprise Edition (EE) -tuotteissa on kriittinen hakemistopolun läpikulkuun liittyvä haavoittuvuus. Korjaava versiopäivitys tulee asentaa mahdollisimman pian. Haavoittuvuuden hyväksikäytön mahdollistava PoC-koodi on julkisesti saatavilla ja haavoittuvuuden aktiivisesta hyväksikäytöstä on tiettävästi havaintoja.</p>
@@ -119,9 +131,9 @@
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 37/2026  kyberkestävyyssäädös parantaa verkkolaitteiden käyttäjän asemaa ja helpottaa verkkolaitteiden turvallista ylläpitoa. uuden säädöksen myötä valmistajalla on vastuu seurata ja tiedottaa laitteiden haavoittuvuudesta. verkon reunalaitteiden ylläpitoon ja hallintaan uudistus on tervetullut parannus. elokuun kybersää kertoo sateisesta kybermaisemasta.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 37/2026</a></div>
       
       <p class="kw">Kyberkestävyyssäädös parantaa verkkolaitteiden käyttäjän asemaa ja helpottaa verkkolaitteiden turvallista ylläpitoa. Uuden säädöksen myötä valmistajalla on vastuu seurata ja tiedottaa laitteiden haavoittuvuudesta. Verkon reunalaitteiden ylläpitoon ja hallintaan uudistus on tervetullut parannus. Elokuun kybersää kertoo sateisesta kybermaisemasta.</p>
@@ -150,22 +162,9 @@
     </article>
     
     <article class=""
-             data-court="Traficom"
-             data-text="kyberkestävyyssäädös tuo valmistajille uuden ilmoitusvelvoitteen ja käyttäjille ajantasaista tietoa tuotteiden kyberturvallisuudesta  ">
-      <span class="court">Traficom</span>
-      <div><a class="t" href="https://www.traficom.fi/fi/uutiset/kyberkestavyyssaados-tuo-valmistajille-uuden-ilmoitusvelvoitteen-ja-kayttajille-ajantasaista-tietoa-tuotteiden-kyberturvallisuudesta-0" target="_blank" rel="noopener">Kyberkestävyyssäädös tuo valmistajille uuden ilmoitusvelvoitteen ja käyttäjille ajantasaista tietoa tuotteiden kyberturvallisuudesta</a></div>
-      
-      
-      <div class="tags">
-        
-        <span class="tag">kyberkestävyy</span>
-      </div>
-    </article>
-    
-    <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="elokuun kybersää 2026  elokuun kybersää jatkui sateisena ja kesälomien jälkeen tapausmäärät kasvoivat. tapauksissa nähtiin tietojenkalastelua ja verkkopalvelujen murtoja.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Elokuun Kybersää 2026</a></div>
       
       <p class="kw">Elokuun kybersää jatkui sateisena ja kesälomien jälkeen tapausmäärät kasvoivat. Tapauksissa nähtiin tietojenkalastelua ja verkkopalvelujen murtoja.</p>
@@ -226,6 +225,19 @@
       <div class="tags">
         
         <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietosuojavaltuutet</span>
+      </div>
+    </article>
+    
+    <article class=""
+             data-court="Kyberturvallisuuskeskus"
+             data-text="kyberturvallisuuskeskuksen viikkokatsaus - 36/2026  microsoft 365 -tilimurtojen määrä kasvoi jälleen elokuussa. viikkokatsauksessa käsitellään myös kho:n uusia evästelinjauksia, julkaistua csirt-ajankohtaiswebinaaria sekä avautunutta rahoitushakua kyberturvallisuusratkaisujen kehittämiseen.">
+      <span class="court">Kyberturvallisuuskeskus</span>
+      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-362026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 36/2026</a></div>
+      
+      <p class="kw">Microsoft 365 -tilimurtojen määrä kasvoi jälleen elokuussa. Viikkokatsauksessa käsitellään myös KHO:n uusia evästelinjauksia, julkaistua CSIRT-ajankohtaiswebinaaria sekä avautunutta rahoitushakua kyberturvallisuusratkaisujen kehittämiseen.</p>
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        <span class="tag">kyberturvallisuus</span>
       </div>
     </article>
     
@@ -310,9 +322,9 @@
     <h2>28. elokuuta 2026</h2>
     
     <article class="hot"
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 35/2026  tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat muun muassa wordpress-sivustojen murrot, joissa haavoittuvuuksia hyödynnetään haitallisen sisällön levittämiseen. lisäksi katsauksessa käsitellään signal-tukena esiintyvää tietojenkalastelua, tekoälyn käyttöön liittyviä uusia avoimuusvelvoitteita sekä kyberkestävyyssäädöksen mukaisia ilmoitusvelvoitteita.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 35/2026</a></div>
       
       <p class="kw">Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat muun muassa WordPress-sivustojen murrot, joissa haavoittuvuuksia hyödynnetään haitallisen sisällön levittämiseen. Lisäksi katsauksessa käsitellään Signal-tukena esiintyvää tietojenkalastelua, tekoälyn käyttöön liittyviä uusia avoimuusvelvoitteita sekä kyberkestävyyssäädöksen mukaisia ilmoitusvelvoitteita.</p>
@@ -372,9 +384,9 @@
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen  ennen cra:n ilmoitusvelvollisuuden soveltamista organisaatioiden on tärkeää valmistautua sisäisesti ilmoituksen jättämiseen. ilmoittamisen määräajat ovat lyhyitä, joten vastuut ja toimintatavat kannattaa sopia ennen kuin ensimmäinen ilmoitettava tapaus tulee vastaan. olemme koonneet valmistajille listan tarkistettavista asioista ja linkit keskeisiin ohjeisiin.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen</a></div>
       
       <p class="kw">Ennen CRA:n ilmoitusvelvollisuuden soveltamista organisaatioiden on tärkeää valmistautua sisäisesti ilmoituksen jättämiseen. Ilmoittamisen määräajat ovat lyhyitä, joten vastuut ja toimintatavat kannattaa sopia ennen kuin ensimmäinen ilmoitettava tapaus tulee vastaan. Olemme koonneet valmistajille listan tarkistettavista asioista ja linkit keskeisiin ohjeisiin.</p>
@@ -442,9 +454,9 @@
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 34/2026  tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat lisääntyneet palkanmaksuhuijaukset, joissa rikolliset pyrkivät ohjaamaan palkkoja omille tileilleen väärennetyillä sähköpostiviesteillä. lisäksi käsitellään pelien käyttäjien tekemiin lisäsisältöihin piilotettuja haittaohjelmia sekä eu:n uusia menettelyjä sähköisten todisteiden hankkimiseksi rikostutkinnoissa.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 34/2026</a></div>
       
       <p class="kw">Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat lisääntyneet palkanmaksuhuijaukset, joissa rikolliset pyrkivät ohjaamaan palkkoja omille tileilleen väärennetyillä sähköpostiviesteillä. Lisäksi käsitellään pelien käyttäjien tekemiin lisäsisältöihin piilotettuja haittaohjelmia sekä EU:n uusia menettelyjä sähköisten todisteiden hankkimiseksi rikostutkinnoissa.</p>
@@ -535,9 +547,9 @@
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen  traficom on avannut syksyn 2026 rahoitushaun. tavoitteena on tukea yritysten kasvun ja kansainvälistymisen edellytyksiä sekä lisätä kehittyneiden kyberturvallisuusratkaisujen saatavuutta.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen</a></div>
       
       <p class="kw">Traficom on avannut syksyn 2026 rahoitushaun. Tavoitteena on tukea yritysten kasvun ja kansainvälistymisen edellytyksiä sekä lisätä kehittyneiden kyberturvallisuusratkaisujen saatavuutta.</p>
@@ -553,10 +565,10 @@
     <h2>14. elokuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 33/2026  tällä viikolla kerromme tietomurroista, joissa verkkosivupalvelimet on valjastettu jakamaan haittaohjelmia verkkosivujen selaajille. yksinkertaiset varotoimet auttavat suojautumaan haittaohjelman uhkaa vastaan. kehotamme myös valppauteen pikaviestinpalvelun uusia ominaisuuksia käyttäessä.
 lisäksi tällä viikolla julkaistu heinäkuun kybersää osoittaa sateisen syksyn merkkejä.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-332026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 33/2026</a></div>
       
       <p class="kw">Tällä viikolla kerromme tietomurroista, joissa verkkosivupalvelimet on valjastettu jakamaan haittaohjelmia verkkosivujen selaajille. Yksinkertaiset varotoimet auttavat suojautumaan haittaohjelman uhkaa vastaan. Kehotamme myös valppauteen pikaviestinpalvelun uusia ominaisuuksia käyttäessä.
@@ -573,9 +585,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     <h2>13. elokuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="heinäkuun kybersää 2026  heinäkuussa kyberin kentällä nähtiin saderrintamia. kyberturvallisuuskeskukselle tehtyjen kiristyshaittaohjelmailmoitusten määrä kasvoi. myös haavoittuvuuksien määrä on jatkuvassa nousussa, mikä näkyy myös kyberturvallisuuskeskuksen jakamien haavoittuvuustiedotteiden määrässä.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Heinäkuun Kybersää 2026</a></div>
       
       <p class="kw">Heinäkuussa kyberin kentällä nähtiin saderrintamia. Kyberturvallisuuskeskukselle tehtyjen kiristyshaittaohjelmailmoitusten määrä kasvoi. Myös haavoittuvuuksien määrä on jatkuvassa nousussa, mikä näkyy myös Kyberturvallisuuskeskuksen jakamien haavoittuvuustiedotteiden määrässä.</p>
@@ -591,9 +603,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     <h2>11. elokuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kriittisiä haavoittuvuuksia metabase-ohjelmistossa  metabase on julkaissut korjauspäivityksen kriittiseen, aktiivisesti hyväksikäytettyyn nollapäivähaavoittuvuuteen. haavoittuvuus mahdollistaa tunnistautumattoman hyökkääjän suorittaa sql-injektiohyökkäyksen etänä.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittisiä haavoittuvuuksia Metabase-ohjelmistossa</a></div>
       
       <p class="kw">Metabase on julkaissut korjauspäivityksen kriittiseen, aktiivisesti hyväksikäytettyyn nollapäivähaavoittuvuuteen. Haavoittuvuus mahdollistaa tunnistautumattoman hyökkääjän suorittaa SQL-injektiohyökkäyksen etänä.</p>
@@ -609,9 +621,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     <h2>7. elokuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 32/2026  tällä viikolla muistutamme lomilta paluun yhteydessä yleistyvistä huijauksista sekä tietojenkalastelusta. nostamme esiin npm-ekosysteemin kohdistuneen uuden toimitusketjuhyökkäyksen sekä kerromme, miten yksikin suojaamaton laite voi avata tien verkkoon. kerromme lisäksi tälläkin viikolla esiin nousseista clickfix-tartuntatapauksista. lopuksi kerromme eu-komission julkaisemasta soveltamisohjeesta j">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 32/2026</a></div>
       
       <p class="kw">Tällä viikolla muistutamme lomilta paluun yhteydessä yleistyvistä huijauksista sekä tietojenkalastelusta. Nostamme esiin npm-ekosysteemin kohdistuneen uuden toimitusketjuhyökkäyksen sekä kerromme, miten yksikin suojaamaton laite voi avata tien verkkoon. Kerromme lisäksi tälläkin viikolla esiin nousseista ClickFix-tartuntatapauksista. Lopuksi kerromme EU-komission julkaisemasta soveltamisohjeesta j</p>
@@ -622,9 +634,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät  kesälomakauden päättyminen näkyy vuosittain myös kyberrikollisten toiminnassa. työarkeen palaavien kiire tarjoaa rikollisille otollisen tilaisuuden kalastella käyttäjätunnuksia ja muita luottamuksellisia tietoja.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät</a></div>
       
       <p class="kw">Kesälomakauden päättyminen näkyy vuosittain myös kyberrikollisten toiminnassa. Työarkeen palaavien kiire tarjoaa rikollisille otollisen tilaisuuden kalastella käyttäjätunnuksia ja muita luottamuksellisia tietoja.</p>
@@ -658,9 +670,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     <h2>2. elokuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="n-able n-central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus  n-able n-central julkaisi haavoittuvuustiedotteen n-central-ohjelmistoa koskien. kaikki n-central-versiot ovat haavoittuvia. n-able on julkaissut 6.8.2026 uuden korjauspäivityksen n-central 2026.3 (2026.3.1.10) versioon, joka korjaa käyttäjän todennuksen ohituksen vaihtoehtoisen reitin tai kanavan kautta. haavoittuvuuden hyväksikäyttöä on havaittu. päivitä ohjelmisto välittömästi.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">N-able N-Central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus</a></div>
       
       <p class="kw">N-able N-central julkaisi haavoittuvuustiedotteen N-central-ohjelmistoa koskien. Kaikki N-central-versiot ovat haavoittuvia. N-able on julkaissut 6.8.2026 uuden korjauspäivityksen N-central 2026.3 (2026.3.1.10) versioon, joka korjaa käyttäjän todennuksen ohituksen vaihtoehtoisen reitin tai kanavan kautta. Haavoittuvuuden hyväksikäyttöä on havaittu. Päivitä ohjelmisto välittömästi.</p>
@@ -676,9 +688,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     <h2>31. heinäkuuta 2026</h2>
     
     <article class="hot"
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?  julkisuudessa on viime aikoina keskusteltu tapauksista, joissa tekoälyjärjestelmät ovat turvallisuustesteissä toteuttaneet toimia, jotka muistuttavat tietomurtoja tai luvattomia tunkeutumisyrityksiä. tapaukset ovat herättäneet kysymyksiä siitä, kuinka itsenäisesti tekoäly kykenee toimimaan ja millaisia riskejä sen käyttöön liittyy kyberturvallisuuden näkökulmasta.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?</a></div>
       
       <p class="kw">Julkisuudessa on viime aikoina keskusteltu tapauksista, joissa tekoälyjärjestelmät ovat turvallisuustesteissä toteuttaneet toimia, jotka muistuttavat tietomurtoja tai luvattomia tunkeutumisyrityksiä. Tapaukset ovat herättäneet kysymyksiä siitä, kuinka itsenäisesti tekoäly kykenee toimimaan ja millaisia riskejä sen käyttöön liittyy kyberturvallisuuden näkökulmasta.</p>
@@ -738,9 +750,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     <h2>29. heinäkuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberkestävyyssäädöksen vaatimukset selkiytyvät - eu-komissio julkaisi uuden soveltamisohjeen  euroopan komissio on julkaissut uuden soveltamisohjeen kyberkestävyyssäädöksen (cyber resilience act, cra) toimeenpanon tueksi. ohjeistus on suunnattu erityisesti valmistajille, ohjelmistokehittäjille sekä muille yrityksille, jotka saattavat markkinoille digitaalisia tuotteita. ohjeistus tarjoaa yrityksille konkreettisia neuvoja siihen, miten ne voivat valmistautua tuleviin kyberturvallisuusvaatim">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberkestävyyssäädöksen vaatimukset selkiytyvät - EU-komissio julkaisi uuden soveltamisohjeen</a></div>
       
       <p class="kw">Euroopan komissio on julkaissut uuden soveltamisohjeen kyberkestävyyssäädöksen (Cyber Resilience Act, CRA) toimeenpanon tueksi. Ohjeistus on suunnattu erityisesti valmistajille, ohjelmistokehittäjille sekä muille yrityksille, jotka saattavat markkinoille digitaalisia tuotteita. Ohjeistus tarjoaa yrityksille konkreettisia neuvoja siihen, miten ne voivat valmistautua tuleviin kyberturvallisuusvaatim</p>
@@ -751,9 +763,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kriittinen haavoittuvuus nginx-tuotteissa  f5:n heinäkuussa korjaamasta kriittisestä nginx-haavoittuvuudesta (cve-2026-42533) on julkaistu toimiva hyväksikäyttökoodi, mikä kasvattaa merkittävästi riskiä haavoittuvuuden aktiiviseen hyväksikäyttöön. käyttöoikeudettoman hyökkääjän etäkoodin suorituksen mahdollistava haavoittuvuus koskee useita nginx-tuotteita. tuotteiden käyttäjiä kehotetaan päivittämään korjattuihin versioihin viipymättä.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittinen haavoittuvuus NGINX-tuotteissa</a></div>
       
       <p class="kw">F5:n heinäkuussa korjaamasta kriittisestä NGINX-haavoittuvuudesta (CVE-2026-42533) on julkaistu toimiva hyväksikäyttökoodi, mikä kasvattaa merkittävästi riskiä haavoittuvuuden aktiiviseen hyväksikäyttöön. Käyttöoikeudettoman hyökkääjän etäkoodin suorituksen mahdollistava haavoittuvuus koskee useita NGINX-tuotteita. Tuotteiden käyttäjiä kehotetaan päivittämään korjattuihin versioihin viipymättä.</p>
@@ -782,24 +794,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     </article>
     
     <article class=""
-             data-court="Julkaisu"
-             data-text="do smes have equal opportunity for gdpr compliance? : accessibility and effectiveness of the standard contractual clauses in international data transfers in a post-schrems ii legal landscape tietosuoja-asetus, mallisopimuslausekkeet, schrems ii, pk-yritykset, viestintä- ja informaatio-oikeus, information- and communications law, informations- och kommunikationsrätt, oikeustieteen maisterin koulutusohjelma helsinki, master&amp;apos;s programme in law helsinki, magisterprogrammet i rättsveten tutkielmassa käsitellään schrems ii-oikeustapauksen jäljiltä tapahtuneita muutoksia tietosuoja-asetuksen mukaisissa yleisissä mallisopimuslausekkeissa ja arvioidaan mikäli ne asettavat eri kokoiset yritykset eriarvoiseen asemaan nykymuodossaan.
-
-ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetään oleelliset oikeustapaukset (schrems i ja schrems ii) taustoittamaan tutkitt">
-      <span class="court">Julkaisu</span>
-      <div><a class="t" href="http://hdl.handle.net/10138/569898" target="_blank" rel="noopener">Do SMEs have equal opportunity for GDPR compliance? : Accessibility and Effectiveness of the Standard Contractual Clauses in International Data Transfers in a Post-Schrems II Legal Landscape</a></div>
-      <p class="kw">Tietosuoja-asetus, mallisopimuslausekkeet, Schrems II, pk-yritykset, Viestintä- ja informaatio-oikeus, Information- and Communications Law, Informations- och kommunikationsrätt, Oikeustieteen maisterin koulutusohjelma Helsinki, Master&apos;s Programme in Law Helsinki, Magisterprogrammet i rättsveten</p>
-      
-      <div class="tags">
-        
-        <span class="tag">tietosuoja</span><span class="tag">GDPR</span>
-      </div>
-    </article>
-    
-    <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="haavoittuvuuskilpailussa nopeus ratkaisee  kyberturvallisuuden vanhan sanonnan mukaan kello alkaa tikittää silloin, kun haavoittuvuus löydetään. nykyisessä uhkaympäristössä sekä teknologisen kehityksen myötä sekuntiviisari lähtee liikkeelle jo paljon aikaisemmin. ensimmäiset sekunnit kuluvat siitä hetkestä lähtien, kun haavoittuvuus syntyy. oli haavoittuvuuden syynä sitten ohjelmistovirhe, epäonnistunut päivitys tai jokin muu syy. kun haav">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Haavoittuvuuskilpailussa nopeus ratkaisee</a></div>
       
       <p class="kw">Kyberturvallisuuden vanhan sanonnan mukaan kello alkaa tikittää silloin, kun haavoittuvuus löydetään. Nykyisessä uhkaympäristössä sekä teknologisen kehityksen myötä sekuntiviisari lähtee liikkeelle jo paljon aikaisemmin. Ensimmäiset sekunnit kuluvat siitä hetkestä lähtien, kun haavoittuvuus syntyy. Oli haavoittuvuuden syynä sitten ohjelmistovirhe, epäonnistunut päivitys tai jokin muu syy. Kun haav</p>
@@ -851,9 +848,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>19. heinäkuuta 2026</h2>
     
     <article class="hot"
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="wordpress -tuotteessa kriittinen haavoittuvuus  wordpress julkaisi korjaukset kahteen haavoittuvuuteen, joiden ketjuttaminen (wp2shell) mahdollistaa etäkoodin suorittamisen haavoittuvissa wordpress-asennuksissa ilman tunnistautumista. haavoittuvuutta hyväksikäyttämällä on toteutettu useita onnistuneita tietomurtoja myös suomessa, joten haavoittuvuudelle alttiille palvelimille tulee korjauksen välittömän asentamisen lisäksi myös suorittaa tutkin">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">WordPress -tuotteessa kriittinen haavoittuvuus</a></div>
       
       <p class="kw">WordPress julkaisi korjaukset kahteen haavoittuvuuteen, joiden ketjuttaminen (wp2shell) mahdollistaa etäkoodin suorittamisen haavoittuvissa WordPress-asennuksissa ilman tunnistautumista. Haavoittuvuutta hyväksikäyttämällä on toteutettu useita onnistuneita tietomurtoja myös Suomessa, joten haavoittuvuudelle alttiille palvelimille tulee korjauksen välittömän asentamisen lisäksi myös suorittaa tutkin</p>
@@ -887,9 +884,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>15. heinäkuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille  viime vuosien aikana lukuisat kotimaiset organisaatiot ovat joutuneet tietomurron kohteeksi haavoittuvan tai heikosti suojatun verkkolaitteen- tai palvelun vuoksi. verkkolaitteiden suojaamiseen ja valvontaan on tärkeää kohdentaa riittävästi resursseja. organisaatioiden tulee varautua ja harjoitella mahdollisten poikkeamatilanteiden varalta.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille</a></div>
       
       <p class="kw">Viime vuosien aikana lukuisat kotimaiset organisaatiot ovat joutuneet tietomurron kohteeksi haavoittuvan tai heikosti suojatun verkkolaitteen- tai palvelun vuoksi. Verkkolaitteiden suojaamiseen ja valvontaan on tärkeää kohdentaa riittävästi resursseja. Organisaatioiden tulee varautua ja harjoitella mahdollisten poikkeamatilanteiden varalta.</p>
@@ -990,9 +987,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>2. heinäkuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus  tietoturvatutkija on julkaissut linux kernelissä olevan haavoittuvuuden nimeltä ipv6_frag_escape. haavoittuvuuden hyväksikäytön mahdollistava proof-of-concept-koodi on julkisesti saatavilla. proof-of-concept koskee linux kernel 6.12-versiota, joka on käytössä muun muassa almalinux 10:ssä, centos stream 10:ssä ja red hat enterprise linux 10:ssä. almalinux-ohjelmiston osalta on olemassa päivitys tai">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus</a></div>
       
       <p class="kw">Tietoturvatutkija on julkaissut Linux Kernelissä olevan haavoittuvuuden nimeltä IPV6_FRAG_ESCAPE. Haavoittuvuuden hyväksikäytön mahdollistava proof-of-concept-koodi on julkisesti saatavilla. Proof-of-concept koskee Linux kernel 6.12-versiota, joka on käytössä muun muassa AlmaLinux 10:ssä, CentOS Stream 10:ssä ja Red Hat Enterprise Linux 10:ssä. AlmaLinux-ohjelmiston osalta on olemassa päivitys tai</p>
@@ -1057,9 +1054,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>23. kesäkuuta 2026</h2>
     
     <article class="hot"
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="fortibleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös suomessa  kesäkuussa 2026 paljastunut fortibleed-kampanja on yksi vuoden merkittävimmistä maailmanlaajuisista kyberhyökkäyksistä. se koskee erityisesti fortinetin fortigate-palomuureja ja ssl-vpn-laitteita, joihin on kohdistunut tietomurtoja ja tietomurron yrityksiä aiemmin vuotaneita ja varastettuja kirjautumistunnuksia hyväksikäyttäen. kyberturvallisuuskeskus on kartoittanut suomalaisia kohdeorganisaatioi">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">FortiBleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös Suomessa</a></div>
       
       <p class="kw">Kesäkuussa 2026 paljastunut FortiBleed-kampanja on yksi vuoden merkittävimmistä maailmanlaajuisista kyberhyökkäyksistä. Se koskee erityisesti Fortinetin FortiGate-palomuureja ja SSL-VPN-laitteita, joihin on kohdistunut tietomurtoja ja tietomurron yrityksiä aiemmin vuotaneita ja varastettuja kirjautumistunnuksia hyväksikäyttäen. Kyberturvallisuuskeskus on kartoittanut suomalaisia kohdeorganisaatioi</p>
@@ -1088,9 +1085,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 24/2026  tällä viikolla kerromme vaarallisista puhelinhuijauksista klarnan nimissä. kerromme myös kesän aikana yleistyvistä toimitusjohtajahuijauksista sekä toivotamme halukkaat tervetulleeksi kansainväliseen connect4cyber verkostoitumistapahtumaan. nostamme lisäksi toukokouun kybersään julkaisun sekä toivotamme hyvää kesää, sillä kyberturvallisuuskeskuksen viikkokatsaus jää kesätauolle. lopuksi voit tutus">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 24/2026</a></div>
       
       <p class="kw">Tällä viikolla kerromme vaarallisista puhelinhuijauksista Klarnan nimissä. Kerromme myös kesän aikana yleistyvistä toimitusjohtajahuijauksista sekä toivotamme halukkaat tervetulleeksi kansainväliseen Connect4Cyber verkostoitumistapahtumaan. Nostamme lisäksi toukokouun Kybersään julkaisun sekä toivotamme hyvää kesää, sillä Kyberturvallisuuskeskuksen viikkokatsaus jää kesätauolle. Lopuksi voit tutus</p>
@@ -1137,9 +1134,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>9. kesäkuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="check point vpn -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus  check point julkaisi korjauspaketin remote access vpn, mobile access ja spark firewall -tuotteisiin joka korjaa kriittisen tunnistautumisen ohituksen mahdollistavan haavoittuvuuden cve-2026-50751. haavoittuvuuden hyväksikäyttöä on jo havaittu, joten haavoittuvuudelle alttiille laitteille tulee korjauksen asentamisen lisäksi myös suorittaa tutkinta mahdollisen tapahtuneen tietomurron varalta.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Check Point VPN -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus</a></div>
       
       <p class="kw">Check Point julkaisi korjauspaketin Remote Access VPN, Mobile Access ja Spark Firewall -tuotteisiin joka korjaa kriittisen tunnistautumisen ohituksen mahdollistavan haavoittuvuuden CVE-2026-50751. Haavoittuvuuden hyväksikäyttöä on jo havaittu, joten haavoittuvuudelle alttiille laitteille tulee korjauksen asentamisen lisäksi myös suorittaa tutkinta mahdollisen tapahtuneen tietomurron varalta.</p>
@@ -1155,9 +1152,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>5. kesäkuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 23/2026  tällä viikolla kerromme pienestä kesän kybermuistilistasta, jonka avulla voit parantaa tietoturvaa helpoilla toimenpiteillä. kerromme myös uuden kyberkestävyyslain voimaantulosta sekä esittelemme keväällä järjestettyä valtionhallinnon kyberharjoitusta. lopuksi tutustumme ajankohtaisiin huijauksiin. viikkokatsaus jää kesätauolle 19.6.–6.8.2026 väliseksi ajaksi.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 23/2026</a></div>
       
       <p class="kw">Tällä viikolla kerromme pienestä kesän kybermuistilistasta, jonka avulla voit parantaa tietoturvaa helpoilla toimenpiteillä. Kerromme myös uuden kyberkestävyyslain voimaantulosta sekä esittelemme keväällä järjestettyä valtionhallinnon kyberharjoitusta. Lopuksi tutustumme ajankohtaisiin huijauksiin. Viikkokatsaus jää kesätauolle 19.6.–6.8.2026 väliseksi ajaksi.</p>
@@ -1209,9 +1206,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>29. toukokuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 22/2026  viikkokatsauksessa kerromme traficomin nimissä liikkeellä olleista huijausviesteistä ja kuinka uudistettu hyöky-palvelu kannustaa vahvistamaan oman verkon turvallisuutta. eu:n kyberkestävyyssäädöksen voimaantulo tuo mukanaan uusia velvoitteita, joista kerrotaan tarkemmin 3.6. järjestettävässä infotilaisuudessa.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 22/2026</a></div>
       
       <p class="kw">Viikkokatsauksessa kerromme Traficomin nimissä liikkeellä olleista huijausviesteistä ja kuinka uudistettu Hyöky-palvelu kannustaa vahvistamaan oman verkon turvallisuutta. EU:n kyberkestävyyssäädöksen voimaantulo tuo mukanaan uusia velvoitteita, joista kerrotaan tarkemmin 3.6. järjestettävässä infotilaisuudessa.</p>
@@ -1245,9 +1242,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>22. toukokuuta 2026</h2>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="drupal coressa kriittinen ja aktiivisesti hyväksikäytetty sql-injektion mahdollistava haavoittuvuus  drupal-julkaisualustassa on havaittu kriittinen, sql-injektion mahdollistava haavoittuvuus. drupal on julkaissut haavoittuvuuden korjaavan päivityksen ja organisaatioita suositellaan välittömästi päivittämään drupal haavoittuvuuden korjaamiseksi.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Drupal Coressa kriittinen ja aktiivisesti hyväksikäytetty SQL-injektion mahdollistava haavoittuvuus</a></div>
       
       <p class="kw">Drupal-julkaisualustassa on havaittu kriittinen, SQL-injektion mahdollistava haavoittuvuus. Drupal on julkaissut haavoittuvuuden korjaavan päivityksen ja organisaatioita suositellaan välittömästi päivittämään Drupal haavoittuvuuden korjaamiseksi.</p>
@@ -1258,9 +1255,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     </article>
     
     <article class=""
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 21/2026  kesän kynnyksellä kyberturvallisuudessa korostuvat sekä arjen huolellisuus että ennakoiva varautuminen. tämän viikon katsauksessa nostamme esiin ajankohtaisia huijauksia, microsoft 365 -ympäristöihin kohdistuvia uusia kalastelutapoja, secure boot -varmenteiden tulevia muutoksia, energia-alan kyberharjoittelua tuulivoimaympäristöissä, avoinna olevasta eu-rahoituksesta sekä kyberturvallisuuskeskukse">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 21/2026</a></div>
       
       <p class="kw">Kesän kynnyksellä kyberturvallisuudessa korostuvat sekä arjen huolellisuus että ennakoiva varautuminen. Tämän viikon katsauksessa nostamme esiin ajankohtaisia huijauksia, Microsoft 365 -ympäristöihin kohdistuvia uusia kalastelutapoja, Secure Boot -varmenteiden tulevia muutoksia, energia-alan kyberharjoittelua tuulivoimaympäristöissä, avoinna olevasta EU-rahoituksesta sekä Kyberturvallisuuskeskukse</p>
@@ -1289,9 +1286,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     </article>
     
     <article class="hot"
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="uusi aalto m365-tietojenkalastelussa - ai‑avusteinen laitekoodin kalastelukampanja  tietoturvatutkijat ovat havainneet laajamittaisen kalastelukampanjan, jossa hyödynnetään laitekooditodennusmenetelmää ja tekoälyä hyökkäysten tehostamiseen. kampanja kohdistuu organisaatioihin ja yksittäisiin käyttäjiin. hyökkäyksen tavoitteena on saada luvaton pääsy tileihin sekä yritysten resursseihin. kyberturvallisuuskeskus on saanut ilmoituksia vastaavista tapauksista myös suomessa. organisaa">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Uusi aalto M365-tietojenkalastelussa - AI‑avusteinen laitekoodin kalastelukampanja</a></div>
       
       <p class="kw">Tietoturvatutkijat ovat havainneet laajamittaisen kalastelukampanjan, jossa hyödynnetään laitekooditodennusmenetelmää ja tekoälyä hyökkäysten tehostamiseen. Kampanja kohdistuu organisaatioihin ja yksittäisiin käyttäjiin. Hyökkäyksen tavoitteena on saada luvaton pääsy tileihin sekä yritysten resursseihin. Kyberturvallisuuskeskus on saanut ilmoituksia vastaavista tapauksista myös Suomessa. Organisaa</p>
@@ -1307,9 +1304,9 @@ ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetä
     <h2>20. toukokuuta 2026</h2>
     
     <article class="hot"
-             data-court="NCSC-FI"
+             data-court="Kyberturvallisuuskeskus"
              data-text="jopa 100% eu-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi  euroopan komission horisontti eurooppa -ohjelmassa on tarjolla rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyberturvallisuuden tutkimus-, kehittämis- ja innovaatiotoiminnan edistämiseen erilaisia kyberuhkia ja -hyökkäyksiä vastaan, myös kehittyvät kryptoteknologiat soveltuvasti huomioiden. rahoitusta voivat hakea kaikki teemasta kiinnostuneet organisaatiot.">
-      <span class="court">NCSC-FI</span>
+      <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Jopa 100% EU-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi</a></div>
       
       <p class="kw">Euroopan komission Horisontti Eurooppa -ohjelmassa on tarjolla rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyberturvallisuuden tutkimus-, kehittämis- ja innovaatiotoiminnan edistämiseen erilaisia kyberuhkia ja -hyökkäyksiä vastaan, myös kehittyvät kryptoteknologiat soveltuvasti huomioiden. Rahoitusta voivat hakea kaikki teemasta kiinnostuneet organisaatiot.</p>
