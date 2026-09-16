@@ -33,7 +33,7 @@ jobs:
       - name: Aja haku
         # base-url menee RSS-syötteen <link>-kenttään.
         # Muoto on https://KAYTTAJATUNNUS.github.io/REPON-NIMI/
-        run: python main.py --base-url "https://4milan423-del.github.io/newsfeed-test/"
+        run: python main.py --base-url "https://lslander.github.io/Tietosuojaseuranta/"
 
       - name: Commitoi tulos
         run: |
