@@ -3,39 +3,97 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Tietosuoja, teknologia ja datasääntely">
 <title>Oikeustapausseuranta</title>
 <link rel="alternate" type="application/rss+xml" title="Oikeustapausseuranta" href="feed.xml">
 <style>
   /* Bird & Birdin ilme: petroli #005C82, korostus #FFA169, vaalea mintunvihreä
      #EBF8F6. Otsikot Georgialla, leipäteksti groteskilla. Georgia on valmiina
      joka koneessa, joten ulkoisia fonttilatauksia ei tarvita ja sivu pysyy
-     yhtenä tiedostona. */
+     yhtenä tiedostona. Se pitää myös kävijän IP-osoitteen poissa Googlen
+     palvelimilta, mikä on tietosuojasivulla oma pointtinsa. */
   :root {
-    --bg: #f3f8f9; --card: #ffffff; --ink: #10323f; --muted: #5c7480;
+    --bg: #f3f8f9; --card: #ffffff; --ink: #10323f; --muted: #4a626e;
     --line: #dae7eb; --accent: #005C82; --hot: #fff3ea; --hotline: #ffc9a3;
+    --ok: #1c6b4d; --fail: #9a3412;
     --serif: Georgia, "Times New Roman", "Iowan Old Style", serif;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#0d1f27; --card:#142c36; --ink:#e7f1f3; --muted:#90a9b3;
-            --line:#23414d; --accent:#7ec2df; --hot:#2b2119; --hotline:#7a4e2c; }
+    :root { --bg:#0d1f27; --card:#142c36; --ink:#e7f1f3; --muted:#a3bcc6;
+            --line:#23414d; --accent:#7ec2df; --hot:#2b2119; --hotline:#7a4e2c;
+            --ok:#7fd4ad; --fail:#f2a880; }
   }
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body { margin:0; background:var(--bg); color:var(--ink);
          font:16px/1.55 "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-              system-ui, sans-serif; }
-  .wrap { max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; }
-  header h1 { font-family: var(--serif); font-weight: 400; font-size: 2rem;
+              system-ui, sans-serif;
+         overflow-wrap: break-word; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  /* Näppäimistöfokus pitää näkyä. Kaikki suodattimet ovat nappeja ja niitä
+     selataan sarkaimella. */
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+  .skip { position:absolute; left:-9999px; }
+  .skip:focus { position:static; display:inline-block; margin-bottom:12px;
+    padding:8px 12px; background:var(--accent); color:#fff; border-radius:6px; }
+
+  header h1 { font-family: var(--serif); font-weight: 400; font-size: 1.9rem;
     margin: 0 0 6px; letter-spacing: -0.005em; color: var(--accent); }
-  header p { margin: 0; color: var(--muted); font-size: 0.92rem;
-    font-family: var(--serif); font-style: italic; font-size: 1rem; }
-  .meta { margin-top: 14px; color: var(--muted); font-size: 0.82rem; }
-  .controls { display:flex; gap:8px; flex-wrap:wrap; margin: 22px 0 6px; }
-  input[type=search] { flex:1 1 240px; min-width:200px; padding:9px 12px;
-    border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); font-size:0.92rem; }
+  header p.lede { margin: 0 0 10px; color: var(--muted);
+    font-family: var(--serif); font-style: italic; font-size: 1.02rem; }
+  .intro { margin: 14px 0 0; font-size: 0.93rem; max-width: 62ch; }
+  .intro p { margin: 0 0 8px; }
+  .meta { margin-top: 14px; color: var(--muted); font-size: 0.83rem; }
+  .meta a { color: var(--accent); }
+  .meta b { color: var(--ink); font-weight: 700; }
+
+  /* Lähdepaneeli. Suljettuna oletuksena, koska se on taustatietoa. */
+  details.sources { margin-top:16px; border:1px solid var(--line);
+    border-radius:10px; background:var(--card); }
+  details.sources > summary { cursor:pointer; padding:11px 14px;
+    font-size:0.86rem; font-weight:600; color:var(--accent); }
+  details.sources[open] > summary { border-bottom:1px solid var(--line); }
+  .srcbody { padding:12px 14px 14px; }
+  .srcbody p { margin:0 0 10px; font-size:0.85rem; color:var(--muted); max-width:62ch; }
+  ul.srclist { list-style:none; margin:0; padding:0;
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:4px 16px; }
+  ul.srclist li { font-size:0.82rem; display:flex; gap:8px; align-items:baseline;
+    padding:3px 0; border-bottom:1px dotted var(--line); }
+  .dot { flex:0 0 auto; font-weight:700; font-size:0.72rem; letter-spacing:0.03em; }
+  .dot.ok { color:var(--ok); }
+  .dot.fail { color:var(--fail); }
+  .srcname { flex:1 1 auto; }
+  .srcnum { flex:0 0 auto; color:var(--muted); font-variant-numeric:tabular-nums; }
+
+  /* min-inline-size on fieldsetissä oletuksena min-content, ei 0 kuten
+     muilla lohkoelementeillä. Ilman nollausta nappirivi venyttää koko sivun
+     leveämmäksi kuin ruutu ja puhelin zoomaa ulos, jolloin teksti näyttää
+     yhdeltä pätkältä. */
+  fieldset.controls { border:0; margin:22px 0 0; padding:0;
+    min-inline-size:0; max-width:100%; }
+  fieldset.controls legend { font-size:0.75rem; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--muted); font-weight:700; padding:0;
+    margin-bottom:7px; }
+  .searchrow { display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+    min-width:0; max-width:100%; }
+  input[type=search] { flex:1 1 240px; min-width:0; padding:10px 12px;
+    border:1px solid var(--line); border-radius:8px; background:var(--card);
+    color:var(--ink); font-size:1rem; font-family:inherit; }
+  .chiprow { display:flex; gap:7px; flex-wrap:wrap; margin-top:7px;
+    min-width:0; max-width:100%; }
   .chip { padding:7px 12px; border:1px solid var(--line); border-radius:999px;
-    background:var(--card); color:var(--muted); font-size:0.82rem; cursor:pointer; }
+    background:var(--card); color:var(--muted); font-size:0.82rem; cursor:pointer;
+    font-family:inherit; white-space:nowrap; }
+  .chip:hover { border-color:var(--accent); color:var(--accent); }
   .chip[aria-pressed=true] { background:var(--accent); color:#ffffff; border-color:var(--accent); }
-  .daygroup { margin-top: 28px; }
+  .chip.reset { border-style:dashed; }
+  .count { margin:14px 0 0; font-size:0.83rem; color:var(--muted); }
+
+  .daygroup { margin-top: 26px; }
   .daygroup > h2 { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.09em;
     color:var(--muted); font-weight:700; margin:0 0 10px;
     padding-bottom:6px; border-bottom:1px solid var(--line); }
@@ -43,7 +101,7 @@
     padding:14px 16px; margin-bottom:10px; }
   article.hot { background:var(--hot); border-color:var(--hotline); }
   article a.t { font-family:var(--serif); color:var(--ink); text-decoration:none;
-    font-weight:600; font-size:1.06rem; line-height:1.4; }
+    font-weight:600; font-size:1.06rem; line-height:1.4; overflow-wrap:anywhere; }
   article a.t:hover { color:var(--accent); text-decoration:underline; }
   .court { display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.05em;
     text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
@@ -51,38 +109,285 @@
   .tags { margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; }
   .tag { font-size:0.7rem; color:var(--muted); border:1px solid var(--line);
     padding:2px 7px; border-radius:999px; }
+  .tag.topic { color:var(--accent); border-color:var(--accent); }
+  .tag.important { color:var(--fail); border-color:var(--hotline); font-weight:700; }
   /* Korallinen "uusi"-merkki on Bird & Birdin korostusväri. Täytetty pilleri,
      koska #FFA169 tekstinä vaalealla taustalla ei täytä kontrastivaatimusta. */
   .tag.new { background:#FFA169; color:#3a1f0c; border-color:#FFA169; font-weight:700; }
   footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--line);
     color:var(--muted); font-size:0.8rem; }
-  footer a { color:var(--muted); }
-  .empty { color:var(--muted); padding:40px 0; }
+  footer a { color:var(--accent); }
+  footer p { margin:0 0 8px; max-width:62ch; }
+  .empty { color:var(--muted); padding:36px 0; }
+
+  /* Kapea ruutu. Puhelimessa sivua katsotaan pystyasennossa noin 360
+     pikselin levyisenä, ja siinä leveydessä sarakkeet ja isot marginaalit
+     vain vievät tilaa. */
+  @media (max-width: 560px) {
+    .wrap { padding: 20px 14px 56px; }
+    header h1 { font-size: 1.5rem; }
+    header p.lede { font-size: 0.95rem; }
+    .intro { font-size: 0.9rem; }
+    ul.srclist { grid-template-columns: 1fr; }
+    article { padding: 12px 13px; }
+    article a.t { font-size: 1rem; }
+    /* Napit vierivät vaakasuunnassa sen sijaan että ne pakkautuisivat
+       moneen riviin ja työntäisivät listan ruudun alareunaan. */
+    .chiprow { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px;
+      scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+    .chip { font-size: 0.8rem; padding: 8px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+<a class="skip" href="#list">Siirry ratkaisuihin</a>
+
 <header>
   <h1>Oikeustapausseuranta</h1>
-  <p>Tietosuoja, teknologia ja datasääntely</p>
-  <div class="meta">
-    Päivitetty 18.9.2026 klo 05:23 · 77 ratkaisua · 5 uutta
-    · <a href="feed.xml">RSS</a> · <a href="data.json">JSON</a>
+  <p class="lede">Tietosuoja, teknologia ja datasääntely</p>
+
+  <div class="intro">
+    <p>Sivu kokoaa yhteen tietosuojaa, teknologiaa ja datasääntelyä koskevat
+    ratkaisut, valvontapäätökset ja säädösvalmistelun 26 lähteestä.
+    Mukaan pääsevät jutut, joiden otsikossa, asiasanoissa tai tiivistelmässä on
+    ainakin yksi seurattavista termeistä. Aikaikkuna on 120 päivää.</p>
+    <p>Haku ajetaan automaattisesti arkiaamuisin. Aineisto on julkista ja tulee
+    suoraan kunkin viranomaisen omasta syötteestä. Sivulla ei ole seurantaa,
+    evästeitä eikä ulkoisia fonttilatauksia.</p>
   </div>
+
+  <p class="meta">
+    Päivitetty <b>18.9.2026 klo 14:40</b> · <b>67</b> ratkaisua ·
+    <b>1</b> uutta edellisen ajon jälkeen ·
+    <a href="feed.xml">RSS</a> · <a href="data.json">JSON</a>
+  </p>
+
+  <details class="sources">
+    <summary>Lähteiden tila: 26/26 vastasi</summary>
+    <div class="srcbody">
+      <p>Luku kertoo, montako juttua lähteestä saatiin ennen avainsanasuodatusta.
+      Nolla tarkoittaa, että lähde vastasi mutta sillä ei ollut mitään aikaikkunan
+      sisällä. Punainen merkintä tarkoittaa, että lähdettä ei saatu, jolloin sen
+      aineisto puuttuu tältä sivulta.</p>
+      <ul class="srclist">
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Doria (mm. Åbo Akademi)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">2</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">ENISA, julkaisut<span class="skip">, vastasi</span></span>
+          <span class="srcnum">11</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">ENISA, uutiset<span class="skip">, vastasi</span></span>
+          <span class="srcnum">12</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">eRepo (Itä-Suomen yliopisto)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">19</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Euroopan tietosuojaneuvosto (EDPB)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">10</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Helda (Helsingin yliopisto)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">43</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Helsingin hovioikeus<span class="skip">, vastasi</span></span>
+          <span class="srcnum">0</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">JYX (Jyväskylän yliopisto)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">10</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Komissio, digitaalinen strategia<span class="skip">, vastasi</span></span>
+          <span class="srcnum">10</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Korkein hallinto-oikeus<span class="skip">, vastasi</span></span>
+          <span class="srcnum">15</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Korkein oikeus<span class="skip">, vastasi</span></span>
+          <span class="srcnum">15</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Kyberturvallisuuskeskus<span class="skip">, vastasi</span></span>
+          <span class="srcnum">434</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Lauda (Lapin yliopisto)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">1</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Liikenne- ja viestintäministeriö<span class="skip">, vastasi</span></span>
+          <span class="srcnum">20</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Markkinaoikeus<span class="skip">, vastasi</span></span>
+          <span class="srcnum">15</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Oikeusministeriö<span class="skip">, vastasi</span></span>
+          <span class="srcnum">8</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Tietosuojavaltuutetun toimisto<span class="skip">, vastasi</span></span>
+          <span class="srcnum">20</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Traficom<span class="skip">, vastasi</span></span>
+          <span class="srcnum">3</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Turun hovioikeus<span class="skip">, vastasi</span></span>
+          <span class="srcnum">0</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Työ- ja elinkeinoministeriö<span class="skip">, vastasi</span></span>
+          <span class="srcnum">20</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Työtuomioistuin<span class="skip">, vastasi</span></span>
+          <span class="srcnum">30</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Unionin tuomioistuimen lehdistötiedotteet<span class="skip">, vastasi</span></span>
+          <span class="srcnum">10</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">407</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">UTUPub (Turun yliopisto)<span class="skip">, vastasi</span></span>
+          <span class="srcnum">6</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Vakuutusoikeus<span class="skip">, vastasi</span></span>
+          <span class="srcnum">14</span>
+        </li>
+        
+        <li>
+          <span class="dot ok" aria-hidden="true">●</span>
+          <span class="srcname">Valtioneuvosto<span class="skip">, vastasi</span></span>
+          <span class="srcnum">11</span>
+        </li>
+        
+      </ul>
+      
+      <p style="margin-top:12px">Käsin tarkistettavat lähteet, joista ei saa
+      koneluettavaa aineistoa: EDPS, Puolan UODO, eduskunnan VaskiData, Finlexin säädöskokoelma.</p>
+      
+    </div>
+  </details>
 </header>
 
-<div class="controls">
-  <input type="search" id="q" placeholder="Suodata otsikoista ja asiasanoista">
-  <button class="chip" data-court="EDPB" aria-pressed="false">EDPB</button><button class="chip" data-court="ENISA" aria-pressed="false">ENISA</button><button class="chip" data-court="EU-komissio" aria-pressed="false">EU-komissio</button><button class="chip" data-court="EUT" aria-pressed="false">EUT</button><button class="chip" data-court="Julkaisu" aria-pressed="false">Julkaisu</button><button class="chip" data-court="KHO" aria-pressed="false">KHO</button><button class="chip" data-court="KKO" aria-pressed="false">KKO</button><button class="chip" data-court="Kyberturvallisuuskeskus" aria-pressed="false">Kyberturvallisuuskeskus</button><button class="chip" data-court="LVM" aria-pressed="false">LVM</button><button class="chip" data-court="MAO" aria-pressed="false">MAO</button><button class="chip" data-court="TSV" aria-pressed="false">TSV</button><button class="chip" data-court="VN" aria-pressed="false">VN</button>
-</div>
+<fieldset class="controls">
+  <legend>Rajaa</legend>
+  <div class="searchrow">
+    <label class="skip" for="q">Hakusana</label>
+    <input type="search" id="q" placeholder="Hae otsikoista ja asiasanoista">
+    <button type="button" class="chip reset" id="reset">Tyhjennä rajaukset</button>
+  </div>
+  
+  <div class="chiprow" role="group" aria-label="Rajaa aiheen mukaan">
+    <button type="button" class="chip" data-topic="kyberturvallisuus" aria-pressed="false">Kyberturvallisuus</button><button type="button" class="chip" data-topic="tietosuoja" aria-pressed="false">Tietosuoja</button><button type="button" class="chip" data-topic="tekoäly" aria-pressed="false">Tekoäly</button><button type="button" class="chip" data-topic="datasääntely" aria-pressed="false">Datasääntely</button><button type="button" class="chip" data-topic="julkisuus ja salassapito" aria-pressed="false">Julkisuus ja salassapito</button><button type="button" class="chip" data-topic="sähköinen viestintä" aria-pressed="false">Sähköinen viestintä</button>
+  </div>
+  
+  <div class="chiprow" role="group" aria-label="Rajaa lähteen mukaan">
+    <button type="button" class="chip" data-court="EDPB" aria-pressed="false">EDPB</button><button type="button" class="chip" data-court="ENISA" aria-pressed="false">ENISA</button><button type="button" class="chip" data-court="EU-komissio" aria-pressed="false">EU-komissio</button><button type="button" class="chip" data-court="EUT" aria-pressed="false">EUT</button><button type="button" class="chip" data-court="Julkaisu" aria-pressed="false">Julkaisu</button><button type="button" class="chip" data-court="KHO" aria-pressed="false">KHO</button><button type="button" class="chip" data-court="KKO" aria-pressed="false">KKO</button><button type="button" class="chip" data-court="Kyberturvallisuuskeskus" aria-pressed="false">Kyberturvallisuuskeskus</button><button type="button" class="chip" data-court="LVM" aria-pressed="false">LVM</button><button type="button" class="chip" data-court="MAO" aria-pressed="false">MAO</button><button type="button" class="chip" data-court="TSV" aria-pressed="false">TSV</button><button type="button" class="chip" data-court="VN" aria-pressed="false">VN</button>
+  </div>
+</fieldset>
+
+<p class="count" id="count" role="status" aria-live="polite">67 ratkaisua näkyvissä</p>
 
 <main id="list">
+
+  <section class="daygroup">
+    <h2>18. syyskuuta 2026</h2>
+    
+    <article class=""
+             data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
+             data-text="kyberturvallisuuskeskuksen viikkokatsaus – 38/2026  tällä viikolla kerromme toimitusjohtajahuijauksista sekä toivotamme teidät tervetulleiksi govcyber finland 2026 -seminaariin. lisäksi käsittelemme clickfix-haittaohjelmailmiötä sekä digi- ja väestötietoviraston vuoden 2026 digiturvabarometria. lopuksi tutustumme ajankohtaisiin huijauksiin ja viikolla julkaistuihin haavoittuvuustiedotteisiin.">
+      <span class="court">Kyberturvallisuuskeskus</span>
+      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-382026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 38/2026</a></div>
+      
+      <p class="kw">Tällä viikolla kerromme toimitusjohtajahuijauksista sekä toivotamme teidät tervetulleiksi GovCyber Finland 2026 -seminaariin. Lisäksi käsittelemme ClickFix-haittaohjelmailmiötä sekä Digi- ja väestötietoviraston vuoden 2026 Digiturvabarometria. Lopuksi tutustumme ajankohtaisiin huijauksiin ja viikolla julkaistuihin haavoittuvuustiedotteisiin.</p>
+      <div class="tags">
+        <span class="tag new">uusi</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">haavoittuvuus</span><span class="tag">cyber</span>
+      </div>
+    </article>
+    
+  </section>
 
   <section class="daygroup">
     <h2>17. syyskuuta 2026</h2>
     
     <article class="hot"
              data-court="EUT"
+             data-topics="tietosuoja"
              data-text="c-437/25 ft vastaan nachalnik oblasten otdel „avtomobilna administratsia“ - gabrovo (tuomio) ennakkoratkaisupyyntö – liikenne – asetus (eu) n:o 165/2014 – 27 ja 41 artikla – toiselle kuuluvan kuljettajakortin käyttäminen – seuraamus – kiinteämääräinen seuraamusmaksu – yksilöinnin mahdottomuus – suhteellisuusperiaate ecli:eu:c:2026:777">
       <span class="court">EUT</span>
       <div><a class="t" href="https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0437" target="_blank" rel="noopener">C-437/25 FT vastaan Nachalnik Oblasten otdel „Avtomobilna administratsia“ - Gabrovo (tuomio)</a></div>
@@ -90,95 +395,41 @@
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">seuraamusmaksu</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">seuraamusmaksu</span>
       </div>
     </article>
     
     <article class="hot"
              data-court="VN"
-             data-text="valtiovarainministerit keskustelevat innovaatioista rahoitussektorilla ja tekoälystä  ">
-      <span class="court">VN</span>
-      <div><a class="t" href="https://valtioneuvosto.fi/-/10623/valtiovarainministerit-keskustelevat-innovaatioista-rahoitussektorilla-ja-tekoalysta" target="_blank" rel="noopener">Valtiovarainministerit keskustelevat innovaatioista rahoitussektorilla ja tekoälystä</a></div>
-      
-      
-      <div class="tags">
-        <span class="tag new">uusi</span>
-        <span class="tag">tärkeä</span><span class="tag">tekoäly</span>
-      </div>
-    </article>
-    
-    <article class="hot"
-             data-court="VN"
+             data-topics="tekoäly"
              data-text="tutkimus- ja innovaationeuvosto kävi läpi kansallisten tki-valintojen tilannetta ja kutsuu asiantuntijapaneelin arvioimaan tekoälyn vaikutuksia  ">
       <span class="court">VN</span>
       <div><a class="t" href="https://valtioneuvosto.fi/-/tutkimus-ja-innovaationeuvosto-kavi-lapi-kansallisten-tki-valintojen-tilannetta-ja-kutsuu-asiantuntijapaneelin-arvioimaan-tekoalyn-vaikutuksia" target="_blank" rel="noopener">Tutkimus- ja innovaationeuvosto kävi läpi kansallisten TKI-valintojen tilannetta ja kutsuu asiantuntijapaneelin arvioimaan tekoälyn vaikutuksia</a></div>
       
       
       <div class="tags">
-        <span class="tag new">uusi</span>
-        <span class="tag">tärkeä</span><span class="tag">tekoäly</span>
+        
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tekoäly</span>
+        
       </div>
     </article>
     
     <article class=""
              data-court="EUT"
+             data-topics="tietosuoja"
              data-text="130/2026 : 17 september 2026 - opinion of the advocate general to the court of justice dean spielmann in case c-317/25  groupe canal + approximation of laws advocate general spielmann: the consent given to an undertaking for ‘its partners’ to use personal data for the purposes of direct marketing is valid only if the identity of those partners is known">
       <span class="court">EUT</span>
       <div><a class="t" href="https://curia.europa.eu/site/jcms/p1_1000087611" target="_blank" rel="noopener">130/2026 : 17 September 2026 - Opinion of the Advocate General to the Court of Justice Dean Spielmann in Case C-317/25</a></div>
       
       <p class="kw">Groupe Canal + Approximation of laws Advocate General Spielmann: the consent given to an undertaking for ‘its partners’ to use personal data for the purposes of direct marketing is valid only if the identity of those partners is known</p>
       <div class="tags">
-        <span class="tag new">uusi</span>
+        
+        
+        <span class="tag topic">Tietosuoja</span>
         <span class="tag">personal data</span>
-      </div>
-    </article>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="kriittinen haavoittuvuus cisco identity services engine -tuotteissa  cisco identity services engine (ise) - ja cisco ise passive identity connector (ise-pic) -tuotteissa on havaittu kriittinen haavoittuvuus, jonka avulla tunnistautumaton hyökkääjä voi ohittaa laitteen hallintaliittymän kirjautumisen. ciscon mukaan haavoittuvuutta hyväksikäytetään aktiivisesti.  haavoittuvuuteen on saatavilla korjaavat ohjelmistopäivitykset. cisco suosittelee asentamaan päivitykset ">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-27?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittinen haavoittuvuus Cisco Identity Services Engine -tuotteissa</a></div>
-      
-      <p class="kw">Cisco Identity Services Engine (ISE) - ja Cisco ISE Passive Identity Connector (ISE-PIC) -tuotteissa on havaittu kriittinen haavoittuvuus, jonka avulla tunnistautumaton hyökkääjä voi ohittaa laitteen hallintaliittymän kirjautumisen. Ciscon mukaan haavoittuvuutta hyväksikäytetään aktiivisesti.  Haavoittuvuuteen on saatavilla korjaavat ohjelmistopäivitykset. Cisco suosittelee asentamaan päivitykset </p>
-      <div class="tags">
-        <span class="tag new">uusi</span>
-        <span class="tag">haavoittuvuus</span>
-      </div>
-    </article>
-    
-  </section>
-
-  <section class="daygroup">
-    <h2>15. syyskuuta 2026</h2>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="kriittinen haavoittuvuus cisco secure email gateway -tuotteissa  cisco secure email gateway -tuotteissa on kriittinen haavoittuvuus, jonka osalta on havaittu hyväksikäyttöä. haavoittuvuuden avulla tunnistautumaton etähyökkääjä voi suorittaa mielivaltaisia sql-lauseita ja komentoja laitteen käyttöjärjestelmässä pääkäyttäjäoikeuksin.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-26?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa</a></div>
-      
-      <p class="kw">Cisco Secure Email Gateway -tuotteissa on kriittinen haavoittuvuus, jonka osalta on havaittu hyväksikäyttöä. Haavoittuvuuden avulla tunnistautumaton etähyökkääjä voi suorittaa mielivaltaisia SQL-lauseita ja komentoja laitteen käyttöjärjestelmässä pääkäyttäjäoikeuksin.</p>
-      <div class="tags">
-        
-        <span class="tag">haavoittuvuus</span>
-      </div>
-    </article>
-    
-  </section>
-
-  <section class="daygroup">
-    <h2>14. syyskuuta 2026</h2>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="kriittinen haavoittuvuus gitlab community edition- ja enterprise edition -tuotteissa  gitlab community edition (ce) ja enterprise edition (ee) -tuotteissa on kriittinen hakemistopolun läpikulkuun liittyvä haavoittuvuus. korjaava versiopäivitys tulee asentaa mahdollisimman pian. haavoittuvuuden hyväksikäytön mahdollistava poc-koodi on julkisesti saatavilla ja haavoittuvuuden aktiivisesta hyväksikäytöstä on tiettävästi havaintoja.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-25?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittinen haavoittuvuus GitLab Community Edition- ja Enterprise Edition -tuotteissa</a></div>
-      
-      <p class="kw">GitLab Community Edition (CE) ja Enterprise Edition (EE) -tuotteissa on kriittinen hakemistopolun läpikulkuun liittyvä haavoittuvuus. Korjaava versiopäivitys tulee asentaa mahdollisimman pian. Haavoittuvuuden hyväksikäytön mahdollistava PoC-koodi on julkisesti saatavilla ja haavoittuvuuden aktiivisesta hyväksikäytöstä on tiettävästi havaintoja.</p>
-      <div class="tags">
-        
-        <span class="tag">haavoittuvuus</span>
       </div>
     </article>
     
@@ -189,6 +440,7 @@
     
     <article class=""
              data-court="EDPB"
+             data-topics=""
              data-text="failure to respect the rights of individuals: the cnil fined extia 300 000 eur  ikerinar fri, 11/09/2026 - 09:24">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/failure-to-respect-the-rights-of-individuals-the-cnil-fined-extia-300-000-eur_en" target="_blank" rel="noopener">Failure to respect the rights of individuals: The CNIL fined EXTIA 300 000 EUR</a></div>
@@ -197,11 +449,14 @@
       <div class="tags">
         
         
+        
+        
       </div>
     </article>
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 37/2026  kyberkestävyyssäädös parantaa verkkolaitteiden käyttäjän asemaa ja helpottaa verkkolaitteiden turvallista ylläpitoa. uuden säädöksen myötä valmistajalla on vastuu seurata ja tiedottaa laitteiden haavoittuvuudesta. verkon reunalaitteiden ylläpitoon ja hallintaan uudistus on tervetullut parannus. elokuun kybersää kertoo sateisesta kybermaisemasta.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-372026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 37/2026</a></div>
@@ -209,7 +464,9 @@
       <p class="kw">Kyberkestävyyssäädös parantaa verkkolaitteiden käyttäjän asemaa ja helpottaa verkkolaitteiden turvallista ylläpitoa. Uuden säädöksen myötä valmistajalla on vastuu seurata ja tiedottaa laitteiden haavoittuvuudesta. Verkon reunalaitteiden ylläpitoon ja hallintaan uudistus on tervetullut parannus. Elokuun kybersää kertoo sateisesta kybermaisemasta.</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span><span class="tag">kyberkestävyy</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">kyberkestävyy</span>
       </div>
     </article>
     
@@ -220,6 +477,7 @@
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="elokuun kybersää 2026  elokuun kybersää jatkui sateisena ja kesälomien jälkeen tapausmäärät kasvoivat. tapauksissa nähtiin tietojenkalastelua ja verkkopalvelujen murtoja.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/elokuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Elokuun Kybersää 2026</a></div>
@@ -227,6 +485,8 @@
       <p class="kw">Elokuun kybersää jatkui sateisena ja kesälomien jälkeen tapausmäärät kasvoivat. Tapauksissa nähtiin tietojenkalastelua ja verkkopalvelujen murtoja.</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">tietojenkalastelu</span>
       </div>
     </article>
@@ -238,12 +498,15 @@
     
     <article class=""
              data-court="EDPB"
+             data-topics=""
              data-text="health data breach: the cnil fined hôpital privé de la loire 500 000 eur  ikerinar wed, 09/09/2026 - 11:58">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/health-data-breach-the-cnil-fined-hopital-prive-de-la-loire-500-000-eur_en" target="_blank" rel="noopener">Health data breach: the CNIL fined Hôpital Privé de la Loire 500 000 EUR</a></div>
       
       <p class="kw">ikerinar Wed, 09/09/2026 - 11:58</p>
       <div class="tags">
+        
+        
         
         
       </div>
@@ -256,6 +519,7 @@
     
     <article class=""
              data-court="EU-komissio"
+             data-topics="tekoäly"
              data-text="apply ai summit  anonymous (not verified) mon, 09/07/2026 - 15:58 17 november 2026 the egg (brussels) the  will gather high-level stakeholders – from industrial representatives, policymakers and startups – to accelerate ai implementation in strategic industries. main link https://digital-strategy.ec.europa.eu/en/policies/apply-ai-summit register until 13 november related topics events artificial intelligence">
       <span class="court">EU-komissio</span>
       <div><a class="t" href="https://digital-strategy.ec.europa.eu/en/events/apply-ai-summit" target="_blank" rel="noopener">Apply AI Summit</a></div>
@@ -263,6 +527,8 @@
       <p class="kw">Anonymous (not verified) Mon, 09/07/2026 - 15:58 17 November 2026 The EGG (Brussels) The  will gather high-level stakeholders – from industrial representatives, policymakers and startups – to accelerate AI implementation in strategic industries. Main link https://digital-strategy.ec.europa.eu/en/policies/apply-ai-summit Register until 13 November Related topics Events Artificial intelligence</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Tekoäly</span>
         <span class="tag">artificial intelligence</span>
       </div>
     </article>
@@ -274,6 +540,7 @@
     
     <article class="hot"
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="tietosuojavaltuutettu selvittää kotkamiehen sosiaalisen median videoiden laillisuutta  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/tietosuojavaltuutettu-selvittaa-kotkamiehen-sosiaalisen-median-videoiden-laillisuutta" target="_blank" rel="noopener">Tietosuojavaltuutettu selvittää Kotkamiehen sosiaalisen median videoiden laillisuutta</a></div>
@@ -281,25 +548,31 @@
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietosuojavaltuutet</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">tietosuojavaltuutet</span>
       </div>
     </article>
     
     <article class=""
              data-court="MAO"
+             data-topics="julkisuus ja salassapito"
              data-text="mao:418/2026 liikesalaisuus – asianosaisjulkisuuden rajoittaminen oikeushenkilössä ">
       <span class="court">MAO</span>
       <div><a class="t" href="https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao418-2026/" target="_blank" rel="noopener">MAO:418/2026</a></div>
       <p class="kw">liikesalaisuus – asianosaisjulkisuuden rajoittaminen oikeushenkilössä</p>
       
       <div class="tags">
-        <span class="tag new">uusi</span>
+        
+        
+        <span class="tag topic">Julkisuus ja salassapito</span>
         <span class="tag">liikesalaisuu</span>
       </div>
     </article>
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 36/2026  microsoft 365 -tilimurtojen määrä kasvoi jälleen elokuussa. viikkokatsauksessa käsitellään myös kho:n uusia evästelinjauksia, julkaistua csirt-ajankohtaiswebinaaria sekä avautunutta rahoitushakua kyberturvallisuusratkaisujen kehittämiseen.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-362026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 36/2026</a></div>
@@ -307,7 +580,9 @@
       <p class="kw">Microsoft 365 -tilimurtojen määrä kasvoi jälleen elokuussa. Viikkokatsauksessa käsitellään myös KHO:n uusia evästelinjauksia, julkaistua CSIRT-ajankohtaiswebinaaria sekä avautunutta rahoitushakua kyberturvallisuusratkaisujen kehittämiseen.</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        
       </div>
     </article>
     
@@ -318,6 +593,7 @@
     
     <article class=""
              data-court="EDPB"
+             data-topics="tietosuoja"
              data-text="data protection commission announces final decision following inquiry into the health service executive (hse)  ikerinar thu, 03/09/2026 - 09:42">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/data-protection-commission-announces-final-decision-following-inquiry-into-the-health-service_en" target="_blank" rel="noopener">Data Protection Commission announces Final Decision following Inquiry into the Health Service Executive (HSE)</a></div>
@@ -325,6 +601,8 @@
       <p class="kw">ikerinar Thu, 03/09/2026 - 09:42</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Tietosuoja</span>
         <span class="tag">data protection</span>
       </div>
     </article>
@@ -336,6 +614,7 @@
     
     <article class=""
              data-court="EU-komissio"
+             data-topics="datasääntely"
              data-text="commission designates chatgpt, reddit, roblox under digital services act  anonymous (not verified) mon, 08/31/2026 - 11:10 the commission has designated chatgpt as a very large online search engine (vlose), as well as reddit and roblox as very large online platforms (vlops), under the digital services act (dsa). these services declared that they reach at least 45 million average monthly users in the eu and thus meet the threshold for designation. following the notificat">
       <span class="court">EU-komissio</span>
       <div><a class="t" href="https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act" target="_blank" rel="noopener">Commission designates ChatGPT, Reddit, Roblox under Digital Services Act</a></div>
@@ -343,12 +622,15 @@
       <p class="kw">Anonymous (not verified) Mon, 08/31/2026 - 11:10 The Commission has designated ChatGPT as a Very Large Online Search Engine (VLOSE), as well as Reddit and Roblox as Very Large Online Platforms (VLOPs), under the Digital Services Act (DSA). These services declared that they reach at least 45 million average monthly users in the EU and thus meet the threshold for designation. Following the notificat</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Datasääntely</span>
         <span class="tag">DSA</span>
       </div>
     </article>
     
     <article class=""
              data-court="LVM"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuslaki kokonaisuutena onnistunut – haasteena valvonnan resurssien puute  ">
       <span class="court">LVM</span>
       <div><a class="t" href="https://www.lvm.fi/-/kyberturvallisuuslaki-kokonaisuutena-onnistunut-haasteena-valvonnan-resurssien-puute" target="_blank" rel="noopener">Kyberturvallisuuslaki kokonaisuutena onnistunut – Haasteena valvonnan resurssien puute</a></div>
@@ -356,12 +638,15 @@
       
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        
       </div>
     </article>
     
     <article class=""
              data-court="Julkaisu"
+             data-topics="tietosuoja|kyberturvallisuus"
              data-text="age assurance systems on online platforms age assurance, age verification, age estimation, online platform, data privacy, cybersecurity, iän varmennus, iän todentaminen, iän arviointi, verkkoalusta, tietosuoja, kyberturvallisuus age assurance refers to methods used to verify or estimate a person’s age. as online platforms face increasing regulatory pressure to protect minors from harmful content, age assurance has become an important mechanism for managing access to age-restricted material. the effectiveness of age assurance depends on the accuracy of the technology, how users respond to requirements, and how data is mana">
       <span class="court">Julkaisu</span>
       <div><a class="t" href="https://www.utupub.fi/handle/11111/63335" target="_blank" rel="noopener">Age Assurance Systems on Online Platforms</a></div>
@@ -369,7 +654,9 @@
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span><span class="tag">kyberturvallisuus</span><span class="tag">privacy</span><span class="tag">cyber</span>
+        
+        <span class="tag topic">Tietosuoja</span><span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">privacy</span><span class="tag">cyber</span>
       </div>
     </article>
     
@@ -380,6 +667,7 @@
     
     <article class="hot"
              data-court="Kyberturvallisuuskeskus"
+             data-topics="tekoäly|kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 35/2026  tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat muun muassa wordpress-sivustojen murrot, joissa haavoittuvuuksia hyödynnetään haitallisen sisällön levittämiseen. lisäksi katsauksessa käsitellään signal-tukena esiintyvää tietojenkalastelua, tekoälyn käyttöön liittyviä uusia avoimuusvelvoitteita sekä kyberkestävyyssäädöksen mukaisia ilmoitusvelvoitteita.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-352026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 35/2026</a></div>
@@ -387,7 +675,9 @@
       <p class="kw">Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat muun muassa WordPress-sivustojen murrot, joissa haavoittuvuuksia hyödynnetään haitallisen sisällön levittämiseen. Lisäksi katsauksessa käsitellään Signal-tukena esiintyvää tietojenkalastelua, tekoälyn käyttöön liittyviä uusia avoimuusvelvoitteita sekä kyberkestävyyssäädöksen mukaisia ilmoitusvelvoitteita.</p>
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tekoäly</span><span class="tag">kyberturvallisuus</span><span class="tag">kyberkestävyy</span><span class="tag">tietojenkalastelu</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tekoäly</span><span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">kyberkestävyy</span><span class="tag">tietojenkalastelu</span>
       </div>
     </article>
     
@@ -398,6 +688,7 @@
     
     <article class=""
              data-court="KHO"
+             data-topics="tietosuoja|sähköinen viestintä"
              data-text="kho:2026:65 tietosuoja – sähköisen viestinnän palvelu – evästeet – käyttäjän suostumus – suostumuksen pyytäminen – kaksitasoinen suostumushallintamekanismi – suostumuksen vapaaehtoisuus ">
       <span class="court">KHO</span>
       <div><a class="t" href="https://www.kho.fi/paatokset/kho202665/" target="_blank" rel="noopener">KHO:2026:65</a></div>
@@ -405,12 +696,15 @@
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span><span class="tag">evästeet</span><span class="tag">sähköisen viestinnän</span>
+        
+        <span class="tag topic">Tietosuoja</span><span class="tag topic">Sähköinen viestintä</span>
+        <span class="tag">evästeet</span><span class="tag">sähköisen viestinnän</span>
       </div>
     </article>
     
     <article class=""
              data-court="KHO"
+             data-topics="tietosuoja|sähköinen viestintä"
              data-text="kho:2026:64 tietosuoja – sähköisen viestinnän palvelu – evästeet – käyttäjän suostumus – uutissisällön personointi – verkkokutsut – sananvapaus – medianvapaus ">
       <span class="court">KHO</span>
       <div><a class="t" href="https://www.kho.fi/paatokset/kho202664/" target="_blank" rel="noopener">KHO:2026:64</a></div>
@@ -418,7 +712,9 @@
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span><span class="tag">evästeet</span><span class="tag">sähköisen viestinnän</span>
+        
+        <span class="tag topic">Tietosuoja</span><span class="tag topic">Sähköinen viestintä</span>
+        <span class="tag">evästeet</span><span class="tag">sähköisen viestinnän</span>
       </div>
     </article>
     
@@ -429,6 +725,7 @@
     
     <article class="hot"
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="tietosuojavaltuutettu muistuttaa: älylasien käytössä on huomioitava tietosuojasäännöt  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/tietosuojavaltuutettu-muistuttaa-alylasien-kaytossa-on-huomioitava-tietosuojasaannot" target="_blank" rel="noopener">Tietosuojavaltuutettu muistuttaa: älylasien käytössä on huomioitava tietosuojasäännöt</a></div>
@@ -436,12 +733,15 @@
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietosuojavaltuutet</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">tietosuojavaltuutet</span>
       </div>
     </article>
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen  ennen cra:n ilmoitusvelvollisuuden soveltamista organisaatioiden on tärkeää valmistautua sisäisesti ilmoituksen jättämiseen. ilmoittamisen määräajat ovat lyhyitä, joten vastuut ja toimintatavat kannattaa sopia ennen kuin ensimmäinen ilmoitettava tapaus tulee vastaan. olemme koonneet valmistajille listan tarkistettavista asioista ja linkit keskeisiin ohjeisiin.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/valmistaja-varaudu-ennalta-kyberkestavyyssaadoksen-mukaiseen-haavoittuvuuksien-ja-poikkeamien-ilmoittamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Valmistaja - varaudu ennalta kyberkestävyyssäädöksen mukaiseen haavoittuvuuksien ja poikkeamien ilmoittamiseen</a></div>
@@ -449,6 +749,8 @@
       <p class="kw">Ennen CRA:n ilmoitusvelvollisuuden soveltamista organisaatioiden on tärkeää valmistautua sisäisesti ilmoituksen jättämiseen. Ilmoittamisen määräajat ovat lyhyitä, joten vastuut ja toimintatavat kannattaa sopia ennen kuin ensimmäinen ilmoitettava tapaus tulee vastaan. Olemme koonneet valmistajille listan tarkistettavista asioista ja linkit keskeisiin ohjeisiin.</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">kyberkestävyy</span>
       </div>
     </article>
@@ -460,6 +762,7 @@
     
     <article class=""
              data-court="EDPB"
+             data-topics=""
              data-text="data breach: the cnil fined mobius solutions ltd €1 million  ipayotfr fri, 21/08/2026 - 10:54">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-mobius-solutions-ltd-eur1-million_en" target="_blank" rel="noopener">Data breach: the CNIL fined MOBIUS SOLUTIONS LTD €1 million</a></div>
@@ -468,11 +771,14 @@
       <div class="tags">
         
         
+        
+        
       </div>
     </article>
     
     <article class=""
              data-court="EDPB"
+             data-topics=""
              data-text="data breach: the cnil fined nexpublica france €1.7 million  ipayotfr fri, 21/08/2026 - 10:47">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/data-breach-the-cnil-fined-nexpublica-france-eur17-million_en" target="_blank" rel="noopener">Data breach: the CNIL fined NEXPUBLICA FRANCE €1.7 million</a></div>
@@ -481,11 +787,14 @@
       <div class="tags">
         
         
+        
+        
       </div>
     </article>
     
     <article class=""
              data-court="EDPB"
+             data-topics=""
              data-text="data breach: free mobile and free fined €42 million  ipayotfr fri, 21/08/2026 - 10:42">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/data-breach-free-mobile-and-free-fined-eur42-million_en" target="_blank" rel="noopener">Data breach: FREE MOBILE and FREE fined €42 million</a></div>
@@ -494,11 +803,14 @@
       <div class="tags">
         
         
+        
+        
       </div>
     </article>
     
     <article class=""
              data-court="EDPB"
+             data-topics=""
              data-text="data breach: france travail fined €5 million  ipayotfr fri, 21/08/2026 - 10:25">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/data-breach-france-travail-fined-eur5-million_en" target="_blank" rel="noopener">Data breach: France Travail fined €5 million</a></div>
@@ -507,11 +819,14 @@
       <div class="tags">
         
         
+        
+        
       </div>
     </article>
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 34/2026  tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat lisääntyneet palkanmaksuhuijaukset, joissa rikolliset pyrkivät ohjaamaan palkkoja omille tileilleen väärennetyillä sähköpostiviesteillä. lisäksi käsitellään pelien käyttäjien tekemiin lisäsisältöihin piilotettuja haittaohjelmia sekä eu:n uusia menettelyjä sähköisten todisteiden hankkimiseksi rikostutkinnoissa.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-342026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus – 34/2026</a></div>
@@ -519,7 +834,9 @@
       <p class="kw">Tämän viikon viikkokatsauksessa esiin nousseita aiheita ovat lisääntyneet palkanmaksuhuijaukset, joissa rikolliset pyrkivät ohjaamaan palkkoja omille tileilleen väärennetyillä sähköpostiviesteillä. Lisäksi käsitellään pelien käyttäjien tekemiin lisäsisältöihin piilotettuja haittaohjelmia sekä EU:n uusia menettelyjä sähköisten todisteiden hankkimiseksi rikostutkinnoissa.</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        
       </div>
     </article>
     
@@ -530,6 +847,7 @@
     
     <article class=""
              data-court="MAO"
+             data-topics="julkisuus ja salassapito"
              data-text="mao:387/2026 liikesalaisuus – väliaikainen kielto ">
       <span class="court">MAO</span>
       <div><a class="t" href="https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao387-2026/" target="_blank" rel="noopener">MAO:387/2026</a></div>
@@ -537,6 +855,8 @@
       
       <div class="tags">
         
+        
+        <span class="tag topic">Julkisuus ja salassapito</span>
         <span class="tag">liikesalaisuu</span>
       </div>
     </article>
@@ -548,6 +868,7 @@
     
     <article class=""
              data-court="EU-komissio"
+             data-topics="datasääntely"
              data-text="call for tenders: study on how online marketplace design influences user behaviour  anonymous (not verified) tue, 08/18/2026 - 11:13 opening: 17 august 2026 closing: 23 september 2026 the study will explore users&#39; interactions with features mandated by the digital services act (dsa) on selected online marketplaces designated as very large online marketplaces (vloms). the study should cover user interaction with mechanisms under article 16 (notice and action), article 30(7) (trade">
       <span class="court">EU-komissio</span>
       <div><a class="t" href="https://digital-strategy.ec.europa.eu/en/funding/call-tenders-study-how-online-marketplace-design-influences-user-behaviour" target="_blank" rel="noopener">Call for tenders: Study on how online marketplace design influences user behaviour</a></div>
@@ -555,12 +876,15 @@
       <p class="kw">Anonymous (not verified) Tue, 08/18/2026 - 11:13 Opening: 17 August 2026 Closing: 23 September 2026 The study will explore users' interactions with features mandated by the Digital Services Act (DSA) on selected online marketplaces designated as Very Large Online Marketplaces (VLOMs). The study should cover user interaction with mechanisms under Article 16 (notice and action), Article 30(7) (trade</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Datasääntely</span>
         <span class="tag">DSA</span>
       </div>
     </article>
     
     <article class=""
              data-court="Julkaisu"
+             data-topics="kyberturvallisuus"
              data-text="how in-store qr codes shape the in-store customer experience qr codes, in-store customer experience, in-store technologies, omnichannel, participatory dimension, fashion retail, value creation for cyber-physical systems and services, digitaalinen liiketoiminta ja talous (painoala), tietojärjestelmätiede, hyvinvoinnin tutkimuksen yhteisö, kestävä liiketoiminta retailers are introducing new technologies into brick-and-mortar (b&amp;amp;m) stores to enhance the in-store customer experience (iscx). in fashion retail, quick response (qr) codes provide customers with online content and are becoming more prevalent due to emerging global recommendations and european union (eu) regulations. however, an in-depth understanding of how qr codes shape the iscx and its f">
       <span class="court">Julkaisu</span>
       <div><a class="t" href="http://urn.fi/URN:NBN:fi:jyu-202608186595" target="_blank" rel="noopener">How in-store QR codes shape the in-store customer experience</a></div>
@@ -568,6 +892,8 @@
       
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">cyber</span>
       </div>
     </article>
@@ -579,6 +905,7 @@
     
     <article class="hot"
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="apulaistietosuojavaltuutettu: tietoa urheilijan lievästä dopingrikkomuksesta ei olisi pitänyt julkaista, kun toimintakielto oli jo päättynyt  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/apulaistietosuojavaltuutettu-tietoa-urheilijan-lievasta-dopingrikkomuksesta-ei-olisi-pitanyt-julkaista-kun-toimintakielto-oli-jo-paattynyt" target="_blank" rel="noopener">Apulaistietosuojavaltuutettu: Tietoa urheilijan lievästä dopingrikkomuksesta ei olisi pitänyt julkaista, kun toimintakielto oli jo päättynyt</a></div>
@@ -586,12 +913,15 @@
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietosuojavaltuutet</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">tietosuojavaltuutet</span>
       </div>
     </article>
     
     <article class=""
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="norjan tietosuojaviranomaiselta huomautus elixia-liikuntakeskuksille – asiakkaille ei kerrottu riittävän selkeästi oikeudesta vastustaa valokuvien keräämistä  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/norjan-tietosuojaviranomaiselta-huomautus-elixia-liikuntakeskuksille-asiakkaille-ei-kerrottu-riittavan-selkeasti-oikeudesta-vastustaa-valokuvien-keraamista" target="_blank" rel="noopener">Norjan tietosuojaviranomaiselta huomautus ELIXIA-liikuntakeskuksille – asiakkaille ei kerrottu riittävän selkeästi oikeudesta vastustaa valokuvien keräämistä</a></div>
@@ -599,20 +929,9 @@
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span>
-      </div>
-    </article>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen  traficom on avannut syksyn 2026 rahoitushaun. tavoitteena on tukea yritysten kasvun ja kansainvälistymisen edellytyksiä sekä lisätä kehittyneiden kyberturvallisuusratkaisujen saatavuutta.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/hae-rahoitustukea-kyberturvallisuusratkaisun-kaupallistamiseen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Hae rahoitustukea kyberturvallisuusratkaisun kaupallistamiseen</a></div>
-      
-      <p class="kw">Traficom on avannut syksyn 2026 rahoitushaun. Tavoitteena on tukea yritysten kasvun ja kansainvälistymisen edellytyksiä sekä lisätä kehittyneiden kyberturvallisuusratkaisujen saatavuutta.</p>
-      <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span>
+        <span class="tag topic">Tietosuoja</span>
+        
       </div>
     </article>
     
@@ -623,6 +942,7 @@
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus – 33/2026  tällä viikolla kerromme tietomurroista, joissa verkkosivupalvelimet on valjastettu jakamaan haittaohjelmia verkkosivujen selaajille. yksinkertaiset varotoimet auttavat suojautumaan haittaohjelman uhkaa vastaan. kehotamme myös valppauteen pikaviestinpalvelun uusia ominaisuuksia käyttäessä.
 lisäksi tällä viikolla julkaistu heinäkuun kybersää osoittaa sateisen syksyn merkkejä.">
       <span class="court">Kyberturvallisuuskeskus</span>
@@ -632,7 +952,9 @@ lisäksi tällä viikolla julkaistu heinäkuun kybersää osoittaa sateisen syks
 Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syksyn merkkejä.</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        
       </div>
     </article>
     
@@ -643,6 +965,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="heinäkuun kybersää 2026  heinäkuussa kyberin kentällä nähtiin saderrintamia. kyberturvallisuuskeskukselle tehtyjen kiristyshaittaohjelmailmoitusten määrä kasvoi. myös haavoittuvuuksien määrä on jatkuvassa nousussa, mikä näkyy myös kyberturvallisuuskeskuksen jakamien haavoittuvuustiedotteiden määrässä.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heinakuun-kybersaa-2026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Heinäkuun Kybersää 2026</a></div>
@@ -650,25 +973,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Heinäkuussa kyberin kentällä nähtiin saderrintamia. Kyberturvallisuuskeskukselle tehtyjen kiristyshaittaohjelmailmoitusten määrä kasvoi. Myös haavoittuvuuksien määrä on jatkuvassa nousussa, mikä näkyy myös Kyberturvallisuuskeskuksen jakamien haavoittuvuustiedotteiden määrässä.</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span><span class="tag">haavoittuvuus</span><span class="tag">kiristyshaittaohjelma</span>
-      </div>
-    </article>
-    
-  </section>
-
-  <section class="daygroup">
-    <h2>11. elokuuta 2026</h2>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="kriittisiä haavoittuvuuksia metabase-ohjelmistossa  metabase on julkaissut korjauspäivityksen kriittiseen, aktiivisesti hyväksikäytettyyn nollapäivähaavoittuvuuteen. haavoittuvuus mahdollistaa tunnistautumattoman hyökkääjän suorittaa sql-injektiohyökkäyksen etänä.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-22?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittisiä haavoittuvuuksia Metabase-ohjelmistossa</a></div>
-      
-      <p class="kw">Metabase on julkaissut korjauspäivityksen kriittiseen, aktiivisesti hyväksikäytettyyn nollapäivähaavoittuvuuteen. Haavoittuvuus mahdollistaa tunnistautumattoman hyökkääjän suorittaa SQL-injektiohyökkäyksen etänä.</p>
-      <div class="tags">
         
-        <span class="tag">haavoittuvuus</span>
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">haavoittuvuus</span><span class="tag">kiristyshaittaohjelma</span>
       </div>
     </article>
     
@@ -679,6 +986,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 32/2026  tällä viikolla muistutamme lomilta paluun yhteydessä yleistyvistä huijauksista sekä tietojenkalastelusta. nostamme esiin npm-ekosysteemin kohdistuneen uuden toimitusketjuhyökkäyksen sekä kerromme, miten yksikin suojaamaton laite voi avata tien verkkoon. kerromme lisäksi tälläkin viikolla esiin nousseista clickfix-tartuntatapauksista. lopuksi kerromme eu-komission julkaisemasta soveltamisohjeesta j">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-322026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 32/2026</a></div>
@@ -686,12 +994,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Tällä viikolla muistutamme lomilta paluun yhteydessä yleistyvistä huijauksista sekä tietojenkalastelusta. Nostamme esiin npm-ekosysteemin kohdistuneen uuden toimitusketjuhyökkäyksen sekä kerromme, miten yksikin suojaamaton laite voi avata tien verkkoon. Kerromme lisäksi tälläkin viikolla esiin nousseista ClickFix-tartuntatapauksista. Lopuksi kerromme EU-komission julkaisemasta soveltamisohjeesta j</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span><span class="tag">tietojenkalastelu</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">tietojenkalastelu</span>
       </div>
     </article>
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät  kesälomakauden päättyminen näkyy vuosittain myös kyberrikollisten toiminnassa. työarkeen palaavien kiire tarjoaa rikollisille otollisen tilaisuuden kalastella käyttäjätunnuksia ja muita luottamuksellisia tietoja.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kesalomien-jalkeen-tietojenkalasteluyritykset-lisaantyvat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kesälomien jälkeen tietojenkalasteluyritykset lisääntyvät</a></div>
@@ -699,6 +1010,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Kesälomakauden päättyminen näkyy vuosittain myös kyberrikollisten toiminnassa. Työarkeen palaavien kiire tarjoaa rikollisille otollisen tilaisuuden kalastella käyttäjätunnuksia ja muita luottamuksellisia tietoja.</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">tietojenkalastelu</span>
       </div>
     </article>
@@ -710,6 +1023,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Julkaisu"
+             data-topics="kyberturvallisuus"
              data-text="a comprehensive analysis of the nis2 implementation in international companies in finland through the iso/iec 27001 framework nis2 directive, iso/iec 27001, information security management systems (isms), cybersecurity regulation, compliance implementation, information security, risk management this msc thesis investigates how international companies operating in finland can implement the eu’s nis2 directive using the iso/iec 27001:2022 framework as their primary compliance instrument. through a systematic, control-by-control mapping between nis2 provisions-particularly risk management (article 21), incident reporting (article 23), and supply chain security (article 21(2)(d))-and the 93 ">
       <span class="court">Julkaisu</span>
       <div><a class="t" href="https://www.utupub.fi/handle/11111/62879" target="_blank" rel="noopener">A comprehensive analysis of the NIS2 implementation in international companies in Finland through the ISO/IEC 27001 framework</a></div>
@@ -717,25 +1031,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">NIS2</span><span class="tag">cyber</span>
-      </div>
-    </article>
-    
-  </section>
-
-  <section class="daygroup">
-    <h2>2. elokuuta 2026</h2>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="n-able n-central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus  n-able n-central julkaisi haavoittuvuustiedotteen n-central-ohjelmistoa koskien. kaikki n-central-versiot ovat haavoittuvia. n-able on julkaissut 6.8.2026 uuden korjauspäivityksen n-central 2026.3 (2026.3.1.10) versioon, joka korjaa käyttäjän todennuksen ohituksen vaihtoehtoisen reitin tai kanavan kautta. haavoittuvuuden hyväksikäyttöä on havaittu. päivitä ohjelmisto välittömästi.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-21?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">N-able N-Central-palvelimessa vakava ja aktiivisesti hyväksikäytetty haavoittuvuus</a></div>
-      
-      <p class="kw">N-able N-central julkaisi haavoittuvuustiedotteen N-central-ohjelmistoa koskien. Kaikki N-central-versiot ovat haavoittuvia. N-able on julkaissut 6.8.2026 uuden korjauspäivityksen N-central 2026.3 (2026.3.1.10) versioon, joka korjaa käyttäjän todennuksen ohituksen vaihtoehtoisen reitin tai kanavan kautta. Haavoittuvuuden hyväksikäyttöä on havaittu. Päivitä ohjelmisto välittömästi.</p>
-      <div class="tags">
         
-        <span class="tag">haavoittuvuus</span>
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">NIS2</span><span class="tag">cyber</span>
       </div>
     </article>
     
@@ -746,6 +1044,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class="hot"
              data-court="Kyberturvallisuuskeskus"
+             data-topics="tekoäly|kyberturvallisuus"
              data-text="mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?  julkisuudessa on viime aikoina keskusteltu tapauksista, joissa tekoälyjärjestelmät ovat turvallisuustesteissä toteuttaneet toimia, jotka muistuttavat tietomurtoja tai luvattomia tunkeutumisyrityksiä. tapaukset ovat herättäneet kysymyksiä siitä, kuinka itsenäisesti tekoäly kykenee toimimaan ja millaisia riskejä sen käyttöön liittyy kyberturvallisuuden näkökulmasta.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/mita-tekoalyn-tekemiksi-kutsutut-tietomurrot-oikeastaan-kertovat?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Mitä tekoälyn tekemiksi kutsutut tietomurrot oikeastaan kertovat?</a></div>
@@ -753,12 +1052,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Julkisuudessa on viime aikoina keskusteltu tapauksista, joissa tekoälyjärjestelmät ovat turvallisuustesteissä toteuttaneet toimia, jotka muistuttavat tietomurtoja tai luvattomia tunkeutumisyrityksiä. Tapaukset ovat herättäneet kysymyksiä siitä, kuinka itsenäisesti tekoäly kykenee toimimaan ja millaisia riskejä sen käyttöön liittyy kyberturvallisuuden näkökulmasta.</p>
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tekoäly</span><span class="tag">tietomurto</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tekoäly</span><span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">tietomurto</span>
       </div>
     </article>
     
     <article class=""
              data-court="EU-komissio"
+             data-topics="tekoäly"
              data-text="commission starts enforcing ai act rules and new transparency requirements on 2 august  anonymous (not verified) fri, 07/31/2026 - 09:00 from 2 august 2026, the european commission’s ai office, together with national authorities, will begin enforcing the artificial intelligence (ai) act. on the same date, new transparency rules will start to apply, requiring certain ai systems to tell users when they are interacting with ai and when content has been generated or altered by it. under ">
       <span class="court">EU-komissio</span>
       <div><a class="t" href="https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august" target="_blank" rel="noopener">Commission starts enforcing AI Act rules and new transparency requirements on 2 August</a></div>
@@ -766,6 +1068,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Anonymous (not verified) Fri, 07/31/2026 - 09:00 From 2 August 2026, the European Commission’s AI Office, together with national authorities, will begin enforcing the Artificial Intelligence (AI) Act. On the same date, new transparency rules will start to apply, requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it. Under </p>
       <div class="tags">
         
+        
+        <span class="tag topic">Tekoäly</span>
         <span class="tag">AI Act</span><span class="tag">artificial intelligence</span>
       </div>
     </article>
@@ -777,6 +1081,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class="hot"
              data-court="Julkaisu"
+             data-topics="tekoäly"
              data-text="riski, kasvu ja valta: diskurssianalyysi tekoälyn kehystämisestä tekoäly, yleinen tekoäly, tekoälydiskurssi, kehystys, diskurssianalyysi, diskurssi-historiallinen lähestymistapa, tekoälyn sääntely, teknologinen kehitys, suuret kielimallit, käyttötehokkuus tekoäly on noussut keskeiseksi julkisen keskustelun aiheeksi erityisesti vaikutusvaltaisten henkilöiden ja instituutioiden keskuudessa. keskustelu painottuu usein teknologian sijaan tulkintoihin tekoälyn riskeistä, hyödyistä ja yhteiskunnallisesta merkityksestä. näillä tulkinnoilla on vaikutusta päätöksentekoon, investointeihin ja sääntelyyn. tutkielman tavoitteena on tarkastella, miten eri toimij">
       <span class="court">Julkaisu</span>
       <div><a class="t" href="https://www.utupub.fi/handle/11111/62756" target="_blank" rel="noopener">Riski, kasvu ja valta: Diskurssianalyysi tekoälyn kehystämisestä</a></div>
@@ -784,12 +1089,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tekoäly</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tekoäly</span>
+        
       </div>
     </article>
     
     <article class=""
              data-court="Julkaisu"
+             data-topics="datasääntely"
              data-text="interoperability and recent competitive developments in digital markets : examining interoperability under the digital markets act regarding regulatory flexibility, efficiency, and legal certainty compared to the article the digital markets act, article 102 tfeu, interoperability, regulatory flexibility, regulatory dialogue, efficiency, legal certainty, digital markets, digital single market, competition, digimarkkinasäädös, seut 102 artikla, yhteentoimivuus, sääntelyn joustavuus, sääntelyvuoropuhelu, regulatiivinen this jurisprudential thesis examines the influence of regulatory flexibility under articles 6(4) and 6(7) of the digital markets act on improving efficiency compared to the application of article 102 of the treaty on the functioning of the european union in enforcing interoperability. the research extends to assessing what are the consequences for legal certainty concerning the question above. the">
       <span class="court">Julkaisu</span>
       <div><a class="t" href="https://www.utupub.fi/handle/11111/62755" target="_blank" rel="noopener">Interoperability and Recent Competitive Developments in Digital Markets : Examining Interoperability Under the Digital Markets Act Regarding Regulatory Flexibility, Efficiency, and Legal Certainty Compared to the Article</a></div>
@@ -797,6 +1105,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
+        
+        <span class="tag topic">Datasääntely</span>
         <span class="tag">digimarkkinasäädös</span>
       </div>
     </article>
@@ -808,6 +1118,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberkestävyyssäädöksen vaatimukset selkiytyvät - eu-komissio julkaisi uuden soveltamisohjeen  euroopan komissio on julkaissut uuden soveltamisohjeen kyberkestävyyssäädöksen (cyber resilience act, cra) toimeenpanon tueksi. ohjeistus on suunnattu erityisesti valmistajille, ohjelmistokehittäjille sekä muille yrityksille, jotka saattavat markkinoille digitaalisia tuotteita. ohjeistus tarjoaa yrityksille konkreettisia neuvoja siihen, miten ne voivat valmistautua tuleviin kyberturvallisuusvaatim">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberkestavyyssaadoksen-vaatimukset-selkiytyvat-eu-komissio-julkaisi-uuden-soveltamisohjeen?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberkestävyyssäädöksen vaatimukset selkiytyvät - EU-komissio julkaisi uuden soveltamisohjeen</a></div>
@@ -815,20 +1126,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Euroopan komissio on julkaissut uuden soveltamisohjeen kyberkestävyyssäädöksen (Cyber Resilience Act, CRA) toimeenpanon tueksi. Ohjeistus on suunnattu erityisesti valmistajille, ohjelmistokehittäjille sekä muille yrityksille, jotka saattavat markkinoille digitaalisia tuotteita. Ohjeistus tarjoaa yrityksille konkreettisia neuvoja siihen, miten ne voivat valmistautua tuleviin kyberturvallisuusvaatim</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span><span class="tag">kyberkestävyy</span><span class="tag">cyber</span>
-      </div>
-    </article>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="kriittinen haavoittuvuus nginx-tuotteissa  f5:n heinäkuussa korjaamasta kriittisestä nginx-haavoittuvuudesta (cve-2026-42533) on julkaistu toimiva hyväksikäyttökoodi, mikä kasvattaa merkittävästi riskiä haavoittuvuuden aktiiviseen hyväksikäyttöön. käyttöoikeudettoman hyökkääjän etäkoodin suorituksen mahdollistava haavoittuvuus koskee useita nginx-tuotteita. tuotteiden käyttäjiä kehotetaan päivittämään korjattuihin versioihin viipymättä.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-19?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kriittinen haavoittuvuus NGINX-tuotteissa</a></div>
-      
-      <p class="kw">F5:n heinäkuussa korjaamasta kriittisestä NGINX-haavoittuvuudesta (CVE-2026-42533) on julkaistu toimiva hyväksikäyttökoodi, mikä kasvattaa merkittävästi riskiä haavoittuvuuden aktiiviseen hyväksikäyttöön. Käyttöoikeudettoman hyökkääjän etäkoodin suorituksen mahdollistava haavoittuvuus koskee useita NGINX-tuotteita. Tuotteiden käyttäjiä kehotetaan päivittämään korjattuihin versioihin viipymättä.</p>
-      <div class="tags">
         
-        <span class="tag">haavoittuvuus</span>
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">kyberkestävyy</span><span class="tag">cyber</span>
       </div>
     </article>
     
@@ -838,7 +1138,26 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     <h2>24. heinäkuuta 2026</h2>
     
     <article class=""
+             data-court="Julkaisu"
+             data-topics="tietosuoja"
+             data-text="do smes have equal opportunity for gdpr compliance? : accessibility and effectiveness of the standard contractual clauses in international data transfers in a post-schrems ii legal landscape tietosuoja-asetus, mallisopimuslausekkeet, schrems ii, pk-yritykset, viestintä- ja informaatio-oikeus, information- and communications law, informations- och kommunikationsrätt, oikeustieteen maisterin koulutusohjelma helsinki, master&amp;apos;s programme in law helsinki, magisterprogrammet i rättsveten tutkielmassa käsitellään schrems ii-oikeustapauksen jäljiltä tapahtuneita muutoksia tietosuoja-asetuksen mukaisissa yleisissä mallisopimuslausekkeissa ja arvioidaan mikäli ne asettavat eri kokoiset yritykset eriarvoiseen asemaan nykymuodossaan.
+
+ensin, tutkielmassa määritellään tarvittavat taustakäsitteet ja tiivistetään oleelliset oikeustapaukset (schrems i ja schrems ii) taustoittamaan tutkitt">
+      <span class="court">Julkaisu</span>
+      <div><a class="t" href="http://hdl.handle.net/10138/569898" target="_blank" rel="noopener">Do SMEs have equal opportunity for GDPR compliance? : Accessibility and Effectiveness of the Standard Contractual Clauses in International Data Transfers in a Post-Schrems II Legal Landscape</a></div>
+      <p class="kw">Tietosuoja-asetus, mallisopimuslausekkeet, Schrems II, pk-yritykset, Viestintä- ja informaatio-oikeus, Information- and Communications Law, Informations- och kommunikationsrätt, Oikeustieteen maisterin koulutusohjelma Helsinki, Master&apos;s Programme in Law Helsinki, Magisterprogrammet i rättsveten</p>
+      
+      <div class="tags">
+        
+        
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">GDPR</span>
+      </div>
+    </article>
+    
+    <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="haavoittuvuuskilpailussa nopeus ratkaisee  kyberturvallisuuden vanhan sanonnan mukaan kello alkaa tikittää silloin, kun haavoittuvuus löydetään. nykyisessä uhkaympäristössä sekä teknologisen kehityksen myötä sekuntiviisari lähtee liikkeelle jo paljon aikaisemmin. ensimmäiset sekunnit kuluvat siitä hetkestä lähtien, kun haavoittuvuus syntyy. oli haavoittuvuuden syynä sitten ohjelmistovirhe, epäonnistunut päivitys tai jokin muu syy. kun haav">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/haavoittuvuuskilpailussa-nopeus-ratkaisee?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Haavoittuvuuskilpailussa nopeus ratkaisee</a></div>
@@ -846,6 +1165,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Kyberturvallisuuden vanhan sanonnan mukaan kello alkaa tikittää silloin, kun haavoittuvuus löydetään. Nykyisessä uhkaympäristössä sekä teknologisen kehityksen myötä sekuntiviisari lähtee liikkeelle jo paljon aikaisemmin. Ensimmäiset sekunnit kuluvat siitä hetkestä lähtien, kun haavoittuvuus syntyy. Oli haavoittuvuuden syynä sitten ohjelmistovirhe, epäonnistunut päivitys tai jokin muu syy. Kun haav</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">haavoittuvuus</span>
       </div>
     </article>
@@ -857,6 +1178,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="ENISA"
+             data-topics="kyberturvallisuus"
              data-text="procurement guidelines for the cybersecurity of hospitals and healthcare providers  ">
       <span class="court">ENISA</span>
       <div><a class="t" href="https://www.enisa.europa.eu/publications/procurement-guidelines-for-the-cybersecurity-of-hospitals-and-healthcare-providers" target="_blank" rel="noopener">Procurement guidelines for the cybersecurity of hospitals and healthcare providers</a></div>
@@ -864,6 +1186,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">cyber</span>
       </div>
     </article>
@@ -875,6 +1199,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="euroopan tietosuojaneuvosto keskusteli eri alojen viranomaisten välisestä tiedonjaosta ja valvonnan tehostamisesta  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/euroopan-tietosuojaneuvosto-keskusteli-eri-alojen-viranomaisten-valisesta-tiedonjaosta-ja-valvonnan-tehostamisesta" target="_blank" rel="noopener">Euroopan tietosuojaneuvosto keskusteli eri alojen viranomaisten välisestä tiedonjaosta ja valvonnan tehostamisesta</a></div>
@@ -882,25 +1207,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span>
-      </div>
-    </article>
-    
-  </section>
-
-  <section class="daygroup">
-    <h2>19. heinäkuuta 2026</h2>
-    
-    <article class="hot"
-             data-court="Kyberturvallisuuskeskus"
-             data-text="wordpress -tuotteessa kriittinen haavoittuvuus  wordpress julkaisi korjaukset kahteen haavoittuvuuteen, joiden ketjuttaminen (wp2shell) mahdollistaa etäkoodin suorittamisen haavoittuvissa wordpress-asennuksissa ilman tunnistautumista. haavoittuvuutta hyväksikäyttämällä on toteutettu useita onnistuneita tietomurtoja myös suomessa, joten haavoittuvuudelle alttiille palvelimille tulee korjauksen välittömän asentamisen lisäksi myös suorittaa tutkin">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-18?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">WordPress -tuotteessa kriittinen haavoittuvuus</a></div>
-      
-      <p class="kw">WordPress julkaisi korjaukset kahteen haavoittuvuuteen, joiden ketjuttaminen (wp2shell) mahdollistaa etäkoodin suorittamisen haavoittuvissa WordPress-asennuksissa ilman tunnistautumista. Haavoittuvuutta hyväksikäyttämällä on toteutettu useita onnistuneita tietomurtoja myös Suomessa, joten haavoittuvuudelle alttiille palvelimille tulee korjauksen välittömän asentamisen lisäksi myös suorittaa tutkin</p>
-      <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">haavoittuvuus</span><span class="tag">tietomurto</span>
+        <span class="tag topic">Tietosuoja</span>
+        
       </div>
     </article>
     
@@ -911,12 +1220,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="EDPB"
+             data-topics=""
              data-text="edpb calls for legal basis for cross-regulatory information sharing  ipetstef fri, 17/07/2026 - 14:50">
       <span class="court">EDPB</span>
       <div><a class="t" href="https://www.edpb.europa.eu/news/edpb-calls-for-legal-basis-for-cross-regulatory-information-sharing_en" target="_blank" rel="noopener">EDPB calls for legal basis for cross-regulatory information sharing</a></div>
       
       <p class="kw">ipetstef Fri, 17/07/2026 - 14:50</p>
       <div class="tags">
+        
+        
         
         
       </div>
@@ -929,6 +1241,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille  viime vuosien aikana lukuisat kotimaiset organisaatiot ovat joutuneet tietomurron kohteeksi haavoittuvan tai heikosti suojatun verkkolaitteen- tai palvelun vuoksi. verkkolaitteiden suojaamiseen ja valvontaan on tärkeää kohdentaa riittävästi resursseja. organisaatioiden tulee varautua ja harjoitella mahdollisten poikkeamatilanteiden varalta.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/heikosti-suojatut-verkkolaitteet-avaavat-vaylan-kyberhyokkayksille?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Heikosti suojatut verkkolaitteet avaavat väylän kyberhyökkäyksille</a></div>
@@ -936,6 +1249,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Viime vuosien aikana lukuisat kotimaiset organisaatiot ovat joutuneet tietomurron kohteeksi haavoittuvan tai heikosti suojatun verkkolaitteen- tai palvelun vuoksi. Verkkolaitteiden suojaamiseen ja valvontaan on tärkeää kohdentaa riittävästi resursseja. Organisaatioiden tulee varautua ja harjoitella mahdollisten poikkeamatilanteiden varalta.</p>
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">kyberhyökkäy</span>
       </div>
     </article>
@@ -947,6 +1262,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="ENISA"
+             data-topics="kyberturvallisuus"
              data-text="where do smes stand in preparing for the cyber resilience act?  ">
       <span class="court">ENISA</span>
       <div><a class="t" href="https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act" target="_blank" rel="noopener">Where do SMEs stand in preparing for the Cyber Resilience Act?</a></div>
@@ -954,12 +1270,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">cyber</span>
       </div>
     </article>
     
     <article class=""
              data-court="ENISA"
+             data-topics="kyberturvallisuus"
              data-text="sme cyber resilience maturity assessment model  ">
       <span class="court">ENISA</span>
       <div><a class="t" href="https://www.enisa.europa.eu/publications/sme-cyber-resilience-maturity-assessment-model" target="_blank" rel="noopener">SME Cyber Resilience Maturity Assessment Model</a></div>
@@ -967,6 +1286,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">cyber</span>
       </div>
     </article>
@@ -978,6 +1299,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="ENISA"
+             data-topics="kyberturvallisuus"
              data-text="team europe wins 1st ever international cybersecurity challenge for women  ">
       <span class="court">ENISA</span>
       <div><a class="t" href="https://www.enisa.europa.eu/news/team-europe-wins-1st-ever-international-cybersecurity-challenge-for-women" target="_blank" rel="noopener">Team Europe wins 1st ever International Cybersecurity Challenge for women</a></div>
@@ -985,6 +1307,8 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
+        
+        <span class="tag topic">Kyberturvallisuus</span>
         <span class="tag">cyber</span>
       </div>
     </article>
@@ -996,6 +1320,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="euroopan tietosuojaneuvosto julkaisi ohjeet anonymisoinnista ja tiedonharavoinnista  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/euroopan-tietosuojaneuvosto-julkaisi-ohjeet-anonymisoinnista-ja-tiedonharavoinnista" target="_blank" rel="noopener">Euroopan tietosuojaneuvosto julkaisi ohjeet anonymisoinnista ja tiedonharavoinnista</a></div>
@@ -1003,7 +1328,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span>
+        
+        <span class="tag topic">Tietosuoja</span>
+        
       </div>
     </article>
     
@@ -1014,6 +1341,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="ENISA"
+             data-topics="kyberturvallisuus"
              data-text="enisa’s view on cybersecurity in the frontier ai era  ">
       <span class="court">ENISA</span>
       <div><a class="t" href="https://www.enisa.europa.eu/publications/enisas-view-on-cybersecurity-in-the-frontier-ai-era" target="_blank" rel="noopener">ENISA’s view on Cybersecurity in the Frontier AI Era</a></div>
@@ -1021,25 +1349,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">cyber</span>
-      </div>
-    </article>
-    
-  </section>
-
-  <section class="daygroup">
-    <h2>2. heinäkuuta 2026</h2>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus  tietoturvatutkija on julkaissut linux kernelissä olevan haavoittuvuuden nimeltä ipv6_frag_escape. haavoittuvuuden hyväksikäytön mahdollistava proof-of-concept-koodi on julkisesti saatavilla. proof-of-concept koskee linux kernel 6.12-versiota, joka on käytössä muun muassa almalinux 10:ssä, centos stream 10:ssä ja red hat enterprise linux 10:ssä. almalinux-ohjelmiston osalta on olemassa päivitys tai">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-17?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Linux kernel 6.0 - 7.1 versioissa kriittinen haavoittuvuus</a></div>
-      
-      <p class="kw">Tietoturvatutkija on julkaissut Linux Kernelissä olevan haavoittuvuuden nimeltä IPV6_FRAG_ESCAPE. Haavoittuvuuden hyväksikäytön mahdollistava proof-of-concept-koodi on julkisesti saatavilla. Proof-of-concept koskee Linux kernel 6.12-versiota, joka on käytössä muun muassa AlmaLinux 10:ssä, CentOS Stream 10:ssä ja Red Hat Enterprise Linux 10:ssä. AlmaLinux-ohjelmiston osalta on olemassa päivitys tai</p>
-      <div class="tags">
         
-        <span class="tag">haavoittuvuus</span>
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">cyber</span>
       </div>
     </article>
     
@@ -1050,6 +1362,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="KKO"
+             data-topics="tietosuoja"
              data-text="kko:2026:50 oikeudenkäynnin julkisuus  – tietopyyntö, tietosuoja ">
       <span class="court">KKO</span>
       <div><a class="t" href="https://www.korkeinoikeus.fi/ennakkopaatokset/ennakkopaatokset-vuosittain/kko202650/" target="_blank" rel="noopener">KKO:2026:50</a></div>
@@ -1057,7 +1370,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span>
+        
+        <span class="tag topic">Tietosuoja</span>
+        
       </div>
     </article>
     
@@ -1068,12 +1383,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="TSV"
+             data-topics=""
              data-text="oikeuspalveluvirastolle huomautus työntekijöiden luottotietojen perusteettomasta tarkastamisesta  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/oikeuspalveluvirastolle-huomautus-tyontekijoiden-luottotietojen-perusteettomasta-tarkastamisesta" target="_blank" rel="noopener">Oikeuspalveluvirastolle huomautus työntekijöiden luottotietojen perusteettomasta tarkastamisesta</a></div>
       
       
       <div class="tags">
+        
+        
         
         
       </div>
@@ -1086,6 +1404,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class="hot"
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="fortibleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös suomessa  kesäkuussa 2026 paljastunut fortibleed-kampanja on yksi vuoden merkittävimmistä maailmanlaajuisista kyberhyökkäyksistä. se koskee erityisesti fortinetin fortigate-palomuureja ja ssl-vpn-laitteita, joihin on kohdistunut tietomurtoja ja tietomurron yrityksiä aiemmin vuotaneita ja varastettuja kirjautumistunnuksia hyväksikäyttäen. kyberturvallisuuskeskus on kartoittanut suomalaisia kohdeorganisaatioi">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/fortibleed-kyberhyokkayskampanjan-vaikutukset-nakyvat-myos-suomessa?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">FortiBleed-kyberhyökkäyskampanjan vaikutukset näkyvät myös Suomessa</a></div>
@@ -1093,7 +1412,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Kesäkuussa 2026 paljastunut FortiBleed-kampanja on yksi vuoden merkittävimmistä maailmanlaajuisista kyberhyökkäyksistä. Se koskee erityisesti Fortinetin FortiGate-palomuureja ja SSL-VPN-laitteita, joihin on kohdistunut tietomurtoja ja tietomurron yrityksiä aiemmin vuotaneita ja varastettuja kirjautumistunnuksia hyväksikäyttäen. Kyberturvallisuuskeskus on kartoittanut suomalaisia kohdeorganisaatioi</p>
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">kyberturvallisuus</span><span class="tag">kyberhyökkäy</span><span class="tag">tietomurto</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">kyberhyökkäy</span><span class="tag">tietomurto</span>
       </div>
     </article>
     
@@ -1104,6 +1425,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class="hot"
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="korkein hallinto-oikeus piti voimassa verkkokauppa.comille määrätyn seuraamusmaksun tietosuojarikkomuksista  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/korkein-hallinto-oikeus-piti-voimassa-verkkokauppa.comille-maaratyn-seuraamusmaksun-tietosuojarikkomuksista" target="_blank" rel="noopener">Korkein hallinto-oikeus piti voimassa Verkkokauppa.comille määrätyn seuraamusmaksun tietosuojarikkomuksista</a></div>
@@ -1111,12 +1433,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">seuraamusmaksu</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">seuraamusmaksu</span>
       </div>
     </article>
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 24/2026  tällä viikolla kerromme vaarallisista puhelinhuijauksista klarnan nimissä. kerromme myös kesän aikana yleistyvistä toimitusjohtajahuijauksista sekä toivotamme halukkaat tervetulleeksi kansainväliseen connect4cyber verkostoitumistapahtumaan. nostamme lisäksi toukokouun kybersään julkaisun sekä toivotamme hyvää kesää, sillä kyberturvallisuuskeskuksen viikkokatsaus jää kesätauolle. lopuksi voit tutus">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-242026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 24/2026</a></div>
@@ -1124,7 +1449,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Tällä viikolla kerromme vaarallisista puhelinhuijauksista Klarnan nimissä. Kerromme myös kesän aikana yleistyvistä toimitusjohtajahuijauksista sekä toivotamme halukkaat tervetulleeksi kansainväliseen Connect4Cyber verkostoitumistapahtumaan. Nostamme lisäksi toukokouun Kybersään julkaisun sekä toivotamme hyvää kesää, sillä Kyberturvallisuuskeskuksen viikkokatsaus jää kesätauolle. Lopuksi voit tutus</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span><span class="tag">cyber</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">cyber</span>
       </div>
     </article>
     
@@ -1135,6 +1462,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class="hot"
              data-court="TSV"
+             data-topics="tietosuoja|kyberturvallisuus"
              data-text="euroopan tietosuojaneuvoston mallipohja tietoturvaloukkausilmoituksille avoinna kommenteille  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/euroopan-tietosuojaneuvoston-mallipohja-tietoturvaloukkausilmoituksille-avoinna-kommenteille" target="_blank" rel="noopener">Euroopan tietosuojaneuvoston mallipohja tietoturvaloukkausilmoituksille avoinna kommenteille</a></div>
@@ -1142,12 +1470,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">tietoturvaloukkaus</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span><span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">tietoturvaloukkaus</span>
       </div>
     </article>
     
     <article class=""
              data-court="ENISA"
+             data-topics="kyberturvallisuus"
              data-text="cyber europe 2026: all eyes on the eu’s collective response and resilience  ">
       <span class="court">ENISA</span>
       <div><a class="t" href="https://www.enisa.europa.eu/news/cyber-europe-2026-all-eyes-on-the-eus-collective-response-and-resilience" target="_blank" rel="noopener">Cyber Europe 2026: All eyes on the EU’s collective response and resilience</a></div>
@@ -1155,25 +1486,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">cyber</span>
-      </div>
-    </article>
-    
-  </section>
-
-  <section class="daygroup">
-    <h2>9. kesäkuuta 2026</h2>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
-             data-text="check point vpn -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus  check point julkaisi korjauspaketin remote access vpn, mobile access ja spark firewall -tuotteisiin joka korjaa kriittisen tunnistautumisen ohituksen mahdollistavan haavoittuvuuden cve-2026-50751. haavoittuvuuden hyväksikäyttöä on jo havaittu, joten haavoittuvuudelle alttiille laitteille tulee korjauksen asentamisen lisäksi myös suorittaa tutkinta mahdollisen tapahtuneen tietomurron varalta.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-16?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Check Point VPN -tuotteissa aktiivisesti hyväksikäytetty haavoittuvuus</a></div>
-      
-      <p class="kw">Check Point julkaisi korjauspaketin Remote Access VPN, Mobile Access ja Spark Firewall -tuotteisiin joka korjaa kriittisen tunnistautumisen ohituksen mahdollistavan haavoittuvuuden CVE-2026-50751. Haavoittuvuuden hyväksikäyttöä on jo havaittu, joten haavoittuvuudelle alttiille laitteille tulee korjauksen asentamisen lisäksi myös suorittaa tutkinta mahdollisen tapahtuneen tietomurron varalta.</p>
-      <div class="tags">
         
-        <span class="tag">haavoittuvuus</span>
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">cyber</span>
       </div>
     </article>
     
@@ -1184,6 +1499,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 23/2026  tällä viikolla kerromme pienestä kesän kybermuistilistasta, jonka avulla voit parantaa tietoturvaa helpoilla toimenpiteillä. kerromme myös uuden kyberkestävyyslain voimaantulosta sekä esittelemme keväällä järjestettyä valtionhallinnon kyberharjoitusta. lopuksi tutustumme ajankohtaisiin huijauksiin. viikkokatsaus jää kesätauolle 19.6.–6.8.2026 väliseksi ajaksi.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-232026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 23/2026</a></div>
@@ -1191,7 +1507,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Tällä viikolla kerromme pienestä kesän kybermuistilistasta, jonka avulla voit parantaa tietoturvaa helpoilla toimenpiteillä. Kerromme myös uuden kyberkestävyyslain voimaantulosta sekä esittelemme keväällä järjestettyä valtionhallinnon kyberharjoitusta. Lopuksi tutustumme ajankohtaisiin huijauksiin. Viikkokatsaus jää kesätauolle 19.6.–6.8.2026 väliseksi ajaksi.</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span><span class="tag">kyberkestävyy</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">kyberkestävyy</span>
       </div>
     </article>
     
@@ -1202,6 +1520,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class="hot"
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="norjan tietosuojaviranomainen: gigantin emoyhtiölle 1,85 miljoonan euron seuraamusmaksu tietosuojarikkomuksista klubijäsenten henkilötietojen käsittelyssä  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/norjan-tietosuojaviranomainen-gigantin-emoyhtiolle-1-85-miljoonan-euron-seuraamusmaksu-tietosuojarikkomuksista-klubijasenten-henkilotietojen-kasittelyssa" target="_blank" rel="noopener">Norjan tietosuojaviranomainen: Gigantin emoyhtiölle 1,85 miljoonan euron seuraamusmaksu tietosuojarikkomuksista klubijäsenten henkilötietojen käsittelyssä</a></div>
@@ -1209,7 +1528,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tietosuoja</span><span class="tag">henkilötiet</span><span class="tag">seuraamusmaksu</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">henkilötiet</span><span class="tag">seuraamusmaksu</span>
       </div>
     </article>
     
@@ -1220,6 +1541,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class="hot"
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="hallinto-oikeudelta päätös yliopiston apteekille määrätystä seuraamusmaksusta – lakiuudistus julkisen sektorin seuraamusmaksuista lisäisi yhdenmukaisuutta  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/hallinto-oikeudelta-paatos-yliopiston-apteekille-maaratysta-seuraamusmaksusta-lakiuudistus-julkisen-sektorin-seuraamusmaksuista-lisaisi-yhdenmukaisuutta" target="_blank" rel="noopener">Hallinto-oikeudelta päätös Yliopiston Apteekille määrätystä seuraamusmaksusta – lakiuudistus julkisen sektorin seuraamusmaksuista lisäisi yhdenmukaisuutta</a></div>
@@ -1227,7 +1549,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">seuraamusmaksu</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tietosuoja</span>
+        <span class="tag">seuraamusmaksu</span>
       </div>
     </article>
     
@@ -1238,6 +1562,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 22/2026  viikkokatsauksessa kerromme traficomin nimissä liikkeellä olleista huijausviesteistä ja kuinka uudistettu hyöky-palvelu kannustaa vahvistamaan oman verkon turvallisuutta. eu:n kyberkestävyyssäädöksen voimaantulo tuo mukanaan uusia velvoitteita, joista kerrotaan tarkemmin 3.6. järjestettävässä infotilaisuudessa.">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-222026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 22/2026</a></div>
@@ -1245,7 +1570,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Viikkokatsauksessa kerromme Traficomin nimissä liikkeellä olleista huijausviesteistä ja kuinka uudistettu Hyöky-palvelu kannustaa vahvistamaan oman verkon turvallisuutta. EU:n kyberkestävyyssäädöksen voimaantulo tuo mukanaan uusia velvoitteita, joista kerrotaan tarkemmin 3.6. järjestettävässä infotilaisuudessa.</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span><span class="tag">kyberkestävyy</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">kyberkestävyy</span>
       </div>
     </article>
     
@@ -1256,6 +1583,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="pohjoismaiden tietosuojaviranomaiset keskustelivat digisääntelyn riskilähtöisen täytäntöönpanon merkityksestä  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/pohjoismaiden-tietosuojaviranomaiset-keskustelivat-digisaantelyn-riskilahtoisen-taytantoonpanon-merkityksesta" target="_blank" rel="noopener">Pohjoismaiden tietosuojaviranomaiset keskustelivat digisääntelyn riskilähtöisen täytäntöönpanon merkityksestä</a></div>
@@ -1263,7 +1591,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
-        <span class="tag">tietosuoja</span>
+        
+        <span class="tag topic">Tietosuoja</span>
+        
       </div>
     </article>
     
@@ -1274,19 +1604,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="Kyberturvallisuuskeskus"
-             data-text="drupal coressa kriittinen ja aktiivisesti hyväksikäytetty sql-injektion mahdollistava haavoittuvuus  drupal-julkaisualustassa on havaittu kriittinen, sql-injektion mahdollistava haavoittuvuus. drupal on julkaissut haavoittuvuuden korjaavan päivityksen ja organisaatioita suositellaan välittömästi päivittämään drupal haavoittuvuuden korjaamiseksi.">
-      <span class="court">Kyberturvallisuuskeskus</span>
-      <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-15?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Drupal Coressa kriittinen ja aktiivisesti hyväksikäytetty SQL-injektion mahdollistava haavoittuvuus</a></div>
-      
-      <p class="kw">Drupal-julkaisualustassa on havaittu kriittinen, SQL-injektion mahdollistava haavoittuvuus. Drupal on julkaissut haavoittuvuuden korjaavan päivityksen ja organisaatioita suositellaan välittömästi päivittämään Drupal haavoittuvuuden korjaamiseksi.</p>
-      <div class="tags">
-        
-        <span class="tag">haavoittuvuus</span>
-      </div>
-    </article>
-    
-    <article class=""
-             data-court="Kyberturvallisuuskeskus"
+             data-topics="kyberturvallisuus"
              data-text="kyberturvallisuuskeskuksen viikkokatsaus - 21/2026  kesän kynnyksellä kyberturvallisuudessa korostuvat sekä arjen huolellisuus että ennakoiva varautuminen. tämän viikon katsauksessa nostamme esiin ajankohtaisia huijauksia, microsoft 365 -ympäristöihin kohdistuvia uusia kalastelutapoja, secure boot -varmenteiden tulevia muutoksia, energia-alan kyberharjoittelua tuulivoimaympäristöissä, avoinna olevasta eu-rahoituksesta sekä kyberturvallisuuskeskukse">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-212026?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Kyberturvallisuuskeskuksen viikkokatsaus - 21/2026</a></div>
@@ -1294,7 +1612,9 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Kesän kynnyksellä kyberturvallisuudessa korostuvat sekä arjen huolellisuus että ennakoiva varautuminen. Tämän viikon katsauksessa nostamme esiin ajankohtaisia huijauksia, Microsoft 365 -ympäristöihin kohdistuvia uusia kalastelutapoja, Secure Boot -varmenteiden tulevia muutoksia, energia-alan kyberharjoittelua tuulivoimaympäristöissä, avoinna olevasta EU-rahoituksesta sekä Kyberturvallisuuskeskukse</p>
       <div class="tags">
         
-        <span class="tag">kyberturvallisuus</span>
+        
+        <span class="tag topic">Kyberturvallisuus</span>
+        
       </div>
     </article>
     
@@ -1305,6 +1625,7 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
     
     <article class=""
              data-court="TSV"
+             data-topics="tietosuoja"
              data-text="henkilötietojen käsittelyn läpinäkyvyyttä selvittävä kysely lähetetty eduskuntapuolueille  ">
       <span class="court">TSV</span>
       <div><a class="t" href="https://tietosuoja.fi/-/henkilotietojen-kasittelyn-lapinakyvyytta-selvittava-kysely-lahetetty-eduskuntapuolueille" target="_blank" rel="noopener">Henkilötietojen käsittelyn läpinäkyvyyttä selvittävä kysely lähetetty eduskuntapuolueille</a></div>
@@ -1312,12 +1633,15 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       
       <div class="tags">
         
+        
+        <span class="tag topic">Tietosuoja</span>
         <span class="tag">henkilötiet</span>
       </div>
     </article>
     
     <article class="hot"
              data-court="Kyberturvallisuuskeskus"
+             data-topics="tekoäly|kyberturvallisuus"
              data-text="uusi aalto m365-tietojenkalastelussa - ai‑avusteinen laitekoodin kalastelukampanja  tietoturvatutkijat ovat havainneet laajamittaisen kalastelukampanjan, jossa hyödynnetään laitekooditodennusmenetelmää ja tekoälyä hyökkäysten tehostamiseen. kampanja kohdistuu organisaatioihin ja yksittäisiin käyttäjiin. hyökkäyksen tavoitteena on saada luvaton pääsy tileihin sekä yritysten resursseihin. kyberturvallisuuskeskus on saanut ilmoituksia vastaavista tapauksista myös suomessa. organisaa">
       <span class="court">Kyberturvallisuuskeskus</span>
       <div><a class="t" href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/uusi-aalto-m365-tietojenkalastelussa-ai-avusteinen-laitekoodin-kalastelukampanja?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss" target="_blank" rel="noopener">Uusi aalto M365-tietojenkalastelussa - AI‑avusteinen laitekoodin kalastelukampanja</a></div>
@@ -1325,44 +1649,70 @@ Lisäksi tällä viikolla julkaistu heinäkuun Kybersää osoittaa sateisen syks
       <p class="kw">Tietoturvatutkijat ovat havainneet laajamittaisen kalastelukampanjan, jossa hyödynnetään laitekooditodennusmenetelmää ja tekoälyä hyökkäysten tehostamiseen. Kampanja kohdistuu organisaatioihin ja yksittäisiin käyttäjiin. Hyökkäyksen tavoitteena on saada luvaton pääsy tileihin sekä yritysten resursseihin. Kyberturvallisuuskeskus on saanut ilmoituksia vastaavista tapauksista myös Suomessa. Organisaa</p>
       <div class="tags">
         
-        <span class="tag">tärkeä</span><span class="tag">tekoäly</span><span class="tag">kyberturvallisuus</span><span class="tag">tietojenkalastelu</span>
+        <span class="tag important">tärkeä</span>
+        <span class="tag topic">Tekoäly</span><span class="tag topic">Kyberturvallisuus</span>
+        <span class="tag">tietojenkalastelu</span>
       </div>
     </article>
     
   </section>
 
 
+<p class="empty" id="noresults" hidden>Rajaukset eivät jätä yhtään ratkaisua näkyviin.</p>
 </main>
 
 <footer>
-  Lähteet: Korkein oikeus, Korkein hallinto-oikeus, Helsingin hovioikeus, Turun hovioikeus, Markkinaoikeus, Työtuomioistuin, Vakuutusoikeus, Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin), Unionin tuomioistuimen lehdistötiedotteet, Komissio, digitaalinen strategia, Valtioneuvosto, Oikeusministeriö, Liikenne- ja viestintäministeriö, Työ- ja elinkeinoministeriö, Tietosuojavaltuutetun toimisto, Traficom, Euroopan tietosuojaneuvosto (EDPB), Helda (Helsingin yliopisto), Lauda (Lapin yliopisto), UTUPub (Turun yliopisto), eRepo (Itä-Suomen yliopisto), JYX (Jyväskylän yliopisto), Doria (mm. Åbo Akademi), Kyberturvallisuuskeskus, ENISA, uutiset, ENISA, julkaisut.
-  Seuranta on henkilökohtainen apuväline. Tarkista aina ratkaisu alkuperäisestä lähteestä
-  ennen kuin nojaat siihen.
+  <p>Lähteet: Korkein oikeus, Korkein hallinto-oikeus, Helsingin hovioikeus, Turun hovioikeus, Markkinaoikeus, Työtuomioistuin, Vakuutusoikeus, Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin), Unionin tuomioistuimen lehdistötiedotteet, Komissio, digitaalinen strategia, Valtioneuvosto, Oikeusministeriö, Liikenne- ja viestintäministeriö, Työ- ja elinkeinoministeriö, Tietosuojavaltuutetun toimisto, Traficom, Euroopan tietosuojaneuvosto (EDPB), Helda (Helsingin yliopisto), Lauda (Lapin yliopisto), UTUPub (Turun yliopisto), eRepo (Itä-Suomen yliopisto), JYX (Jyväskylän yliopisto), Doria (mm. Åbo Akademi), Kyberturvallisuuskeskus, ENISA, uutiset, ENISA, julkaisut.</p>
+  <p>Seuranta on apuväline, ei oikeudellista neuvontaa. Suodatus perustuu
+  avainsanoihin, joten se päästää läpi myös epäolennaista ja voi pudottaa
+  olennaista. Tarkista ratkaisu aina alkuperäisestä lähteestä ennen kuin
+  nojaat siihen.</p>
 </footer>
 </div>
 
 <script>
 const q = document.getElementById('q');
-const chips = [...document.querySelectorAll('.chip')];
+const chips = [...document.querySelectorAll('.chip[data-court], .chip[data-topic]')];
+const cards = [...document.querySelectorAll('article')];
+const counter = document.getElementById('count');
+const none = document.getElementById('noresults');
+
 function apply() {
   const term = q.value.trim().toLowerCase();
-  const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true')
-                      .map(c => c.dataset.court);
-  document.querySelectorAll('article').forEach(a => {
-    const okCourt = !active.length || active.includes(a.dataset.court);
+  const on = chips.filter(c => c.getAttribute('aria-pressed') === 'true');
+  const courts = on.filter(c => c.dataset.court).map(c => c.dataset.court);
+  const topics = on.filter(c => c.dataset.topic).map(c => c.dataset.topic);
+
+  let shown = 0;
+  cards.forEach(a => {
+    const okCourt = !courts.length || courts.includes(a.dataset.court);
+    const cardTopics = (a.dataset.topics || '').split('|').filter(Boolean);
+    const okTopic = !topics.length || topics.some(t => cardTopics.includes(t));
     const okTerm = !term || a.dataset.text.includes(term);
-    a.style.display = (okCourt && okTerm) ? '' : 'none';
+    const visible = okCourt && okTopic && okTerm;
+    a.hidden = !visible;
+    if (visible) shown++;
   });
+
   document.querySelectorAll('.daygroup').forEach(s => {
-    const any = [...s.querySelectorAll('article')].some(a => a.style.display !== 'none');
-    s.style.display = any ? '' : 'none';
+    s.hidden = ![...s.querySelectorAll('article')].some(a => !a.hidden);
   });
+
+  counter.textContent = shown + ' ratkaisua näkyvissä';
+  none.hidden = shown !== 0;
 }
+
 q.addEventListener('input', apply);
 chips.forEach(c => c.addEventListener('click', () => {
   c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
   apply();
 }));
+document.getElementById('reset').addEventListener('click', () => {
+  q.value = '';
+  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+  apply();
+  q.focus();
+});
 </script>
 </body>
 </html>
