@@ -39,6 +39,7 @@ class Item:
     weight: int = 1             # lähteen painoarvo järjestyksessä
     score: int = 0              # täytetään suodatuksessa
     tags: list[str] = field(default_factory=list)
+    topics: list[str] = field(default_factory=list)  # täytetään suodatuksessa
     always: bool = False        # ohittaa avainsanasuodatuksen, ks. always_include
 
     @property
@@ -435,12 +436,40 @@ FETCHERS = {
 }
 
 
-def fetch_source(source: dict) -> list[Item]:
+@dataclass
+class SourceResult:
+    """Yhden lähteen ajon lopputulos.
+
+    Tätä tarvitaan sivun lähdepaneeliin. Pelkkä juttulista ei riitä, koska
+    nolla juttua voi tarkoittaa kahta eri asiaa: lähde vastasi eikä sillä
+    ollut mitään uutta, tai lähde ei vastannut lainkaan. Nämä pitää erottaa
+    toisistaan, jotta sivulla voi luvata että se kertoo mitä ei ole katettu.
+    """
+
+    source_id: str
+    name: str
+    court: str
+    items: list[Item] = field(default_factory=list)
+    ok: bool = True
+    optional: bool = False
+    error: str = ""
+
+
+def fetch_source(source: dict) -> SourceResult:
     """Hakee yhden lähteen. Virhe ei kaada koko ajoa."""
+    result = SourceResult(
+        source_id=source["id"],
+        name=source.get("name", source["id"]),
+        court=source.get("court", source["id"]),
+        optional=bool(source.get("optional")),
+    )
+
     fetcher = FETCHERS.get(source["type"])
     if fetcher is None:
         log.warning("Tuntematon lähdetyyppi %r lähteessä %s", source["type"], source["id"])
-        return []
+        result.ok = False
+        result.error = f"tuntematon lähdetyyppi {source['type']}"
+        return result
     try:
         items = fetcher(source)
 
@@ -451,12 +480,25 @@ def fetch_source(source: dict) -> list[Item]:
         if require:
             items = [i for i in items if any(t in i.haystack() for t in require)]
 
+        # Lähdekohtainen poissulku. Globaali never-lista ei sovi tähän, koska
+        # sama sana voi olla toisessa lähteessä juuri se mitä haetaan.
+        # Esimerkki: "kriittinen haavoittuvuus" on Kyberturvallisuuskeskuksen
+        # tuotetiedotteissa pelkkää kohinaa, mutta sama sana komission
+        # tiedotteessa koskee kyberkestävyyssäädöstä.
+        block = [t.lower() for t in source.get("never_any") or []]
+        if block:
+            items = [i for i in items
+                     if not any(t in i.title_haystack() for t in block)]
+
         if source.get("always_include"):
             for item in items:
                 item.always = True
         log.info("%-12s %3d juttua", source["id"], len(items))
-        return items
+        result.items = items
+        return result
     except Exception as exc:  # noqa: BLE001
         level = logging.WARNING if source.get("optional") else logging.ERROR
         log.log(level, "%-12s epäonnistui: %s", source["id"], exc)
-        return []
+        result.ok = False
+        result.error = str(exc)[:200]
+        return result

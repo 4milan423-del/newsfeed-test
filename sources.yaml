@@ -113,6 +113,76 @@ keywords:
     - ei ole käytettävissä
     - podcast
 
+# Aiheluokat sivun suodatusnappeihin. Juttu saa kaikki ne luokat, joiden
+# termeistä vähintään yksi osuu otsikkoon, asiasanoihin tai tiivistelmään.
+# Sama juttu voi kuulua useaan luokkaan, koska esimerkiksi tekoälypäätös
+# on usein myös tietosuojapäätös. Jos mikään ei osu, juttu jää ilman
+# aihetunnistetta ja näkyy vain silloin kun aihesuodatus on pois päältä.
+topics:
+  Tietosuoja:
+    - tietosuoja
+    - henkilötiet
+    - gdpr
+    - "2016/679"
+    - rekisterinpitäj
+    - henkilötietojen käsittelij
+    - seuraamusmaksu
+    - profilointi
+    - biometri
+    - evästeet
+    - verkkojäljit
+    - vaikutustenarviointi
+    - yksityiselämän suoja
+    - personal data
+    - data protection
+    - privacy
+  Tekoäly:
+    - tekoäly
+    - tekoälyasetus
+    - ai act
+    - "2024/1689"
+    - artificial intelligence
+    - automaattinen päätöksenteko
+  Kyberturvallisuus:
+    - kyber
+    - cyber
+    - nis2
+    - nis 2
+    - verkko- ja tietoturvadirektiivi
+    - haavoittuvuus
+    - tietomurto
+    - tietoturvaloukkaus
+    - tietojenkalastelu
+    - huijausviesti
+    - palvelunestohyökkäys
+    - kiristyshaittaohjelma
+  Datasääntely:
+    - data act
+    - datasäädös
+    - datan hallinnointi
+    - digipalvelusäädös
+    - digimarkkinasäädös
+    - dsa
+    - dma
+    - alustasääntely
+    - data governance
+  Sähköinen viestintä:
+    - sähköisen viestinnän
+    - sähköinen viestintä
+    - televiestint
+    - viestintäsalaisuu
+    - verkkotunnus
+    - teletoiminta
+    - electronic communications
+  Julkisuus ja salassapito:
+    - julkisuuslaki
+    - asiakirjajulkisuus
+    - liikesalaisuu
+    - valvonta työpaikalla
+  Digitaalinen identiteetti:
+    - eidas
+    - digitaalinen identiteetti
+
 sources:
   # ===================================================================
   # Luku 1 ja 2: KKO ja KHO
@@ -387,6 +457,15 @@ sources:
     # nousta saman päivän oikeudellisten juttujen edelle.
     weight: 1
     url: "https://www.kyberturvallisuuskeskus.fi/feed/rss/fi"
+    # Yksittäiset tuotehaavoittuvuustiedotteet pois. Ne ovat ylläpidon asia,
+    # eivät oikeudellinen kysymys, ja niitä tulee niin paljon että ne peittivät
+    # alleen kaiken muun. Viikkokatsaus, Kybersää ja kyberkestävyyssäädöstä
+    # koskevat jutut jäävät, koska niissä ei ole näitä ilmauksia.
+    never_any:
+      - "kriittinen haavoittuvuus"
+      - "kriittisiä haavoittuvuuksia"
+      - "aktiivisesti hyväksikäytetty"
+      - "hae rahoitustukea"
 
   - id: enisa-news
     name: "ENISA, uutiset"

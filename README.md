@@ -11,9 +11,9 @@ Ei palvelinta, ei tietokantaa, ei kuukausimaksua.
 
 | Tiedosto | Tehtävä |
 |---|---|
-| `sources.yaml` | Lähteet ja avainsanat. Tätä muokkaat normaalisti. |
+| `sources.yaml` | Lähteet, avainsanat ja aiheluokat. Tätä muokkaat normaalisti. |
 | `fetchers.py` | Lähdekohtaiset hakijat: RSS, SPARQL, HTML-listaus, OAI-PMH. |
-| `filtering.py` | Avainsanasuodatus ja järjestys. |
+| `filtering.py` | Avainsanasuodatus, aiheluokitus ja järjestys. |
 | `render.py` | HTML-sivu, RSS-syöte ja JSON. |
 | `main.py` | Käynnistys ja komentoriviargumentit. |
 | `docs/` | Valmis sivu. GitHub Pages näyttää tämän kansion. |
@@ -51,7 +51,9 @@ uutiskirjeen taso on tavoite.
    Pages toimii ilmaistilillä vain julkisessa repossa.
 4. Mene **Actions**-välilehdelle, valitse työnkulku ja paina *Run workflow*.
    Ensimmäinen ajo kestää noin 2 minuuttia, koska EU-kysely on hidas.
-5. Sivu löytyy osoitteesta `https://4milan423-del.github.io/newsfeed-test/`.
+5. Sivu löytyy osoitteesta `https://lslander.github.io/Tietosuojaseuranta/`.
+   Huomaa isot ja pienet kirjaimet. Käyttäjätunnus on aina pienellä, mutta
+   repon nimi säilyttää kirjainkoon polussa.
 
 Lisää osoite puhelimen aloitusnäytölle tai tilaa `feed.xml` RSS-lukijaan.
 
@@ -77,9 +79,12 @@ uudelleen ja katso mitä tulee läpi.
   asiasanoihin tai tiivistelmään. Jos lista on tyhjä, kaikki pääsee läpi.
 - `boost` nostaa jutun tärkeäksi. Nämä näkyvät sivulla korostettuna.
 - `never` pudottaa jutun pois, vaikka `must_any` osuisi. Tähän kuuluvat
-  esimerkiksi webinaarikutsut ja vuosikertomukset.
+  esimerkiksi webinaarikutsut ja vuosikertomukset. Huomaa että `never`
+  katsotaan vain otsikosta ja asiasanoista, ei tiivistelmästä. Muuten
+  Kyberturvallisuuskeskuksen viikkokatsaus putoaa pois aina kun siinä
+  mainitaan ohimennen jokin webinaari.
 
-Näiden lisäksi on kaksi lähdekohtaista asetusta, jotka toimivat eri tasolla:
+Näiden lisäksi on kolme lähdekohtaista asetusta, jotka toimivat eri tasolla:
 
 - `always_include: true` päästää lähteen jutut läpi ilman `must_any`-osumaa.
   Tämä on tietosuojavaltuutetulla ja EDPB:llä, koska ne käsittelevät jo
@@ -88,6 +93,25 @@ Näiden lisäksi on kaksi lähdekohtaista asetusta, jotka toimivat eri tasolla:
   suodatusta. Julkaisuarkistoissa se vaatii oikeustieteellisen termin.
   Ilman sitä feediin päätyi konenäköä käsitteleviä diplomitöitä, koska termi
   "tekoäly" osui `must_any`-listaan.
+- `never_any` on lähteen oma poissulku, joka katsotaan otsikosta ja
+  asiasanoista. Kyberturvallisuuskeskuksella se pudottaa yksittäiset
+  tuotehaavoittuvuustiedotteet ("Kriittinen haavoittuvuus X -tuotteissa"),
+  joita tulee niin tiheään että ne peittivät alleen oikeudelliset jutut.
+  Globaali `never` ei kelpaa tähän, koska sama sana on komission
+  kyberkestävyyssäädöstä koskevassa tiedotteessa juuri se mitä haetaan.
+
+## Aiheluokat
+
+`sources.yaml` sisältää `topics`-lohkon, joka on aiheluokan nimi ja lista
+termejä. Juttu saa kaikki ne luokat, joiden termeistä vähintään yksi osuu.
+Sama juttu voi kuulua useaan luokkaan, koska tietosuojavaltuutetun ratkaisu
+kasvojentunnistuksesta on sekä tietosuojaa että tekoälyä.
+
+Luokat näkyvät sivulla omana nappirivinään lähdenappien yläpuolella ja
+RSS-syötteessä `<category>`-elementteinä. Sivulla lähde- ja aihesuodatus
+yhdistyvät JA-ehdolla, mutta saman ryhmän sisällä TAI-ehdolla. Jos juttu ei
+osu yhteenkään luokkaan, se näkyy vain silloin kun aihesuodatus on pois
+päältä. Tämä kannattaa pitää mielessä, jos joku katoaa näkyvistä.
 
 Vertailu on yksinkertainen osajonohaku pienillä kirjaimilla. Siksi listassa
 on katkaistuja sanoja kuten `henkilötiet`, joka osuu muotoihin
@@ -97,6 +121,40 @@ hoituu tällä ilman regexiä.
 Jos osumia tulee liian vähän, kasvata `window_days`-arvoa tai lisää termejä.
 Jos roskaa tulee liikaa, siirrä termi `must_any`-listasta pois tai lisää
 tarkempi ilmaus `never`-listaan.
+
+## Ulkoasu
+
+Värit ja fontit ovat `render.py`-tiedoston `:root`-lohkossa. Ilme noudattaa
+Bird & Birdin mallipohjaa: petroli `#005C82`, korostusväri `#FFA169` ja vaalea
+mintunvihreä tausta. Otsikot ovat Georgialla ja leipäteksti groteskilla, mikä
+on sama pari kuin toimiston Office-pohjissa. Georgia on valmiina jokaisessa
+käyttöjärjestelmässä, joten sivu ei lataa fontteja ulkopuolelta ja pysyy
+yhtenä tiedostona. Tumma tila noudattaa samaa palettia. Ulkoisen fontin
+välttämisessä on myös oikeudellinen puoli: Google Fonts -lataus välittää
+kävijän IP-osoitteen Googlelle, mistä München I -maakäräjäoikeus tuomitsi
+sivuston ylläpitäjän korvauksiin (LG München I 20.1.2022, 3 O 17493/20).
+
+Kaikki tekstin ja taustan väriparit ylittävät WCAG 2.1 AA -rajan 4,5:1, ja
+useimmat myös AAA-rajan 7:1. Fokusreuna on kolmen pikselin petroli
+`:focus-visible`-tilassa, koska suodattimia selataan sarkaimella.
+
+## Sivun rakenne
+
+Yläosa kertoo mitä sivu on, mistä aineisto tulee ja mikä aikaikkuna on
+käytössä. Sen alla on avattava lähdepaneeli, joka näyttää jokaisen lähteen
+kohdalla, montako juttua siitä saatiin ennen suodatusta ja vastasiko se
+lainkaan. Ero on tärkeä: nolla tarkoittaa että lähde vastasi eikä sillä ollut
+mitään, kun taas "ei saatu" tarkoittaa että aineisto puuttuu sivulta
+kokonaan. Paneeli listaa lopuksi ne uutiskirjeen lähteet, jotka jäävät
+käsityöksi.
+
+Tilatieto kulkee `fetchers.py`-tiedoston `SourceResult`-luokassa
+`main.py`-tiedoston kautta `render.py`-tiedostoon. Jos lisäät lähdetyypin,
+palauta `SourceResult`, älä pelkkää listaa.
+
+Sama tieto on `data.json`-tiedostossa avaimen `sources` alla. Huomaa että
+`data.json` ei ole enää pelkkä lista vaan olio, jolla on kentät `generated`,
+`window_days`, `sources` ja `items`.
 
 ## Lähteiden lisääminen
 
@@ -111,6 +169,8 @@ jos lähdetyyppi on jo olemassa:
   weight: 2                # 1-3, vaikuttaa järjestykseen
   optional: true           # virhe ei kaada ajoa
   url: "https://..."
+  require_any: []          # valinnainen lisäportti
+  never_any: []            # valinnainen poissulku
 ```
 
 Tyypit:
@@ -155,7 +215,10 @@ merkittävimmät ratkaisut uutisina.
 
 - Hovioikeuksien syötteet palauttavat tällä hetkellä nolla juttua.
   Ne on jätetty `optional: true` -merkinnällä paikalleen, koska osoitteet
-  voivat alkaa toimia.
+  voivat alkaa toimia. Lähdepaneeli näyttää ne nollana, ei virheenä, koska
+  osoite vastaa.
+- Doria vastaa epätasaisesti ja putoaa satunnaisesti pois ajosta. Silloin se
+  näkyy lähdepaneelissa punaisena. Seuraava ajo yleensä korjaa tilanteen.
 - Unionin tuomioistuimen suomenkielinen toisinto ilmestyy viiveellä.
   Skripti ottaa englanninkielisen asiasanoituksen varalle ja korvaa sen
   suomenkielisellä, kun se on saatavilla.

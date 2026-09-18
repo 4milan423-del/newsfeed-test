@@ -18,7 +18,7 @@ from pathlib import Path
 
 import yaml
 
-from fetchers import Item, fetch_source
+from fetchers import Item, SourceResult, fetch_source
 from filtering import filter_items
 from render import write_all
 
@@ -77,15 +77,20 @@ def main() -> int:
 
     log.info("Haetaan %d lähdettä", len(sources))
     with ThreadPoolExecutor(max_workers=10) as pool:
-        results = list(pool.map(fetch_source, sources))
+        results: list[SourceResult] = list(pool.map(fetch_source, sources))
 
-    raw: list[Item] = [item for batch in results for item in batch]
+    raw: list[Item] = [item for r in results for item in r.items]
     log.info("Yhteensä %d juttua ennen suodatusta", len(raw))
+
+    failed = [r.source_id for r in results if not r.ok]
+    if failed:
+        log.warning("Lähteitä ei saatu: %s", ", ".join(failed))
 
     items = filter_items(
         raw,
         cfg.get("keywords", {}),
         int(settings.get("window_days", 90)),
+        cfg.get("topics", {}),
     )[: int(settings.get("max_items", 150))]
 
     seen = load_state()
@@ -103,7 +108,7 @@ def main() -> int:
     write_all(
         items,
         settings,
-        [s["name"] for s in sources],
+        results,
         OUT,
         new_keys,
         base_url=args.base_url,

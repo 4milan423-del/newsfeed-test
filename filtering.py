@@ -19,7 +19,20 @@ def matched_terms(haystack: str, terms: list[str]) -> list[str]:
     return [t for t in terms if t.lower() in haystack]
 
 
-def filter_items(items: list[Item], keywords: dict, window_days: int) -> list[Item]:
+def assign_topics(item: Item, topics: dict[str, list[str]]) -> list[str]:
+    """Antaa jutulle aiheluokat sources.yaml:n topics-lohkon perusteella.
+
+    Sama juttu voi saada useita luokkia. Tietosuojavaltuutetun ratkaisu
+    kasvojentunnistuksesta on sekä tietosuojaa että tekoälyä, ja sivulla se
+    pitää löytyä kummankin napin takaa.
+    """
+    hay = item.haystack()
+    return [name for name, terms in topics.items()
+            if any(t.lower() in hay for t in terms or [])]
+
+
+def filter_items(items: list[Item], keywords: dict, window_days: int,
+                 topics: dict | None = None) -> list[Item]:
     must_any = [t for t in keywords.get("must_any") or []]
     boost = [t for t in keywords.get("boost") or []]
     never = [t for t in keywords.get("never") or []]
@@ -53,6 +66,7 @@ def filter_items(items: list[Item], keywords: dict, window_days: int) -> list[It
         if boosts:
             item.tags.insert(0, "tärkeä")
         item.tags += [h for h in hits if h != "*"][:4]
+        item.topics = assign_topics(item, topics or {})
 
         seen.add(item.key)
         kept.append(item)
