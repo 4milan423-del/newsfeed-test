@@ -1,5 +1,73 @@
 [
   {
+    "court": "EUT",
+    "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
+    "title": "C-437/25 FT vastaan Nachalnik Oblasten otdel „Avtomobilna administratsia“ - Gabrovo (tuomio)",
+    "url": "https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62025CJ0437",
+    "date": "2026-09-17",
+    "keywords": "Ennakkoratkaisupyyntö – Liikenne – Asetus (EU) N:o 165/2014 – 27 ja 41 artikla – Toiselle kuuluvan kuljettajakortin käyttäminen – Seuraamus – Kiinteämääräinen seuraamusmaksu – Yksilöinnin mahdottomuus – Suhteellisuusperiaate",
+    "summary": "ECLI:EU:C:2026:777",
+    "score": 45,
+    "tags": [
+      "tärkeä",
+      "seuraamusmaksu"
+    ]
+  },
+  {
+    "court": "VN",
+    "source": "Valtioneuvosto",
+    "title": "Valtiovarainministerit keskustelevat innovaatioista rahoitussektorilla ja tekoälystä",
+    "url": "https://valtioneuvosto.fi/-/10623/valtiovarainministerit-keskustelevat-innovaatioista-rahoitussektorilla-ja-tekoalysta",
+    "date": "2026-09-17",
+    "keywords": "",
+    "summary": "",
+    "score": 35,
+    "tags": [
+      "tärkeä",
+      "tekoäly"
+    ]
+  },
+  {
+    "court": "VN",
+    "source": "Valtioneuvosto",
+    "title": "Tutkimus- ja innovaationeuvosto kävi läpi kansallisten TKI-valintojen tilannetta ja kutsuu asiantuntijapaneelin arvioimaan tekoälyn vaikutuksia",
+    "url": "https://valtioneuvosto.fi/-/tutkimus-ja-innovaationeuvosto-kavi-lapi-kansallisten-tki-valintojen-tilannetta-ja-kutsuu-asiantuntijapaneelin-arvioimaan-tekoalyn-vaikutuksia",
+    "date": "2026-09-17",
+    "keywords": "",
+    "summary": "",
+    "score": 35,
+    "tags": [
+      "tärkeä",
+      "tekoäly"
+    ]
+  },
+  {
+    "court": "EUT",
+    "source": "Unionin tuomioistuimen lehdistötiedotteet",
+    "title": "130/2026 : 17 September 2026 - Opinion of the Advocate General to the Court of Justice Dean Spielmann in Case C-317/25",
+    "url": "https://curia.europa.eu/site/jcms/p1_1000087611",
+    "date": "2026-09-17",
+    "keywords": "",
+    "summary": "Groupe Canal + Approximation of laws Advocate General Spielmann: the consent given to an undertaking for ‘its partners’ to use personal data for the purposes of direct marketing is valid only if the identity of those partners is known",
+    "score": 13,
+    "tags": [
+      "personal data"
+    ]
+  },
+  {
+    "court": "Kyberturvallisuuskeskus",
+    "source": "Kyberturvallisuuskeskus",
+    "title": "Kriittinen haavoittuvuus Cisco Identity Services Engine -tuotteissa",
+    "url": "https://www.kyberturvallisuuskeskus.fi/fi/haavoittuvuudet/haavoittuvuus-2026-27?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
+    "date": "2026-09-17",
+    "keywords": "",
+    "summary": "Cisco Identity Services Engine (ISE) - ja Cisco ISE Passive Identity Connector (ISE-PIC) -tuotteissa on havaittu kriittinen haavoittuvuus, jonka avulla tunnistautumaton hyökkääjä voi ohittaa laitteen hallintaliittymän kirjautumisen. Ciscon mukaan haavoittuvuutta hyväksikäytetään aktiivisesti.  Haavoittuvuuteen on saatavilla korjaavat ohjelmistopäivitykset. Cisco suosittelee asentamaan päivitykset ",
+    "score": 13,
+    "tags": [
+      "haavoittuvuus"
+    ]
+  },
+  {
     "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kriittinen haavoittuvuus Cisco Secure Email Gateway -tuotteissa",
@@ -48,20 +116,6 @@
     "tags": [
       "kyberturvallisuus",
       "kyberkestävyy"
-    ]
-  },
-  {
-    "court": "EUT",
-    "source": "Unionin tuomioistuin (EUT ja unionin yleinen tuomioistuin)",
-    "title": "C-669/24 Bundesverband der Verbraucherzentralen und Verbraucherverbände - Verbraucherzentrale Bundesverband e.V. vastaa (tuomio)",
-    "url": "https://eur-lex.europa.eu/legal-content/FI/TXT/?uri=CELEX:62024CJ0669",
-    "date": "2026-09-10",
-    "keywords": "Ennakkoratkaisupyyntö – Jäsenvaltioiden lainsäädännön lähentäminen – Televiestintäala – Direktiivi (EU) 2018/1972 – Eurooppalainen sähköisen viestinnän säännöstö – Sopimus sähköisestä viestintäpalvelusta – Palveluntarjoajan oikeus muuttaa sopimusta yksipuolisesti – 105 artiklan 4 kohdan ensimmäinen alakohta – Loppukäyttäjien irtisanomisoikeus",
-    "summary": "ECLI:EU:C:2026:736",
-    "score": 36,
-    "tags": [
-      "sähköisen viestinnän",
-      "televiestint"
     ]
   },
   {
@@ -117,6 +171,19 @@
     ]
   },
   {
+    "court": "MAO",
+    "source": "Markkinaoikeus",
+    "title": "MAO:418/2026",
+    "url": "https://www.markkinaoikeus.fi/ratkaisut/ratkaisujen-arkisto/mao418-2026/",
+    "date": "2026-09-04",
+    "keywords": "liikesalaisuus – asianosaisjulkisuuden rajoittaminen oikeushenkilössä",
+    "summary": "",
+    "score": 23,
+    "tags": [
+      "liikesalaisuu"
+    ]
+  },
+  {
     "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Kyberturvallisuuskeskuksen viikkokatsaus - 36/2026",
@@ -140,19 +207,6 @@
     "score": 23,
     "tags": [
       "data protection"
-    ]
-  },
-  {
-    "court": "EUT",
-    "source": "Unionin tuomioistuimen lehdistötiedotteet",
-    "title": "117/2026 : 3 September 2026 - Opinion of the Advocate General at the Court Maciej Szpunar in Case C-661/24",
-    "url": "https://curia.europa.eu/site/jcms/p1_1000086555",
-    "date": "2026-09-03",
-    "keywords": "",
-    "summary": "Académie Fiscale and Others Approximation of laws Retention of electronic communications data: Advocate General Szpunar clarifies the criteria for assessing the compatibility of national legislation with EU law",
-    "score": 13,
-    "tags": [
-      "electronic communications"
     ]
   },
   {
@@ -589,19 +643,6 @@
     ]
   },
   {
-    "court": "EU-komissio",
-    "source": "Komissio, digitaalinen strategia",
-    "title": "AI-powered robotics in Europe: Live demonstrations and strategic debate",
-    "url": "https://digital-strategy.ec.europa.eu/en/events/ai-powered-robotics-europe-live-demonstrations-and-strategic-debate",
-    "date": "2026-07-24",
-    "keywords": "",
-    "summary": "Anonymous (not verified) Fri, 07/24/2026 - 14:32 02 September 2026 The European Parliament will host a gathering of policymakers, industry leaders, researchers, alongside live demonstrations of cutting-edge robots, to set the course for the EU’s future in robotics. Europe is already a global leader in robotics research, development and innovation. As advances in artificial intelligence (AI) are ac",
-    "score": 23,
-    "tags": [
-      "artificial intelligence"
-    ]
-  },
-  {
     "court": "Kyberturvallisuuskeskus",
     "source": "Kyberturvallisuuskeskus",
     "title": "Haavoittuvuuskilpailussa nopeus ratkaisee",
@@ -991,20 +1032,6 @@
       "tekoäly",
       "kyberturvallisuus",
       "tietojenkalastelu"
-    ]
-  },
-  {
-    "court": "Kyberturvallisuuskeskus",
-    "source": "Kyberturvallisuuskeskus",
-    "title": "Jopa 100% EU-rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyber- ja kvanttiturvallisuuden parantamiseksi",
-    "url": "https://www.kyberturvallisuuskeskus.fi/fi/uutiset/jopa-100-eu-rahoitusta-ohjelmistojen-laitteistojen-ja-tekoalyn-kyber-ja-kvanttiturvallisuuden-parantamiseksi?mtm_campaign=rss&mtm_source=rss&mtm_medium=rss",
-    "date": "2026-05-20",
-    "keywords": "",
-    "summary": "Euroopan komission Horisontti Eurooppa -ohjelmassa on tarjolla rahoitusta ohjelmistojen, laitteistojen ja tekoälyn kyberturvallisuuden tutkimus-, kehittämis- ja innovaatiotoiminnan edistämiseen erilaisia kyberuhkia ja -hyökkäyksiä vastaan, myös kehittyvät kryptoteknologiat soveltuvasti huomioiden. Rahoitusta voivat hakea kaikki teemasta kiinnostuneet organisaatiot.",
-    "score": 25,
-    "tags": [
-      "tärkeä",
-      "tekoäly"
     ]
   }
 ]
